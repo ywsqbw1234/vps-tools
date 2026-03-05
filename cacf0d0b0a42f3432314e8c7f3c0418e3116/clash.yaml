@@ -1,0 +1,276 @@
+mixed-port: 7890
+allow-lan: true
+mode: rule
+log-level: info
+
+proxies:
+  - name: "TW-Sky_Digital_Co.-优选1"
+    type: vmess
+    server: 104.19.33.239
+    port: 443
+    uuid: b670b659-c872-48dc-a98f-ae48e51f33ba
+    alterId: 0
+    cipher: auto
+    udp: true
+    tls: true
+    servername: capitol-superintendent-clarke-kernel.trycloudflare.com
+    network: ws
+    ws-opts:
+      path: "/vmess-argo?ed=2560"
+      headers:
+        Host: capitol-superintendent-clarke-kernel.trycloudflare.com
+  - name: "TW-Sky_Digital_Co.-优选2"
+    type: vmess
+    server: 104.19.46.248
+    port: 443
+    uuid: b670b659-c872-48dc-a98f-ae48e51f33ba
+    alterId: 0
+    cipher: auto
+    udp: true
+    tls: true
+    servername: capitol-superintendent-clarke-kernel.trycloudflare.com
+    network: ws
+    ws-opts:
+      path: "/vmess-argo?ed=2560"
+      headers:
+        Host: capitol-superintendent-clarke-kernel.trycloudflare.com
+  - name: "TW-Sky_Digital_Co.-优选3"
+    type: vmess
+    server: 104.19.46.100
+    port: 443
+    uuid: b670b659-c872-48dc-a98f-ae48e51f33ba
+    alterId: 0
+    cipher: auto
+    udp: true
+    tls: true
+    servername: capitol-superintendent-clarke-kernel.trycloudflare.com
+    network: ws
+    ws-opts:
+      path: "/vmess-argo?ed=2560"
+      headers:
+        Host: capitol-superintendent-clarke-kernel.trycloudflare.com
+  - name: "TW-Sky_Digital_Co.-优选4"
+    type: vmess
+    server: 104.19.46.94
+    port: 443
+    uuid: b670b659-c872-48dc-a98f-ae48e51f33ba
+    alterId: 0
+    cipher: auto
+    udp: true
+    tls: true
+    servername: capitol-superintendent-clarke-kernel.trycloudflare.com
+    network: ws
+    ws-opts:
+      path: "/vmess-argo?ed=2560"
+      headers:
+        Host: capitol-superintendent-clarke-kernel.trycloudflare.com
+  - name: "TW-Sky_Digital_Co.-优选5"
+    type: vmess
+    server: 104.19.63.211
+    port: 443
+    uuid: b670b659-c872-48dc-a98f-ae48e51f33ba
+    alterId: 0
+    cipher: auto
+    udp: true
+    tls: true
+    servername: capitol-superintendent-clarke-kernel.trycloudflare.com
+    network: ws
+    ws-opts:
+      path: "/vmess-argo?ed=2560"
+      headers:
+        Host: capitol-superintendent-clarke-kernel.trycloudflare.com
+  - name: "TW-Sky_Digital_Co.-优选6"
+    type: vmess
+    server: 104.17.158.136
+    port: 443
+    uuid: b670b659-c872-48dc-a98f-ae48e51f33ba
+    alterId: 0
+    cipher: auto
+    udp: true
+    tls: true
+    servername: capitol-superintendent-clarke-kernel.trycloudflare.com
+    network: ws
+    ws-opts:
+      path: "/vmess-argo?ed=2560"
+      headers:
+        Host: capitol-superintendent-clarke-kernel.trycloudflare.com
+  - name: "TW-Sky_Digital_Co.-优选7"
+    type: vmess
+    server: 104.17.150.243
+    port: 443
+    uuid: b670b659-c872-48dc-a98f-ae48e51f33ba
+    alterId: 0
+    cipher: auto
+    udp: true
+    tls: true
+    servername: capitol-superintendent-clarke-kernel.trycloudflare.com
+    network: ws
+    ws-opts:
+      path: "/vmess-argo?ed=2560"
+      headers:
+        Host: capitol-superintendent-clarke-kernel.trycloudflare.com
+  - name: "TW-Sky_Digital_Co.-优选8"
+    type: vmess
+    server: 104.17.151.211
+    port: 443
+    uuid: b670b659-c872-48dc-a98f-ae48e51f33ba
+    alterId: 0
+    cipher: auto
+    udp: true
+    tls: true
+    servername: capitol-superintendent-clarke-kernel.trycloudflare.com
+    network: ws
+    ws-opts:
+      path: "/vmess-argo?ed=2560"
+      headers:
+        Host: capitol-superintendent-clarke-kernel.trycloudflare.com
+  - name: "TW-Sky_Digital_Co.-优选9"
+    type: vmess
+    server: 104.17.150.125
+    port: 443
+    uuid: b670b659-c872-48dc-a98f-ae48e51f33ba
+    alterId: 0
+    cipher: auto
+    udp: true
+    tls: true
+    servername: capitol-superintendent-clarke-kernel.trycloudflare.com
+    network: ws
+    ws-opts:
+      path: "/vmess-argo?ed=2560"
+      headers:
+        Host: capitol-superintendent-clarke-kernel.trycloudflare.com
+  - name: "TW-Sky_Digital_Co.-优选10"
+    type: vmess
+    server: 104.17.150.240
+    port: 443
+    uuid: b670b659-c872-48dc-a98f-ae48e51f33ba
+    alterId: 0
+    cipher: auto
+    udp: true
+    tls: true
+    servername: capitol-superintendent-clarke-kernel.trycloudflare.com
+    network: ws
+    ws-opts:
+      path: "/vmess-argo?ed=2560"
+      headers:
+        Host: capitol-superintendent-clarke-kernel.trycloudflare.com
+  - name: "TW-Sky_Digital_Co.-优选11"
+    type: vmess
+    server: 162.159.6.142
+    port: 443
+    uuid: b670b659-c872-48dc-a98f-ae48e51f33ba
+    alterId: 0
+    cipher: auto
+    udp: true
+    tls: true
+    servername: capitol-superintendent-clarke-kernel.trycloudflare.com
+    network: ws
+    ws-opts:
+      path: "/vmess-argo?ed=2560"
+      headers:
+        Host: capitol-superintendent-clarke-kernel.trycloudflare.com
+  - name: "TW-Sky_Digital_Co.-优选12"
+    type: vmess
+    server: 108.162.192.123
+    port: 443
+    uuid: b670b659-c872-48dc-a98f-ae48e51f33ba
+    alterId: 0
+    cipher: auto
+    udp: true
+    tls: true
+    servername: capitol-superintendent-clarke-kernel.trycloudflare.com
+    network: ws
+    ws-opts:
+      path: "/vmess-argo?ed=2560"
+      headers:
+        Host: capitol-superintendent-clarke-kernel.trycloudflare.com
+  - name: "TW-Sky_Digital_Co.-优选13"
+    type: vmess
+    server: 162.159.0.105
+    port: 443
+    uuid: b670b659-c872-48dc-a98f-ae48e51f33ba
+    alterId: 0
+    cipher: auto
+    udp: true
+    tls: true
+    servername: capitol-superintendent-clarke-kernel.trycloudflare.com
+    network: ws
+    ws-opts:
+      path: "/vmess-argo?ed=2560"
+      headers:
+        Host: capitol-superintendent-clarke-kernel.trycloudflare.com
+  - name: "TW-Sky_Digital_Co.-优选14"
+    type: vmess
+    server: 172.64.35.5
+    port: 443
+    uuid: b670b659-c872-48dc-a98f-ae48e51f33ba
+    alterId: 0
+    cipher: auto
+    udp: true
+    tls: true
+    servername: capitol-superintendent-clarke-kernel.trycloudflare.com
+    network: ws
+    ws-opts:
+      path: "/vmess-argo?ed=2560"
+      headers:
+        Host: capitol-superintendent-clarke-kernel.trycloudflare.com
+  - name: "TW-Sky_Digital_Co.-优选15"
+    type: vmess
+    server: 162.159.13.77
+    port: 443
+    uuid: b670b659-c872-48dc-a98f-ae48e51f33ba
+    alterId: 0
+    cipher: auto
+    udp: true
+    tls: true
+    servername: capitol-superintendent-clarke-kernel.trycloudflare.com
+    network: ws
+    ws-opts:
+      path: "/vmess-argo?ed=2560"
+      headers:
+        Host: capitol-superintendent-clarke-kernel.trycloudflare.com
+
+proxy-groups:
+  - name: AUTO
+    type: url-test
+    url: http://cp.cloudflare.com/generate_204
+    interval: 300
+    tolerance: 50
+    proxies:
+      - "TW-Sky_Digital_Co.-优选1"
+      - "TW-Sky_Digital_Co.-优选2"
+      - "TW-Sky_Digital_Co.-优选3"
+      - "TW-Sky_Digital_Co.-优选4"
+      - "TW-Sky_Digital_Co.-优选5"
+      - "TW-Sky_Digital_Co.-优选6"
+      - "TW-Sky_Digital_Co.-优选7"
+      - "TW-Sky_Digital_Co.-优选8"
+      - "TW-Sky_Digital_Co.-优选9"
+      - "TW-Sky_Digital_Co.-优选10"
+      - "TW-Sky_Digital_Co.-优选11"
+      - "TW-Sky_Digital_Co.-优选12"
+      - "TW-Sky_Digital_Co.-优选13"
+      - "TW-Sky_Digital_Co.-优选14"
+      - "TW-Sky_Digital_Co.-优选15"
+  - name: PROXY
+    type: select
+    proxies:
+      - AUTO
+      - "TW-Sky_Digital_Co.-优选1"
+      - "TW-Sky_Digital_Co.-优选2"
+      - "TW-Sky_Digital_Co.-优选3"
+      - "TW-Sky_Digital_Co.-优选4"
+      - "TW-Sky_Digital_Co.-优选5"
+      - "TW-Sky_Digital_Co.-优选6"
+      - "TW-Sky_Digital_Co.-优选7"
+      - "TW-Sky_Digital_Co.-优选8"
+      - "TW-Sky_Digital_Co.-优选9"
+      - "TW-Sky_Digital_Co.-优选10"
+      - "TW-Sky_Digital_Co.-优选11"
+      - "TW-Sky_Digital_Co.-优选12"
+      - "TW-Sky_Digital_Co.-优选13"
+      - "TW-Sky_Digital_Co.-优选14"
+      - "TW-Sky_Digital_Co.-优选15"
+
+rules:
+  - MATCH,PROXY
