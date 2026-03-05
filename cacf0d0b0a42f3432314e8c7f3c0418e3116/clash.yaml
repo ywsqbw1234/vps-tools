@@ -3,10 +3,20 @@ allow-lan: true
 mode: rule
 log-level: info
 
+dns:
+  enable: true
+  enhanced-mode: fake-ip
+  nameserver:
+    - 223.5.5.5
+    - 119.29.29.29
+  fallback:
+    - 1.1.1.1
+    - 8.8.8.8
+
 proxies:
   - name: "TW-Sky_Digital_Co.-CF1"
     type: vmess
-    server: 104.16.252.129
+    server: 103.21.244.0
     port: 443
     uuid: b670b659-c872-48dc-a98f-ae48e51f33ba
     alterId: 0
@@ -21,7 +31,7 @@ proxies:
         Host: capitol-superintendent-clarke-kernel.trycloudflare.com
   - name: "TW-Sky_Digital_Co.-CF2"
     type: vmess
-    server: 104.17.142.85
+    server: 103.22.200.0
     port: 443
     uuid: b670b659-c872-48dc-a98f-ae48e51f33ba
     alterId: 0
@@ -36,7 +46,7 @@ proxies:
         Host: capitol-superintendent-clarke-kernel.trycloudflare.com
   - name: "TW-Sky_Digital_Co.-CF3"
     type: vmess
-    server: 104.17.143.15
+    server: 103.31.4.0
     port: 443
     uuid: b670b659-c872-48dc-a98f-ae48e51f33ba
     alterId: 0
@@ -51,7 +61,7 @@ proxies:
         Host: capitol-superintendent-clarke-kernel.trycloudflare.com
   - name: "TW-Sky_Digital_Co.-CF4"
     type: vmess
-    server: 104.17.151.245
+    server: 104.16.0.0
     port: 443
     uuid: b670b659-c872-48dc-a98f-ae48e51f33ba
     alterId: 0
@@ -66,7 +76,7 @@ proxies:
         Host: capitol-superintendent-clarke-kernel.trycloudflare.com
   - name: "TW-Sky_Digital_Co.-CF5"
     type: vmess
-    server: 104.17.154.224
+    server: 104.17.139.225
     port: 443
     uuid: b670b659-c872-48dc-a98f-ae48e51f33ba
     alterId: 0
@@ -81,7 +91,7 @@ proxies:
         Host: capitol-superintendent-clarke-kernel.trycloudflare.com
   - name: "TW-Sky_Digital_Co.-CF6"
     type: vmess
-    server: 104.17.158.28
+    server: 104.17.143.169
     port: 443
     uuid: b670b659-c872-48dc-a98f-ae48e51f33ba
     alterId: 0
@@ -96,7 +106,7 @@ proxies:
         Host: capitol-superintendent-clarke-kernel.trycloudflare.com
   - name: "TW-Sky_Digital_Co.-CF7"
     type: vmess
-    server: 104.17.56.2
+    server: 104.17.151.127
     port: 443
     uuid: b670b659-c872-48dc-a98f-ae48e51f33ba
     alterId: 0
@@ -111,7 +121,7 @@ proxies:
         Host: capitol-superintendent-clarke-kernel.trycloudflare.com
   - name: "TW-Sky_Digital_Co.-CF8"
     type: vmess
-    server: 104.17.98.192
+    server: 104.17.151.162
     port: 443
     uuid: b670b659-c872-48dc-a98f-ae48e51f33ba
     alterId: 0
@@ -126,7 +136,7 @@ proxies:
         Host: capitol-superintendent-clarke-kernel.trycloudflare.com
   - name: "TW-Sky_Digital_Co.-CF9"
     type: vmess
-    server: 104.19.158.98
+    server: 104.17.151.24
     port: 443
     uuid: b670b659-c872-48dc-a98f-ae48e51f33ba
     alterId: 0
@@ -141,7 +151,7 @@ proxies:
         Host: capitol-superintendent-clarke-kernel.trycloudflare.com
   - name: "TW-Sky_Digital_Co.-CF10"
     type: vmess
-    server: 108.162.195.243
+    server: 104.17.151.41
     port: 443
     uuid: b670b659-c872-48dc-a98f-ae48e51f33ba
     alterId: 0
@@ -156,7 +166,7 @@ proxies:
         Host: capitol-superintendent-clarke-kernel.trycloudflare.com
   - name: "TW-Sky_Digital_Co.-CF11"
     type: vmess
-    server: 162.159.14.92
+    server: 104.17.211.204
     port: 443
     uuid: b670b659-c872-48dc-a98f-ae48e51f33ba
     alterId: 0
@@ -171,7 +181,7 @@ proxies:
         Host: capitol-superintendent-clarke-kernel.trycloudflare.com
   - name: "TW-Sky_Digital_Co.-CF12"
     type: vmess
-    server: 162.159.34.89
+    server: 104.18.4.115
     port: 443
     uuid: b670b659-c872-48dc-a98f-ae48e51f33ba
     alterId: 0
@@ -186,7 +196,7 @@ proxies:
         Host: capitol-superintendent-clarke-kernel.trycloudflare.com
   - name: "TW-Sky_Digital_Co.-CF13"
     type: vmess
-    server: 162.159.48.216
+    server: 104.19.37.205
     port: 443
     uuid: b670b659-c872-48dc-a98f-ae48e51f33ba
     alterId: 0
@@ -201,7 +211,7 @@ proxies:
         Host: capitol-superintendent-clarke-kernel.trycloudflare.com
   - name: "TW-Sky_Digital_Co.-CF14"
     type: vmess
-    server: 162.159.62.43
+    server: 108.162.192.0
     port: 443
     uuid: b670b659-c872-48dc-a98f-ae48e51f33ba
     alterId: 0
@@ -216,7 +226,367 @@ proxies:
         Host: capitol-superintendent-clarke-kernel.trycloudflare.com
   - name: "TW-Sky_Digital_Co.-CF15"
     type: vmess
-    server: 198.41.219.68
+    server: 131.0.72.0
+    port: 443
+    uuid: b670b659-c872-48dc-a98f-ae48e51f33ba
+    alterId: 0
+    cipher: auto
+    udp: true
+    tls: true
+    servername: capitol-superintendent-clarke-kernel.trycloudflare.com
+    network: ws
+    ws-opts:
+      path: "/vmess-argo?ed=2560"
+      headers:
+        Host: capitol-superintendent-clarke-kernel.trycloudflare.com
+  - name: "TW-Sky_Digital_Co.-CF16"
+    type: vmess
+    server: 141.101.64.0
+    port: 443
+    uuid: b670b659-c872-48dc-a98f-ae48e51f33ba
+    alterId: 0
+    cipher: auto
+    udp: true
+    tls: true
+    servername: capitol-superintendent-clarke-kernel.trycloudflare.com
+    network: ws
+    ws-opts:
+      path: "/vmess-argo?ed=2560"
+      headers:
+        Host: capitol-superintendent-clarke-kernel.trycloudflare.com
+  - name: "TW-Sky_Digital_Co.-CF17"
+    type: vmess
+    server: 162.158.0.0
+    port: 443
+    uuid: b670b659-c872-48dc-a98f-ae48e51f33ba
+    alterId: 0
+    cipher: auto
+    udp: true
+    tls: true
+    servername: capitol-superintendent-clarke-kernel.trycloudflare.com
+    network: ws
+    ws-opts:
+      path: "/vmess-argo?ed=2560"
+      headers:
+        Host: capitol-superintendent-clarke-kernel.trycloudflare.com
+  - name: "TW-Sky_Digital_Co.-CF18"
+    type: vmess
+    server: 162.159.21.219
+    port: 443
+    uuid: b670b659-c872-48dc-a98f-ae48e51f33ba
+    alterId: 0
+    cipher: auto
+    udp: true
+    tls: true
+    servername: capitol-superintendent-clarke-kernel.trycloudflare.com
+    network: ws
+    ws-opts:
+      path: "/vmess-argo?ed=2560"
+      headers:
+        Host: capitol-superintendent-clarke-kernel.trycloudflare.com
+  - name: "TW-Sky_Digital_Co.-CF19"
+    type: vmess
+    server: 162.159.26.3
+    port: 443
+    uuid: b670b659-c872-48dc-a98f-ae48e51f33ba
+    alterId: 0
+    cipher: auto
+    udp: true
+    tls: true
+    servername: capitol-superintendent-clarke-kernel.trycloudflare.com
+    network: ws
+    ws-opts:
+      path: "/vmess-argo?ed=2560"
+      headers:
+        Host: capitol-superintendent-clarke-kernel.trycloudflare.com
+  - name: "TW-Sky_Digital_Co.-CF20"
+    type: vmess
+    server: 172.64.0.0
+    port: 443
+    uuid: b670b659-c872-48dc-a98f-ae48e51f33ba
+    alterId: 0
+    cipher: auto
+    udp: true
+    tls: true
+    servername: capitol-superintendent-clarke-kernel.trycloudflare.com
+    network: ws
+    ws-opts:
+      path: "/vmess-argo?ed=2560"
+      headers:
+        Host: capitol-superintendent-clarke-kernel.trycloudflare.com
+  - name: "TW-Sky_Digital_Co.-CF21"
+    type: vmess
+    server: 172.64.128.0
+    port: 443
+    uuid: b670b659-c872-48dc-a98f-ae48e51f33ba
+    alterId: 0
+    cipher: auto
+    udp: true
+    tls: true
+    servername: capitol-superintendent-clarke-kernel.trycloudflare.com
+    network: ws
+    ws-opts:
+      path: "/vmess-argo?ed=2560"
+      headers:
+        Host: capitol-superintendent-clarke-kernel.trycloudflare.com
+  - name: "TW-Sky_Digital_Co.-CF22"
+    type: vmess
+    server: 172.64.192.0
+    port: 443
+    uuid: b670b659-c872-48dc-a98f-ae48e51f33ba
+    alterId: 0
+    cipher: auto
+    udp: true
+    tls: true
+    servername: capitol-superintendent-clarke-kernel.trycloudflare.com
+    network: ws
+    ws-opts:
+      path: "/vmess-argo?ed=2560"
+      headers:
+        Host: capitol-superintendent-clarke-kernel.trycloudflare.com
+  - name: "TW-Sky_Digital_Co.-CF23"
+    type: vmess
+    server: 172.64.224.0
+    port: 443
+    uuid: b670b659-c872-48dc-a98f-ae48e51f33ba
+    alterId: 0
+    cipher: auto
+    udp: true
+    tls: true
+    servername: capitol-superintendent-clarke-kernel.trycloudflare.com
+    network: ws
+    ws-opts:
+      path: "/vmess-argo?ed=2560"
+      headers:
+        Host: capitol-superintendent-clarke-kernel.trycloudflare.com
+  - name: "TW-Sky_Digital_Co.-CF24"
+    type: vmess
+    server: 172.64.229.0
+    port: 443
+    uuid: b670b659-c872-48dc-a98f-ae48e51f33ba
+    alterId: 0
+    cipher: auto
+    udp: true
+    tls: true
+    servername: capitol-superintendent-clarke-kernel.trycloudflare.com
+    network: ws
+    ws-opts:
+      path: "/vmess-argo?ed=2560"
+      headers:
+        Host: capitol-superintendent-clarke-kernel.trycloudflare.com
+  - name: "TW-Sky_Digital_Co.-CF25"
+    type: vmess
+    server: 172.64.230.0
+    port: 443
+    uuid: b670b659-c872-48dc-a98f-ae48e51f33ba
+    alterId: 0
+    cipher: auto
+    udp: true
+    tls: true
+    servername: capitol-superintendent-clarke-kernel.trycloudflare.com
+    network: ws
+    ws-opts:
+      path: "/vmess-argo?ed=2560"
+      headers:
+        Host: capitol-superintendent-clarke-kernel.trycloudflare.com
+  - name: "TW-Sky_Digital_Co.-CF26"
+    type: vmess
+    server: 172.64.232.0
+    port: 443
+    uuid: b670b659-c872-48dc-a98f-ae48e51f33ba
+    alterId: 0
+    cipher: auto
+    udp: true
+    tls: true
+    servername: capitol-superintendent-clarke-kernel.trycloudflare.com
+    network: ws
+    ws-opts:
+      path: "/vmess-argo?ed=2560"
+      headers:
+        Host: capitol-superintendent-clarke-kernel.trycloudflare.com
+  - name: "TW-Sky_Digital_Co.-CF27"
+    type: vmess
+    server: 172.64.240.0
+    port: 443
+    uuid: b670b659-c872-48dc-a98f-ae48e51f33ba
+    alterId: 0
+    cipher: auto
+    udp: true
+    tls: true
+    servername: capitol-superintendent-clarke-kernel.trycloudflare.com
+    network: ws
+    ws-opts:
+      path: "/vmess-argo?ed=2560"
+      headers:
+        Host: capitol-superintendent-clarke-kernel.trycloudflare.com
+  - name: "TW-Sky_Digital_Co.-CF28"
+    type: vmess
+    server: 172.64.248.0
+    port: 443
+    uuid: b670b659-c872-48dc-a98f-ae48e51f33ba
+    alterId: 0
+    cipher: auto
+    udp: true
+    tls: true
+    servername: capitol-superintendent-clarke-kernel.trycloudflare.com
+    network: ws
+    ws-opts:
+      path: "/vmess-argo?ed=2560"
+      headers:
+        Host: capitol-superintendent-clarke-kernel.trycloudflare.com
+  - name: "TW-Sky_Digital_Co.-CF29"
+    type: vmess
+    server: 172.64.41.167
+    port: 443
+    uuid: b670b659-c872-48dc-a98f-ae48e51f33ba
+    alterId: 0
+    cipher: auto
+    udp: true
+    tls: true
+    servername: capitol-superintendent-clarke-kernel.trycloudflare.com
+    network: ws
+    ws-opts:
+      path: "/vmess-argo?ed=2560"
+      headers:
+        Host: capitol-superintendent-clarke-kernel.trycloudflare.com
+  - name: "TW-Sky_Digital_Co.-CF30"
+    type: vmess
+    server: 172.64.41.246
+    port: 443
+    uuid: b670b659-c872-48dc-a98f-ae48e51f33ba
+    alterId: 0
+    cipher: auto
+    udp: true
+    tls: true
+    servername: capitol-superintendent-clarke-kernel.trycloudflare.com
+    network: ws
+    ws-opts:
+      path: "/vmess-argo?ed=2560"
+      headers:
+        Host: capitol-superintendent-clarke-kernel.trycloudflare.com
+  - name: "TW-Sky_Digital_Co.-CF31"
+    type: vmess
+    server: 172.65.0.0
+    port: 443
+    uuid: b670b659-c872-48dc-a98f-ae48e51f33ba
+    alterId: 0
+    cipher: auto
+    udp: true
+    tls: true
+    servername: capitol-superintendent-clarke-kernel.trycloudflare.com
+    network: ws
+    ws-opts:
+      path: "/vmess-argo?ed=2560"
+      headers:
+        Host: capitol-superintendent-clarke-kernel.trycloudflare.com
+  - name: "TW-Sky_Digital_Co.-CF32"
+    type: vmess
+    server: 172.66.0.0
+    port: 443
+    uuid: b670b659-c872-48dc-a98f-ae48e51f33ba
+    alterId: 0
+    cipher: auto
+    udp: true
+    tls: true
+    servername: capitol-superintendent-clarke-kernel.trycloudflare.com
+    network: ws
+    ws-opts:
+      path: "/vmess-argo?ed=2560"
+      headers:
+        Host: capitol-superintendent-clarke-kernel.trycloudflare.com
+  - name: "TW-Sky_Digital_Co.-CF33"
+    type: vmess
+    server: 172.67.0.0
+    port: 443
+    uuid: b670b659-c872-48dc-a98f-ae48e51f33ba
+    alterId: 0
+    cipher: auto
+    udp: true
+    tls: true
+    servername: capitol-superintendent-clarke-kernel.trycloudflare.com
+    network: ws
+    ws-opts:
+      path: "/vmess-argo?ed=2560"
+      headers:
+        Host: capitol-superintendent-clarke-kernel.trycloudflare.com
+  - name: "TW-Sky_Digital_Co.-CF34"
+    type: vmess
+    server: 173.245.48.0
+    port: 443
+    uuid: b670b659-c872-48dc-a98f-ae48e51f33ba
+    alterId: 0
+    cipher: auto
+    udp: true
+    tls: true
+    servername: capitol-superintendent-clarke-kernel.trycloudflare.com
+    network: ws
+    ws-opts:
+      path: "/vmess-argo?ed=2560"
+      headers:
+        Host: capitol-superintendent-clarke-kernel.trycloudflare.com
+  - name: "TW-Sky_Digital_Co.-CF35"
+    type: vmess
+    server: 188.114.96.0
+    port: 443
+    uuid: b670b659-c872-48dc-a98f-ae48e51f33ba
+    alterId: 0
+    cipher: auto
+    udp: true
+    tls: true
+    servername: capitol-superintendent-clarke-kernel.trycloudflare.com
+    network: ws
+    ws-opts:
+      path: "/vmess-argo?ed=2560"
+      headers:
+        Host: capitol-superintendent-clarke-kernel.trycloudflare.com
+  - name: "TW-Sky_Digital_Co.-CF36"
+    type: vmess
+    server: 190.93.240.0
+    port: 443
+    uuid: b670b659-c872-48dc-a98f-ae48e51f33ba
+    alterId: 0
+    cipher: auto
+    udp: true
+    tls: true
+    servername: capitol-superintendent-clarke-kernel.trycloudflare.com
+    network: ws
+    ws-opts:
+      path: "/vmess-argo?ed=2560"
+      headers:
+        Host: capitol-superintendent-clarke-kernel.trycloudflare.com
+  - name: "TW-Sky_Digital_Co.-CF37"
+    type: vmess
+    server: 197.234.240.0
+    port: 443
+    uuid: b670b659-c872-48dc-a98f-ae48e51f33ba
+    alterId: 0
+    cipher: auto
+    udp: true
+    tls: true
+    servername: capitol-superintendent-clarke-kernel.trycloudflare.com
+    network: ws
+    ws-opts:
+      path: "/vmess-argo?ed=2560"
+      headers:
+        Host: capitol-superintendent-clarke-kernel.trycloudflare.com
+  - name: "TW-Sky_Digital_Co.-CF38"
+    type: vmess
+    server: 198.41.128.0
+    port: 443
+    uuid: b670b659-c872-48dc-a98f-ae48e51f33ba
+    alterId: 0
+    cipher: auto
+    udp: true
+    tls: true
+    servername: capitol-superintendent-clarke-kernel.trycloudflare.com
+    network: ws
+    ws-opts:
+      path: "/vmess-argo?ed=2560"
+      headers:
+        Host: capitol-superintendent-clarke-kernel.trycloudflare.com
+  - name: "TW-Sky_Digital_Co.-CF39"
+    type: vmess
+    server: 198.41.223.174
     port: 443
     uuid: b670b659-c872-48dc-a98f-ae48e51f33ba
     alterId: 0
@@ -231,7 +601,51 @@ proxies:
         Host: capitol-superintendent-clarke-kernel.trycloudflare.com
 
 proxy-groups:
-  - name: AUTO
+  - name: "节点选择"
+    type: select
+    proxies:
+      - "自动选择"
+      - "TW-Sky_Digital_Co.-CF1"
+      - "TW-Sky_Digital_Co.-CF2"
+      - "TW-Sky_Digital_Co.-CF3"
+      - "TW-Sky_Digital_Co.-CF4"
+      - "TW-Sky_Digital_Co.-CF5"
+      - "TW-Sky_Digital_Co.-CF6"
+      - "TW-Sky_Digital_Co.-CF7"
+      - "TW-Sky_Digital_Co.-CF8"
+      - "TW-Sky_Digital_Co.-CF9"
+      - "TW-Sky_Digital_Co.-CF10"
+      - "TW-Sky_Digital_Co.-CF11"
+      - "TW-Sky_Digital_Co.-CF12"
+      - "TW-Sky_Digital_Co.-CF13"
+      - "TW-Sky_Digital_Co.-CF14"
+      - "TW-Sky_Digital_Co.-CF15"
+      - "TW-Sky_Digital_Co.-CF16"
+      - "TW-Sky_Digital_Co.-CF17"
+      - "TW-Sky_Digital_Co.-CF18"
+      - "TW-Sky_Digital_Co.-CF19"
+      - "TW-Sky_Digital_Co.-CF20"
+      - "TW-Sky_Digital_Co.-CF21"
+      - "TW-Sky_Digital_Co.-CF22"
+      - "TW-Sky_Digital_Co.-CF23"
+      - "TW-Sky_Digital_Co.-CF24"
+      - "TW-Sky_Digital_Co.-CF25"
+      - "TW-Sky_Digital_Co.-CF26"
+      - "TW-Sky_Digital_Co.-CF27"
+      - "TW-Sky_Digital_Co.-CF28"
+      - "TW-Sky_Digital_Co.-CF29"
+      - "TW-Sky_Digital_Co.-CF30"
+      - "TW-Sky_Digital_Co.-CF31"
+      - "TW-Sky_Digital_Co.-CF32"
+      - "TW-Sky_Digital_Co.-CF33"
+      - "TW-Sky_Digital_Co.-CF34"
+      - "TW-Sky_Digital_Co.-CF35"
+      - "TW-Sky_Digital_Co.-CF36"
+      - "TW-Sky_Digital_Co.-CF37"
+      - "TW-Sky_Digital_Co.-CF38"
+      - "TW-Sky_Digital_Co.-CF39"
+      - DIRECT
+  - name: "自动选择"
     type: url-test
     url: http://cp.cloudflare.com/generate_204
     interval: 300
@@ -252,25 +666,130 @@ proxy-groups:
       - "TW-Sky_Digital_Co.-CF13"
       - "TW-Sky_Digital_Co.-CF14"
       - "TW-Sky_Digital_Co.-CF15"
-  - name: PROXY
+      - "TW-Sky_Digital_Co.-CF16"
+      - "TW-Sky_Digital_Co.-CF17"
+      - "TW-Sky_Digital_Co.-CF18"
+      - "TW-Sky_Digital_Co.-CF19"
+      - "TW-Sky_Digital_Co.-CF20"
+      - "TW-Sky_Digital_Co.-CF21"
+      - "TW-Sky_Digital_Co.-CF22"
+      - "TW-Sky_Digital_Co.-CF23"
+      - "TW-Sky_Digital_Co.-CF24"
+      - "TW-Sky_Digital_Co.-CF25"
+      - "TW-Sky_Digital_Co.-CF26"
+      - "TW-Sky_Digital_Co.-CF27"
+      - "TW-Sky_Digital_Co.-CF28"
+      - "TW-Sky_Digital_Co.-CF29"
+      - "TW-Sky_Digital_Co.-CF30"
+      - "TW-Sky_Digital_Co.-CF31"
+      - "TW-Sky_Digital_Co.-CF32"
+      - "TW-Sky_Digital_Co.-CF33"
+      - "TW-Sky_Digital_Co.-CF34"
+      - "TW-Sky_Digital_Co.-CF35"
+      - "TW-Sky_Digital_Co.-CF36"
+      - "TW-Sky_Digital_Co.-CF37"
+      - "TW-Sky_Digital_Co.-CF38"
+      - "TW-Sky_Digital_Co.-CF39"
+  - name: "ChatGPT"
     type: select
     proxies:
-      - AUTO
-      - "TW-Sky_Digital_Co.-CF1"
-      - "TW-Sky_Digital_Co.-CF2"
-      - "TW-Sky_Digital_Co.-CF3"
-      - "TW-Sky_Digital_Co.-CF4"
-      - "TW-Sky_Digital_Co.-CF5"
-      - "TW-Sky_Digital_Co.-CF6"
-      - "TW-Sky_Digital_Co.-CF7"
-      - "TW-Sky_Digital_Co.-CF8"
-      - "TW-Sky_Digital_Co.-CF9"
-      - "TW-Sky_Digital_Co.-CF10"
-      - "TW-Sky_Digital_Co.-CF11"
-      - "TW-Sky_Digital_Co.-CF12"
-      - "TW-Sky_Digital_Co.-CF13"
-      - "TW-Sky_Digital_Co.-CF14"
-      - "TW-Sky_Digital_Co.-CF15"
+      - "节点选择"
+      - "自动选择"
+      - DIRECT
+  - name: "私有网络"
+    type: select
+    proxies:
+      - DIRECT
+      - "节点选择"
+  - name: "国内服务"
+    type: select
+    proxies:
+      - DIRECT
+      - "节点选择"
+  - name: "非中国"
+    type: select
+    proxies:
+      - "节点选择"
+      - "自动选择"
+      - DIRECT
+  - name: "漏网之鱼"
+    type: select
+    proxies:
+      - "节点选择"
+      - "自动选择"
+      - DIRECT
+
+rule-providers:
+  reject:
+    type: http
+    behavior: classical
+    url: "https://fastly.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/reject.txt"
+    path: ./ruleset/reject.txt
+    interval: 86400
+
+  private:
+    type: http
+    behavior: classical
+    url: "https://fastly.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/private.txt"
+    path: ./ruleset/private.txt
+    interval: 86400
+
+  direct:
+    type: http
+    behavior: classical
+    url: "https://fastly.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/direct.txt"
+    path: ./ruleset/direct.txt
+    interval: 86400
+
+  proxy:
+    type: http
+    behavior: classical
+    url: "https://fastly.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/proxy.txt"
+    path: ./ruleset/proxy.txt
+    interval: 86400
+
+  gfw:
+    type: http
+    behavior: classical
+    url: "https://fastly.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/gfw.txt"
+    path: ./ruleset/gfw.txt
+    interval: 86400
+
+  tld-not-cn:
+    type: http
+    behavior: classical
+    url: "https://fastly.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/tld-not-cn.txt"
+    path: ./ruleset/tld-not-cn.txt
+    interval: 86400
+
+  cncidr:
+    type: http
+    behavior: ipcidr
+    url: "https://fastly.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/cncidr.txt"
+    path: ./ruleset/cncidr.txt
+    interval: 86400
+
+  telegramcidr:
+    type: http
+    behavior: ipcidr
+    url: "https://fastly.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/telegramcidr.txt"
+    path: ./ruleset/telegramcidr.txt
+    interval: 86400
 
 rules:
-  - MATCH,PROXY
+  - RULE-SET,private,私有网络
+  - RULE-SET,reject,REJECT
+  - DOMAIN-SUFFIX,openai.com,ChatGPT
+  - DOMAIN-SUFFIX,chatgpt.com,ChatGPT
+  - DOMAIN-SUFFIX,oaistatic.com,ChatGPT
+  - DOMAIN-SUFFIX,oaiusercontent.com,ChatGPT
+  - DOMAIN-SUFFIX,auth0.com,ChatGPT
+  - DOMAIN-KEYWORD,openai,ChatGPT
+  - RULE-SET,direct,国内服务
+  - RULE-SET,cncidr,国内服务
+  - GEOIP,CN,国内服务
+  - RULE-SET,telegramcidr,非中国
+  - RULE-SET,proxy,非中国
+  - RULE-SET,gfw,非中国
+  - RULE-SET,tld-not-cn,非中国
+  - MATCH,漏网之鱼
