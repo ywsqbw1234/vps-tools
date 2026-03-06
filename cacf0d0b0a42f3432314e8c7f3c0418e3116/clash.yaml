@@ -31,7 +31,7 @@ proxies:
         Host: capitol-superintendent-clarke-kernel.trycloudflare.com
   - name: "TW-Sky_Digital_Co.-CF01"
     type: vmess
-    server: 172.64.229.0
+    server: 162.159.14.249
     port: 443
     uuid: b670b659-c872-48dc-a98f-ae48e51f33ba
     alterId: 0
@@ -46,7 +46,7 @@ proxies:
         Host: capitol-superintendent-clarke-kernel.trycloudflare.com
   - name: "TW-Sky_Digital_Co.-CF02"
     type: vmess
-    server: 162.159.41.163
+    server: 104.17.157.224
     port: 443
     uuid: b670b659-c872-48dc-a98f-ae48e51f33ba
     alterId: 0
@@ -61,7 +61,7 @@ proxies:
         Host: capitol-superintendent-clarke-kernel.trycloudflare.com
   - name: "TW-Sky_Digital_Co.-CF03"
     type: vmess
-    server: 108.162.192.0
+    server: 104.17.135.57
     port: 443
     uuid: b670b659-c872-48dc-a98f-ae48e51f33ba
     alterId: 0
@@ -76,7 +76,7 @@ proxies:
         Host: capitol-superintendent-clarke-kernel.trycloudflare.com
   - name: "TW-Sky_Digital_Co.-CF04"
     type: vmess
-    server: 172.64.41.101
+    server: 104.17.107.3
     port: 443
     uuid: b670b659-c872-48dc-a98f-ae48e51f33ba
     alterId: 0
@@ -91,7 +91,7 @@ proxies:
         Host: capitol-superintendent-clarke-kernel.trycloudflare.com
   - name: "TW-Sky_Digital_Co.-CF05"
     type: vmess
-    server: 108.162.194.215
+    server: 162.159.14.114
     port: 443
     uuid: b670b659-c872-48dc-a98f-ae48e51f33ba
     alterId: 0
@@ -106,7 +106,7 @@ proxies:
         Host: capitol-superintendent-clarke-kernel.trycloudflare.com
   - name: "TW-Sky_Digital_Co.-CF06"
     type: vmess
-    server: 108.162.194.194
+    server: 108.162.195.86
     port: 443
     uuid: b670b659-c872-48dc-a98f-ae48e51f33ba
     alterId: 0
@@ -121,7 +121,7 @@ proxies:
         Host: capitol-superintendent-clarke-kernel.trycloudflare.com
   - name: "TW-Sky_Digital_Co.-CF07"
     type: vmess
-    server: 104.17.171.236
+    server: 108.162.192.0
     port: 443
     uuid: b670b659-c872-48dc-a98f-ae48e51f33ba
     alterId: 0
@@ -136,7 +136,7 @@ proxies:
         Host: capitol-superintendent-clarke-kernel.trycloudflare.com
   - name: "TW-Sky_Digital_Co.-CF08"
     type: vmess
-    server: 104.18.90.157
+    server: 104.17.155.184
     port: 443
     uuid: b670b659-c872-48dc-a98f-ae48e51f33ba
     alterId: 0
@@ -151,7 +151,7 @@ proxies:
         Host: capitol-superintendent-clarke-kernel.trycloudflare.com
   - name: "TW-Sky_Digital_Co.-CF09"
     type: vmess
-    server: 104.17.159.156
+    server: 172.64.230.0
     port: 443
     uuid: b670b659-c872-48dc-a98f-ae48e51f33ba
     alterId: 0
@@ -166,7 +166,7 @@ proxies:
         Host: capitol-superintendent-clarke-kernel.trycloudflare.com
   - name: "TW-Sky_Digital_Co.-CF10"
     type: vmess
-    server: 172.66.0.0
+    server: 108.162.195.2
     port: 443
     uuid: b670b659-c872-48dc-a98f-ae48e51f33ba
     alterId: 0
@@ -181,7 +181,7 @@ proxies:
         Host: capitol-superintendent-clarke-kernel.trycloudflare.com
   - name: "TW-Sky_Digital_Co.-CF11"
     type: vmess
-    server: 104.17.137.19
+    server: 104.17.115.112
     port: 443
     uuid: b670b659-c872-48dc-a98f-ae48e51f33ba
     alterId: 0
@@ -196,7 +196,7 @@ proxies:
         Host: capitol-superintendent-clarke-kernel.trycloudflare.com
   - name: "TW-Sky_Digital_Co.-CF12"
     type: vmess
-    server: 188.114.96.0
+    server: 104.17.152.149
     port: 443
     uuid: b670b659-c872-48dc-a98f-ae48e51f33ba
     alterId: 0
@@ -211,7 +211,7 @@ proxies:
         Host: capitol-superintendent-clarke-kernel.trycloudflare.com
   - name: "TW-Sky_Digital_Co.-CF13"
     type: vmess
-    server: 104.16.240.217
+    server: 172.64.41.22
     port: 443
     uuid: b670b659-c872-48dc-a98f-ae48e51f33ba
     alterId: 0
@@ -226,7 +226,7 @@ proxies:
         Host: capitol-superintendent-clarke-kernel.trycloudflare.com
   - name: "TW-Sky_Digital_Co.-CF14"
     type: vmess
-    server: 104.16.0.0
+    server: 188.114.96.0
     port: 443
     uuid: b670b659-c872-48dc-a98f-ae48e51f33ba
     alterId: 0
@@ -241,7 +241,7 @@ proxies:
         Host: capitol-superintendent-clarke-kernel.trycloudflare.com
   - name: "TW-Sky_Digital_Co.-CF15"
     type: vmess
-    server: 104.17.114.133
+    server: 172.64.229.0
     port: 443
     uuid: b670b659-c872-48dc-a98f-ae48e51f33ba
     alterId: 0
@@ -256,7 +256,7 @@ proxies:
         Host: capitol-superintendent-clarke-kernel.trycloudflare.com
   - name: "TW-Sky_Digital_Co.-CF16"
     type: vmess
-    server: 172.64.230.0
+    server: 104.16.0.0
     port: 443
     uuid: b670b659-c872-48dc-a98f-ae48e51f33ba
     alterId: 0
@@ -271,7 +271,7 @@ proxies:
         Host: capitol-superintendent-clarke-kernel.trycloudflare.com
   - name: "TW-Sky_Digital_Co.-CF17"
     type: vmess
-    server: 104.17.139.170
+    server: 172.65.0.0
     port: 443
     uuid: b670b659-c872-48dc-a98f-ae48e51f33ba
     alterId: 0
@@ -286,7 +286,7 @@ proxies:
         Host: capitol-superintendent-clarke-kernel.trycloudflare.com
   - name: "TW-Sky_Digital_Co.-CF18"
     type: vmess
-    server: 104.18.2.206
+    server: 104.17.149.161
     port: 443
     uuid: b670b659-c872-48dc-a98f-ae48e51f33ba
     alterId: 0
@@ -301,7 +301,7 @@ proxies:
         Host: capitol-superintendent-clarke-kernel.trycloudflare.com
   - name: "TW-Sky_Digital_Co.-CF19"
     type: vmess
-    server: 104.17.147.130
+    server: 104.16.243.194
     port: 443
     uuid: b670b659-c872-48dc-a98f-ae48e51f33ba
     alterId: 0
@@ -331,7 +331,7 @@ proxies:
         Host: capitol-superintendent-clarke-kernel.trycloudflare.com
   - name: "TW-Sky_Digital_Co.-CF21"
     type: vmess
-    server: 198.41.223.91
+    server: 172.66.0.0
     port: 443
     uuid: b670b659-c872-48dc-a98f-ae48e51f33ba
     alterId: 0
@@ -346,7 +346,7 @@ proxies:
         Host: capitol-superintendent-clarke-kernel.trycloudflare.com
   - name: "TW-Sky_Digital_Co.-CF22"
     type: vmess
-    server: 172.64.232.0
+    server: 172.64.41.3
     port: 443
     uuid: b670b659-c872-48dc-a98f-ae48e51f33ba
     alterId: 0
@@ -361,7 +361,7 @@ proxies:
         Host: capitol-superintendent-clarke-kernel.trycloudflare.com
   - name: "TW-Sky_Digital_Co.-CF23"
     type: vmess
-    server: 198.41.219.225
+    server: 172.64.232.0
     port: 443
     uuid: b670b659-c872-48dc-a98f-ae48e51f33ba
     alterId: 0
@@ -376,7 +376,7 @@ proxies:
         Host: capitol-superintendent-clarke-kernel.trycloudflare.com
   - name: "TW-Sky_Digital_Co.-CF24"
     type: vmess
-    server: 103.31.4.0
+    server: 162.159.39.162
     port: 443
     uuid: b670b659-c872-48dc-a98f-ae48e51f33ba
     alterId: 0
@@ -391,7 +391,7 @@ proxies:
         Host: capitol-superintendent-clarke-kernel.trycloudflare.com
   - name: "TW-Sky_Digital_Co.-CF25"
     type: vmess
-    server: 172.65.0.0
+    server: 103.31.4.0
     port: 443
     uuid: b670b659-c872-48dc-a98f-ae48e51f33ba
     alterId: 0
