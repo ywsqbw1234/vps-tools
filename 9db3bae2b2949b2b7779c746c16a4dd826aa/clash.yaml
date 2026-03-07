@@ -1,0 +1,136 @@
+mixed-port: 7890
+allow-lan: true
+mode: rule
+log-level: info
+
+dns:
+  enable: true
+  enhanced-mode: redir-host
+  nameserver: [223.5.5.5,119.29.29.29]
+  fallback: [1.1.1.1,8.8.8.8]
+
+proxies:
+  - name: "名称"
+    type: # 协议
+    server: IP/域名
+    port: 端口
+    tls: TLS
+    udp: UDP
+  - name: "FIX04-TUIC"
+    type: tuic
+    server: 103.158.228.187
+    port: 443
+    tls: true
+    udp: true
+  - name: "yx"
+    type: vmess
+    server: 108.162.198.205
+    port: 443
+    uuid: 00000000-0000-0000-0000-000000000000
+    tls: true
+    udp: false
+  - name: "wendi"
+    type: vmess
+    server: 162.159.39.162
+    port: 443
+    uuid: 00000000-0000-0000-0000-000000000000
+    tls: true
+    udp: false
+  - name: "dianxin"
+    type: vless
+    server: cf.877774.xyz
+    port: 443
+    uuid: 00000000-0000-0000-0000-000000000000
+    tls: true
+    udp: true
+  - name: "cdn-main"
+    type: vless
+    server: cdn.ywsqbw.uk
+    port: 443
+    uuid: 00000000-0000-0000-0000-000000000000
+    tls: true
+    udp: true
+  - name: "CF-172.64.230.0"
+    type: vmess
+    server: 172.64.230.0
+    port: 443
+    uuid: 00000000-0000-0000-0000-000000000000
+    tls: true
+    udp: false
+  - name: "CF-162.159.8.79"
+    type: vmess
+    server: 162.159.8.79
+    port: 443
+    uuid: 00000000-0000-0000-0000-000000000000
+    tls: true
+    udp: false
+  - name: "CF-104.17.221.170"
+    type: vmess
+    server: 104.17.221.170
+    port: 443
+    uuid: 00000000-0000-0000-0000-000000000000
+    tls: true
+    udp: false
+  - name: "CF-104.17.20.62"
+    type: vmess
+    server: 104.17.20.62
+    port: 443
+    uuid: 00000000-0000-0000-0000-000000000000
+    tls: true
+    udp: false
+  - name: "CF-162.159.48.76"
+    type: vmess
+    server: 162.159.48.76
+    port: 443
+    uuid: 00000000-0000-0000-0000-000000000000
+    tls: true
+    udp: false
+  - name: "CF-162.159.19.192"
+    type: vmess
+    server: 162.159.19.192
+    port: 443
+    uuid: 00000000-0000-0000-0000-000000000000
+    tls: true
+    udp: false
+  - name: "CF-108.162.192.0"
+    type: vmess
+    server: 108.162.192.0
+    port: 443
+    uuid: 00000000-0000-0000-0000-000000000000
+    tls: true
+    udp: false
+  - name: "CF-104.17.221.205"
+    type: vmess
+    server: 104.17.221.205
+    port: 443
+    uuid: 00000000-0000-0000-0000-000000000000
+    tls: true
+    udp: false
+  - name: "CF-103.21.244.0"
+    type: vmess
+    server: 103.21.244.0
+    port: 443
+    uuid: 00000000-0000-0000-0000-000000000000
+    tls: true
+    udp: false
+  - name: "CF-104.17.20.243"
+    type: vmess
+    server: 104.17.20.243
+    port: 443
+    uuid: 00000000-0000-0000-0000-000000000000
+    tls: true
+    udp: false
+  - name: "CF-104.17.20.149"
+    type: vmess
+    server: 104.17.20.149
+    port: 443
+    uuid: 00000000-0000-0000-0000-000000000000
+    tls: true
+    udp: false
+  - name: "CF-104.17.113.39"
+    type: vmess
+    server: 104.17.113.39
+    port: 443
+    uuid: 00000000-0000-0000-0000-000000000000
+    tls: true
+    udp: false
