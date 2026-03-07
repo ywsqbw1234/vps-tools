@@ -16,73 +16,73 @@ dns:
 proxies:
   - name: "TW-Sky_Digital_Co.-CF01"
     type: VMess
-    server: 172.65.0.0
+    server: 162.159.3.179
     port: 443
     tls: true
     udp: true
   - name: "TW-Sky_Digital_Co.-CF02"
     type: VMess
-    server: 162.159.32.5
+    server: 162.159.60.13
     port: 443
     tls: true
     udp: true
   - name: "TW-Sky_Digital_Co.-CF03"
     type: VMess
-    server: 162.159.62.251
+    server: 108.162.192.152
     port: 443
     tls: true
     udp: true
   - name: "TW-Sky_Digital_Co.-CF04"
     type: VMess
-    server: 162.159.48.99
+    server: 108.162.192.0
     port: 443
     tls: true
     udp: true
   - name: "TW-Sky_Digital_Co.-CF05"
     type: VMess
-    server: 104.17.120.22
+    server: 172.64.232.0
     port: 443
     tls: true
     udp: true
   - name: "TW-Sky_Digital_Co.-CF06"
     type: VMess
-    server: 162.159.14.243
+    server: 108.162.192.111
     port: 443
     tls: true
     udp: true
   - name: "TW-Sky_Digital_Co.-CF07"
     type: VMess
-    server: 104.16.242.195
+    server: 162.159.48.162
     port: 443
     tls: true
     udp: true
   - name: "TW-Sky_Digital_Co.-CF08"
     type: VMess
-    server: 162.159.1.216
+    server: 172.64.229.0
     port: 443
     tls: true
     udp: true
   - name: "TW-Sky_Digital_Co.-CF09"
     type: VMess
-    server: 108.162.192.0
+    server: 172.64.230.0
     port: 443
     tls: true
     udp: true
   - name: "TW-Sky_Digital_Co.-CF10"
     type: VMess
-    server: 172.64.230.0
+    server: 162.159.4.45
     port: 443
     tls: true
     udp: true
   - name: "TW-Sky_Digital_Co.-CF11"
     type: VMess
-    server: 188.114.96.0
+    server: 162.159.1.177
     port: 443
     tls: true
     udp: true
   - name: "TW-Sky_Digital_Co.-CF12"
     type: VMess
-    server: 104.17.20.6
+    server: 104.17.18.94
     port: 443
     tls: true
     udp: true
