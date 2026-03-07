@@ -14,54 +14,56 @@ proxies:
     type: hysteria
     server: 103.158.228.187
     port: 443
+    password: 
     tls: true
     udp: true
   - name: "FIX04-TUIC"
     type: tuic
     server: 103.158.228.187
     port: 443
+    psk: 
     tls: true
     udp: true
   - name: "FIX01-VLESS"
     type: vless
     server: 103.158.228.187
     port: 443
-    uuid: 00000000-0000-0000-0000-000000000000
+    uuid: 4e3c8bfa-09b9-4a9b-ab2f-ec02cc5787d5
     tls: true
     udp: true
   - name: "cdn-main"
     type: vless
     server: cdn.ywsqbw.uk
     port: 443
-    uuid: 00000000-0000-0000-0000-000000000000
+    uuid: 222a52fb-1651-4800-b67e-081863ed3406
     tls: true
     udp: true
   - name: "dianxin"
     type: vless
     server: cf.877774.xyz
     port: 443
-    uuid: 00000000-0000-0000-0000-000000000000
+    uuid: b93af544-ec5c-4ff1-8a48-97830d4193b7
     tls: true
     udp: true
   - name: "FIX02-VMess"
     type: vmess
     server: 103.158.228.187
     port: 443
-    uuid: 00000000-0000-0000-0000-000000000000
+    uuid: 677e0f7d-7fcc-45af-83e2-6d5dce3dd630
     tls: true
     udp: true
   - name: "wendi"
     type: vmess
     server: 162.159.39.162
     port: 443
-    uuid: 00000000-0000-0000-0000-000000000000
+    uuid: b9bbac27-9f3c-4d69-8b93-515e936e22f1
     tls: true
     udp: false
   - name: "yx"
     type: vmess
     server: 108.162.198.205
     port: 443
-    uuid: 00000000-0000-0000-0000-000000000000
+    uuid: 8766f048-4e8c-4583-80bd-2fbcf371818f
     tls: true
     udp: false
 
