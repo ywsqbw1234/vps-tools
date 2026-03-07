@@ -10,3 +10,211 @@ dns:
   fallback: [1.1.1.1,8.8.8.8]
 
 proxies:
+  - name: "名称"
+    type: vmess
+    server: IP/域名
+    port: 端口
+    uuid: 00000000-0000-0000-0000-000000000000
+    tls: TLS
+    udp: UDP
+  - name: "FIX04-TUIC"
+    type: tuic
+    server: 103.158.228.187
+    port: 443
+    tls: true
+    udp: true
+  - name: "yx"
+    type: vmess
+    server: 108.162.198.205
+    port: 443
+    uuid: 00000000-0000-0000-0000-000000000000
+    tls: true
+    udp: false
+  - name: "wendi"
+    type: vmess
+    server: 162.159.39.162
+    port: 443
+    uuid: 00000000-0000-0000-0000-000000000000
+    tls: true
+    udp: false
+  - name: "dianxin"
+    type: vless
+    server: cf.877774.xyz
+    port: 443
+    uuid: 00000000-0000-0000-0000-000000000000
+    tls: true
+    udp: true
+  - name: "cdn-main"
+    type: vless
+    server: cdn.ywsqbw.uk
+    port: 443
+    uuid: 00000000-0000-0000-0000-000000000000
+    tls: true
+    udp: true
+  - name: "CF-172.64.230.0"
+    type: vmess
+    server: 172.64.230.0
+    port: 443
+    uuid: 00000000-0000-0000-0000-000000000000
+    tls: true
+    udp: false
+  - name: "CF-103.21.244.0"
+    type: vmess
+    server: 103.21.244.0
+    port: 443
+    uuid: 00000000-0000-0000-0000-000000000000
+    tls: true
+    udp: false
+  - name: "CF-108.162.192.0"
+    type: vmess
+    server: 108.162.192.0
+    port: 443
+    uuid: 00000000-0000-0000-0000-000000000000
+    tls: true
+    udp: false
+  - name: "CF-104.17.96.80"
+    type: vmess
+    server: 104.17.96.80
+    port: 443
+    uuid: 00000000-0000-0000-0000-000000000000
+    tls: true
+    udp: false
+  - name: "CF-162.159.0.154"
+    type: vmess
+    server: 162.159.0.154
+    port: 443
+    uuid: 00000000-0000-0000-0000-000000000000
+    tls: true
+    udp: false
+  - name: "CF-104.19.156.174"
+    type: vmess
+    server: 104.19.156.174
+    port: 443
+    uuid: 00000000-0000-0000-0000-000000000000
+    tls: true
+    udp: false
+  - name: "CF-162.159.34.233"
+    type: vmess
+    server: 162.159.34.233
+    port: 443
+    uuid: 00000000-0000-0000-0000-000000000000
+    tls: true
+    udp: false
+  - name: "CF-172.64.229.0"
+    type: vmess
+    server: 172.64.229.0
+    port: 443
+    uuid: 00000000-0000-0000-0000-000000000000
+    tls: true
+    udp: false
+  - name: "CF-172.64.232.0"
+    type: vmess
+    server: 172.64.232.0
+    port: 443
+    uuid: 00000000-0000-0000-0000-000000000000
+    tls: true
+    udp: false
+  - name: "CF-104.16.0.0"
+    type: vmess
+    server: 104.16.0.0
+    port: 443
+    uuid: 00000000-0000-0000-0000-000000000000
+    tls: true
+    udp: false
+  - name: "CF-162.159.60.232"
+    type: vmess
+    server: 162.159.60.232
+    port: 443
+    uuid: 00000000-0000-0000-0000-000000000000
+    tls: true
+    udp: false
+  - name: "CF-162.159.12.58"
+    type: vmess
+    server: 162.159.12.58
+    port: 443
+    uuid: 00000000-0000-0000-0000-000000000000
+    tls: true
+    udp: false
+
+proxy-groups:
+  - name: "节点选择"
+    type: select
+    proxies:
+      - 自动选择
+      - "名称"
+      - "FIX04-TUIC"
+      - "yx"
+      - "wendi"
+      - "dianxin"
+      - "cdn-main"
+      - "CF-172.64.230.0"
+      - "CF-103.21.244.0"
+      - "CF-108.162.192.0"
+      - "CF-104.17.96.80"
+      - "CF-162.159.0.154"
+      - "CF-104.19.156.174"
+      - "CF-162.159.34.233"
+      - "CF-172.64.229.0"
+      - "CF-172.64.232.0"
+      - "CF-104.16.0.0"
+      - "CF-162.159.60.232"
+      - "CF-162.159.12.58"
+      - DIRECT
+  - name: "自动选择"
+    type: url-test
+    url: http://cp.cloudflare.com/generate_204
+    interval: 300
+    tolerance: 50
+    proxies:
+      - "名称"
+      - "FIX04-TUIC"
+      - "yx"
+      - "wendi"
+      - "dianxin"
+      - "cdn-main"
+      - "CF-172.64.230.0"
+      - "CF-103.21.244.0"
+      - "CF-108.162.192.0"
+      - "CF-104.17.96.80"
+      - "CF-162.159.0.154"
+      - "CF-104.19.156.174"
+      - "CF-162.159.34.233"
+      - "CF-172.64.229.0"
+      - "CF-172.64.232.0"
+      - "CF-104.16.0.0"
+      - "CF-162.159.60.232"
+      - "CF-162.159.12.58"
+  - name: "ChatGPT-Clude"
+    type: select
+    proxies:
+      - "节点选择"
+      - "自动选择"
+      - DIRECT
+  - name: "国内服务"
+    type: select
+    proxies:
+      - DIRECT
+      - "节点选择"
+  - name: "漏网之鱼"
+    type: select
+    proxies:
+      - "节点选择"
+      - "自动选择"
+      - DIRECT
+
+rules:
+  - PROCESS-NAME,Xshell.exe,DIRECT
+  - PROCESS-NAME,ssh.exe,DIRECT
+  - IP-CIDR,103.158.228.187/32,DIRECT,no-resolve
+  - DOMAIN-SUFFIX,ywsqbw.uk,DIRECT
+  - DOMAIN,cdn.ywsqbw.uk,DIRECT
+  - DST-PORT,22,DIRECT
+  - DOMAIN-SUFFIX,openai.com,ChatGPT-Clude
+  - DOMAIN-SUFFIX,chatgpt.com,ChatGPT-Clude
+  - DOMAIN-SUFFIX,oaistatic.com,ChatGPT-Clude
+  - DOMAIN-SUFFIX,oaiusercontent.com,ChatGPT-Clude
+  - DOMAIN-SUFFIX,auth0.com,ChatGPT-Clude
+  - DOMAIN-KEYWORD,openai,ChatGPT-Clude
+  - DOMAIN-SUFFIX,cn,国内服务
+  - GEOIP,CN,国内服务
+  - MATCH,漏网之鱼
