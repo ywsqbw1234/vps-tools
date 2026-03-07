@@ -10,36 +10,21 @@ dns:
   fallback: [1.1.1.1,8.8.8.8]
 
 proxies:
-  - name: "名称"
-    type: vmess
-    server: IP/域名
-    port: 端口
-    uuid: 00000000-0000-0000-0000-000000000000
-    tls: TLS
-    udp: UDP
+  - name: "FIX03-Hysteria"
+    type: hysteria
+    server: 103.158.228.187
+    port: 443
+    tls: true
+    udp: true
   - name: "FIX04-TUIC"
     type: tuic
     server: 103.158.228.187
     port: 443
     tls: true
     udp: true
-  - name: "yx"
-    type: vmess
-    server: 108.162.198.205
-    port: 443
-    uuid: 00000000-0000-0000-0000-000000000000
-    tls: true
-    udp: false
-  - name: "wendi"
-    type: vmess
-    server: 162.159.39.162
-    port: 443
-    uuid: 00000000-0000-0000-0000-000000000000
-    tls: true
-    udp: false
-  - name: "dianxin"
+  - name: "FIX01-VLESS"
     type: vless
-    server: cf.877774.xyz
+    server: 103.158.228.187
     port: 443
     uuid: 00000000-0000-0000-0000-000000000000
     tls: true
@@ -51,86 +36,30 @@ proxies:
     uuid: 00000000-0000-0000-0000-000000000000
     tls: true
     udp: true
-  - name: "CF-172.64.230.0"
+  - name: "dianxin"
+    type: vless
+    server: cf.877774.xyz
+    port: 443
+    uuid: 00000000-0000-0000-0000-000000000000
+    tls: true
+    udp: true
+  - name: "FIX02-VMess"
     type: vmess
-    server: 172.64.230.0
+    server: 103.158.228.187
+    port: 443
+    uuid: 00000000-0000-0000-0000-000000000000
+    tls: true
+    udp: true
+  - name: "wendi"
+    type: vmess
+    server: 162.159.39.162
     port: 443
     uuid: 00000000-0000-0000-0000-000000000000
     tls: true
     udp: false
-  - name: "CF-103.21.244.0"
+  - name: "yx"
     type: vmess
-    server: 103.21.244.0
-    port: 443
-    uuid: 00000000-0000-0000-0000-000000000000
-    tls: true
-    udp: false
-  - name: "CF-108.162.192.0"
-    type: vmess
-    server: 108.162.192.0
-    port: 443
-    uuid: 00000000-0000-0000-0000-000000000000
-    tls: true
-    udp: false
-  - name: "CF-104.17.96.80"
-    type: vmess
-    server: 104.17.96.80
-    port: 443
-    uuid: 00000000-0000-0000-0000-000000000000
-    tls: true
-    udp: false
-  - name: "CF-162.159.0.154"
-    type: vmess
-    server: 162.159.0.154
-    port: 443
-    uuid: 00000000-0000-0000-0000-000000000000
-    tls: true
-    udp: false
-  - name: "CF-104.19.156.174"
-    type: vmess
-    server: 104.19.156.174
-    port: 443
-    uuid: 00000000-0000-0000-0000-000000000000
-    tls: true
-    udp: false
-  - name: "CF-162.159.34.233"
-    type: vmess
-    server: 162.159.34.233
-    port: 443
-    uuid: 00000000-0000-0000-0000-000000000000
-    tls: true
-    udp: false
-  - name: "CF-172.64.229.0"
-    type: vmess
-    server: 172.64.229.0
-    port: 443
-    uuid: 00000000-0000-0000-0000-000000000000
-    tls: true
-    udp: false
-  - name: "CF-172.64.232.0"
-    type: vmess
-    server: 172.64.232.0
-    port: 443
-    uuid: 00000000-0000-0000-0000-000000000000
-    tls: true
-    udp: false
-  - name: "CF-104.16.0.0"
-    type: vmess
-    server: 104.16.0.0
-    port: 443
-    uuid: 00000000-0000-0000-0000-000000000000
-    tls: true
-    udp: false
-  - name: "CF-162.159.60.232"
-    type: vmess
-    server: 162.159.60.232
-    port: 443
-    uuid: 00000000-0000-0000-0000-000000000000
-    tls: true
-    udp: false
-  - name: "CF-162.159.12.58"
-    type: vmess
-    server: 162.159.12.58
+    server: 108.162.198.205
     port: 443
     uuid: 00000000-0000-0000-0000-000000000000
     tls: true
@@ -141,24 +70,14 @@ proxy-groups:
     type: select
     proxies:
       - 自动选择
-      - "名称"
+      - "FIX03-Hysteria"
       - "FIX04-TUIC"
-      - "yx"
-      - "wendi"
-      - "dianxin"
+      - "FIX01-VLESS"
       - "cdn-main"
-      - "CF-172.64.230.0"
-      - "CF-103.21.244.0"
-      - "CF-108.162.192.0"
-      - "CF-104.17.96.80"
-      - "CF-162.159.0.154"
-      - "CF-104.19.156.174"
-      - "CF-162.159.34.233"
-      - "CF-172.64.229.0"
-      - "CF-172.64.232.0"
-      - "CF-104.16.0.0"
-      - "CF-162.159.60.232"
-      - "CF-162.159.12.58"
+      - "dianxin"
+      - "FIX02-VMess"
+      - "wendi"
+      - "yx"
       - DIRECT
   - name: "自动选择"
     type: url-test
@@ -166,24 +85,14 @@ proxy-groups:
     interval: 300
     tolerance: 50
     proxies:
-      - "名称"
+      - "FIX03-Hysteria"
       - "FIX04-TUIC"
-      - "yx"
-      - "wendi"
-      - "dianxin"
+      - "FIX01-VLESS"
       - "cdn-main"
-      - "CF-172.64.230.0"
-      - "CF-103.21.244.0"
-      - "CF-108.162.192.0"
-      - "CF-104.17.96.80"
-      - "CF-162.159.0.154"
-      - "CF-104.19.156.174"
-      - "CF-162.159.34.233"
-      - "CF-172.64.229.0"
-      - "CF-172.64.232.0"
-      - "CF-104.16.0.0"
-      - "CF-162.159.60.232"
-      - "CF-162.159.12.58"
+      - "dianxin"
+      - "FIX02-VMess"
+      - "wendi"
+      - "yx"
   - name: "ChatGPT-Clude"
     type: select
     proxies:
