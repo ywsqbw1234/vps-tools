@@ -5,17 +5,13 @@ log-level: info
 
 dns:
   enable: true
-  enhanced-mode: fake-ip
-  fake-ip-range: 198.18.0.1/16
+  enhanced-mode: redir-host
   nameserver:
-    - https://1.1.1.1/dns-query
-    - https://8.8.8.8/dns-query
+    - 223.5.5.5
+    - 119.29.29.29
   fallback:
-    - tls://1.1.1.1
-    - tls://8.8.8.8
-  fallback-filter:
-    geoip: true
-    geoip-code: CN
+    - 1.1.1.1
+    - 8.8.8.8
 
 proxies:
   - name: "TW-Sky_Digital_Co.-FIX01-yx"
@@ -28,11 +24,14 @@ proxies:
     udp: true
     tls: true
     servername: cdn.ywsqbw.uk
+    client-fingerprint: firefox
     network: ws
     ws-opts:
-      path: "/vmess-argo?ed=2560"
+      path: "/vmess-argo"
       headers:
         Host: cdn.ywsqbw.uk
+      max-early-data: 2560
+      early-data-header-name: Sec-WebSocket-Protocol
   - name: "TW-Sky_Digital_Co.-FIX02-wendi"
     type: vmess
     server: 162.159.39.162
@@ -43,147 +42,15 @@ proxies:
     udp: true
     tls: true
     servername: cdn.ywsqbw.uk
+    client-fingerprint: firefox
     network: ws
     ws-opts:
-      path: "/vmess-argo?ed=2560"
+      path: "/vmess-argo"
       headers:
         Host: cdn.ywsqbw.uk
+      max-early-data: 2560
+      early-data-header-name: Sec-WebSocket-Protocol
   - name: "TW-Sky_Digital_Co.-CF01"
-    type: vmess
-    server: 162.159.8.134
-    port: 443
-    uuid: b670b659-c872-48dc-a98f-ae48e51f33ba
-    alterId: 0
-    cipher: auto
-    udp: true
-    tls: true
-    servername: cdn.ywsqbw.uk
-    network: ws
-    ws-opts:
-      path: "/vmess-argo?ed=2560"
-      headers:
-        Host: cdn.ywsqbw.uk
-  - name: "TW-Sky_Digital_Co.-CF02"
-    type: vmess
-    server: 162.159.26.26
-    port: 443
-    uuid: b670b659-c872-48dc-a98f-ae48e51f33ba
-    alterId: 0
-    cipher: auto
-    udp: true
-    tls: true
-    servername: cdn.ywsqbw.uk
-    network: ws
-    ws-opts:
-      path: "/vmess-argo?ed=2560"
-      headers:
-        Host: cdn.ywsqbw.uk
-  - name: "TW-Sky_Digital_Co.-CF03"
-    type: vmess
-    server: 162.159.21.131
-    port: 443
-    uuid: b670b659-c872-48dc-a98f-ae48e51f33ba
-    alterId: 0
-    cipher: auto
-    udp: true
-    tls: true
-    servername: cdn.ywsqbw.uk
-    network: ws
-    ws-opts:
-      path: "/vmess-argo?ed=2560"
-      headers:
-        Host: cdn.ywsqbw.uk
-  - name: "TW-Sky_Digital_Co.-CF04"
-    type: vmess
-    server: 104.18.85.247
-    port: 443
-    uuid: b670b659-c872-48dc-a98f-ae48e51f33ba
-    alterId: 0
-    cipher: auto
-    udp: true
-    tls: true
-    servername: cdn.ywsqbw.uk
-    network: ws
-    ws-opts:
-      path: "/vmess-argo?ed=2560"
-      headers:
-        Host: cdn.ywsqbw.uk
-  - name: "TW-Sky_Digital_Co.-CF05"
-    type: vmess
-    server: 172.64.230.0
-    port: 443
-    uuid: b670b659-c872-48dc-a98f-ae48e51f33ba
-    alterId: 0
-    cipher: auto
-    udp: true
-    tls: true
-    servername: cdn.ywsqbw.uk
-    network: ws
-    ws-opts:
-      path: "/vmess-argo?ed=2560"
-      headers:
-        Host: cdn.ywsqbw.uk
-  - name: "TW-Sky_Digital_Co.-CF06"
-    type: vmess
-    server: 104.18.8.226
-    port: 443
-    uuid: b670b659-c872-48dc-a98f-ae48e51f33ba
-    alterId: 0
-    cipher: auto
-    udp: true
-    tls: true
-    servername: cdn.ywsqbw.uk
-    network: ws
-    ws-opts:
-      path: "/vmess-argo?ed=2560"
-      headers:
-        Host: cdn.ywsqbw.uk
-  - name: "TW-Sky_Digital_Co.-CF07"
-    type: vmess
-    server: 104.17.226.161
-    port: 443
-    uuid: b670b659-c872-48dc-a98f-ae48e51f33ba
-    alterId: 0
-    cipher: auto
-    udp: true
-    tls: true
-    servername: cdn.ywsqbw.uk
-    network: ws
-    ws-opts:
-      path: "/vmess-argo?ed=2560"
-      headers:
-        Host: cdn.ywsqbw.uk
-  - name: "TW-Sky_Digital_Co.-CF08"
-    type: vmess
-    server: 108.162.192.0
-    port: 443
-    uuid: b670b659-c872-48dc-a98f-ae48e51f33ba
-    alterId: 0
-    cipher: auto
-    udp: true
-    tls: true
-    servername: cdn.ywsqbw.uk
-    network: ws
-    ws-opts:
-      path: "/vmess-argo?ed=2560"
-      headers:
-        Host: cdn.ywsqbw.uk
-  - name: "TW-Sky_Digital_Co.-CF09"
-    type: vmess
-    server: 172.64.232.0
-    port: 443
-    uuid: b670b659-c872-48dc-a98f-ae48e51f33ba
-    alterId: 0
-    cipher: auto
-    udp: true
-    tls: true
-    servername: cdn.ywsqbw.uk
-    network: ws
-    ws-opts:
-      path: "/vmess-argo?ed=2560"
-      headers:
-        Host: cdn.ywsqbw.uk
-  - name: "TW-Sky_Digital_Co.-CF10"
     type: vmess
     server: 172.65.0.0
     port: 443
@@ -193,117 +60,15 @@ proxies:
     udp: true
     tls: true
     servername: cdn.ywsqbw.uk
+    client-fingerprint: firefox
     network: ws
     ws-opts:
-      path: "/vmess-argo?ed=2560"
+      path: "/vmess-argo"
       headers:
         Host: cdn.ywsqbw.uk
-  - name: "TW-Sky_Digital_Co.-CF11"
-    type: vmess
-    server: 172.64.229.0
-    port: 443
-    uuid: b670b659-c872-48dc-a98f-ae48e51f33ba
-    alterId: 0
-    cipher: auto
-    udp: true
-    tls: true
-    servername: cdn.ywsqbw.uk
-    network: ws
-    ws-opts:
-      path: "/vmess-argo?ed=2560"
-      headers:
-        Host: cdn.ywsqbw.uk
-  - name: "TW-Sky_Digital_Co.-CF12"
-    type: vmess
-    server: 162.159.41.203
-    port: 443
-    uuid: b670b659-c872-48dc-a98f-ae48e51f33ba
-    alterId: 0
-    cipher: auto
-    udp: true
-    tls: true
-    servername: cdn.ywsqbw.uk
-    network: ws
-    ws-opts:
-      path: "/vmess-argo?ed=2560"
-      headers:
-        Host: cdn.ywsqbw.uk
-  - name: "TW-Sky_Digital_Co.-CF13"
-    type: vmess
-    server: 188.114.96.0
-    port: 443
-    uuid: b670b659-c872-48dc-a98f-ae48e51f33ba
-    alterId: 0
-    cipher: auto
-    udp: true
-    tls: true
-    servername: cdn.ywsqbw.uk
-    network: ws
-    ws-opts:
-      path: "/vmess-argo?ed=2560"
-      headers:
-        Host: cdn.ywsqbw.uk
-  - name: "TW-Sky_Digital_Co.-CF14"
-    type: vmess
-    server: 104.17.250.155
-    port: 443
-    uuid: b670b659-c872-48dc-a98f-ae48e51f33ba
-    alterId: 0
-    cipher: auto
-    udp: true
-    tls: true
-    servername: cdn.ywsqbw.uk
-    network: ws
-    ws-opts:
-      path: "/vmess-argo?ed=2560"
-      headers:
-        Host: cdn.ywsqbw.uk
-  - name: "TW-Sky_Digital_Co.-CF15"
-    type: vmess
-    server: 104.17.149.144
-    port: 443
-    uuid: b670b659-c872-48dc-a98f-ae48e51f33ba
-    alterId: 0
-    cipher: auto
-    udp: true
-    tls: true
-    servername: cdn.ywsqbw.uk
-    network: ws
-    ws-opts:
-      path: "/vmess-argo?ed=2560"
-      headers:
-        Host: cdn.ywsqbw.uk
-  - name: "TW-Sky_Digital_Co.-CF16"
-    type: vmess
-    server: 104.17.155.191
-    port: 443
-    uuid: b670b659-c872-48dc-a98f-ae48e51f33ba
-    alterId: 0
-    cipher: auto
-    udp: true
-    tls: true
-    servername: cdn.ywsqbw.uk
-    network: ws
-    ws-opts:
-      path: "/vmess-argo?ed=2560"
-      headers:
-        Host: cdn.ywsqbw.uk
-  - name: "TW-Sky_Digital_Co.-CF17"
-    type: vmess
-    server: 104.17.130.124
-    port: 443
-    uuid: b670b659-c872-48dc-a98f-ae48e51f33ba
-    alterId: 0
-    cipher: auto
-    udp: true
-    tls: true
-    servername: cdn.ywsqbw.uk
-    network: ws
-    ws-opts:
-      path: "/vmess-argo?ed=2560"
-      headers:
-        Host: cdn.ywsqbw.uk
-  - name: "TW-Sky_Digital_Co.-CF18"
+      max-early-data: 2560
+      early-data-header-name: Sec-WebSocket-Protocol
+  - name: "TW-Sky_Digital_Co.-CF02"
     type: vmess
     server: 172.66.0.0
     port: 443
@@ -313,14 +78,17 @@ proxies:
     udp: true
     tls: true
     servername: cdn.ywsqbw.uk
+    client-fingerprint: firefox
     network: ws
     ws-opts:
-      path: "/vmess-argo?ed=2560"
+      path: "/vmess-argo"
       headers:
         Host: cdn.ywsqbw.uk
-  - name: "TW-Sky_Digital_Co.-CF19"
+      max-early-data: 2560
+      early-data-header-name: Sec-WebSocket-Protocol
+  - name: "TW-Sky_Digital_Co.-CF03"
     type: vmess
-    server: 104.17.232.248
+    server: 172.64.49.250
     port: 443
     uuid: b670b659-c872-48dc-a98f-ae48e51f33ba
     alterId: 0
@@ -328,12 +96,159 @@ proxies:
     udp: true
     tls: true
     servername: cdn.ywsqbw.uk
+    client-fingerprint: firefox
     network: ws
     ws-opts:
-      path: "/vmess-argo?ed=2560"
+      path: "/vmess-argo"
       headers:
         Host: cdn.ywsqbw.uk
-  - name: "TW-Sky_Digital_Co.-CF20"
+      max-early-data: 2560
+      early-data-header-name: Sec-WebSocket-Protocol
+  - name: "TW-Sky_Digital_Co.-CF04"
+    type: vmess
+    server: 173.245.58.107
+    port: 443
+    uuid: b670b659-c872-48dc-a98f-ae48e51f33ba
+    alterId: 0
+    cipher: auto
+    udp: true
+    tls: true
+    servername: cdn.ywsqbw.uk
+    client-fingerprint: firefox
+    network: ws
+    ws-opts:
+      path: "/vmess-argo"
+      headers:
+        Host: cdn.ywsqbw.uk
+      max-early-data: 2560
+      early-data-header-name: Sec-WebSocket-Protocol
+  - name: "TW-Sky_Digital_Co.-CF05"
+    type: vmess
+    server: 104.18.63.78
+    port: 443
+    uuid: b670b659-c872-48dc-a98f-ae48e51f33ba
+    alterId: 0
+    cipher: auto
+    udp: true
+    tls: true
+    servername: cdn.ywsqbw.uk
+    client-fingerprint: firefox
+    network: ws
+    ws-opts:
+      path: "/vmess-argo"
+      headers:
+        Host: cdn.ywsqbw.uk
+      max-early-data: 2560
+      early-data-header-name: Sec-WebSocket-Protocol
+  - name: "TW-Sky_Digital_Co.-CF06"
+    type: vmess
+    server: 104.17.155.167
+    port: 443
+    uuid: b670b659-c872-48dc-a98f-ae48e51f33ba
+    alterId: 0
+    cipher: auto
+    udp: true
+    tls: true
+    servername: cdn.ywsqbw.uk
+    client-fingerprint: firefox
+    network: ws
+    ws-opts:
+      path: "/vmess-argo"
+      headers:
+        Host: cdn.ywsqbw.uk
+      max-early-data: 2560
+      early-data-header-name: Sec-WebSocket-Protocol
+  - name: "TW-Sky_Digital_Co.-CF07"
+    type: vmess
+    server: 104.17.155.216
+    port: 443
+    uuid: b670b659-c872-48dc-a98f-ae48e51f33ba
+    alterId: 0
+    cipher: auto
+    udp: true
+    tls: true
+    servername: cdn.ywsqbw.uk
+    client-fingerprint: firefox
+    network: ws
+    ws-opts:
+      path: "/vmess-argo"
+      headers:
+        Host: cdn.ywsqbw.uk
+      max-early-data: 2560
+      early-data-header-name: Sec-WebSocket-Protocol
+  - name: "TW-Sky_Digital_Co.-CF08"
+    type: vmess
+    server: 104.17.18.17
+    port: 443
+    uuid: b670b659-c872-48dc-a98f-ae48e51f33ba
+    alterId: 0
+    cipher: auto
+    udp: true
+    tls: true
+    servername: cdn.ywsqbw.uk
+    client-fingerprint: firefox
+    network: ws
+    ws-opts:
+      path: "/vmess-argo"
+      headers:
+        Host: cdn.ywsqbw.uk
+      max-early-data: 2560
+      early-data-header-name: Sec-WebSocket-Protocol
+  - name: "TW-Sky_Digital_Co.-CF09"
+    type: vmess
+    server: 104.17.130.201
+    port: 443
+    uuid: b670b659-c872-48dc-a98f-ae48e51f33ba
+    alterId: 0
+    cipher: auto
+    udp: true
+    tls: true
+    servername: cdn.ywsqbw.uk
+    client-fingerprint: firefox
+    network: ws
+    ws-opts:
+      path: "/vmess-argo"
+      headers:
+        Host: cdn.ywsqbw.uk
+      max-early-data: 2560
+      early-data-header-name: Sec-WebSocket-Protocol
+  - name: "TW-Sky_Digital_Co.-CF10"
+    type: vmess
+    server: 104.17.18.44
+    port: 443
+    uuid: b670b659-c872-48dc-a98f-ae48e51f33ba
+    alterId: 0
+    cipher: auto
+    udp: true
+    tls: true
+    servername: cdn.ywsqbw.uk
+    client-fingerprint: firefox
+    network: ws
+    ws-opts:
+      path: "/vmess-argo"
+      headers:
+        Host: cdn.ywsqbw.uk
+      max-early-data: 2560
+      early-data-header-name: Sec-WebSocket-Protocol
+  - name: "TW-Sky_Digital_Co.-CF11"
+    type: vmess
+    server: 104.17.55.58
+    port: 443
+    uuid: b670b659-c872-48dc-a98f-ae48e51f33ba
+    alterId: 0
+    cipher: auto
+    udp: true
+    tls: true
+    servername: cdn.ywsqbw.uk
+    client-fingerprint: firefox
+    network: ws
+    ws-opts:
+      path: "/vmess-argo"
+      headers:
+        Host: cdn.ywsqbw.uk
+      max-early-data: 2560
+      early-data-header-name: Sec-WebSocket-Protocol
+  - name: "TW-Sky_Digital_Co.-CF12"
     type: vmess
     server: 104.16.0.0
     port: 443
@@ -343,14 +258,17 @@ proxies:
     udp: true
     tls: true
     servername: cdn.ywsqbw.uk
+    client-fingerprint: firefox
     network: ws
     ws-opts:
-      path: "/vmess-argo?ed=2560"
+      path: "/vmess-argo"
       headers:
         Host: cdn.ywsqbw.uk
-  - name: "TW-Sky_Digital_Co.-CF21"
+      max-early-data: 2560
+      early-data-header-name: Sec-WebSocket-Protocol
+  - name: "TW-Sky_Digital_Co.-CF13"
     type: vmess
-    server: 103.21.244.0
+    server: 162.159.44.182
     port: 443
     uuid: b670b659-c872-48dc-a98f-ae48e51f33ba
     alterId: 0
@@ -358,14 +276,17 @@ proxies:
     udp: true
     tls: true
     servername: cdn.ywsqbw.uk
+    client-fingerprint: firefox
     network: ws
     ws-opts:
-      path: "/vmess-argo?ed=2560"
+      path: "/vmess-argo"
       headers:
         Host: cdn.ywsqbw.uk
-  - name: "TW-Sky_Digital_Co.-CF22"
+      max-early-data: 2560
+      early-data-header-name: Sec-WebSocket-Protocol
+  - name: "TW-Sky_Digital_Co.-CF14"
     type: vmess
-    server: 162.159.44.25
+    server: 162.159.38.142
     port: 443
     uuid: b670b659-c872-48dc-a98f-ae48e51f33ba
     alterId: 0
@@ -373,42 +294,15 @@ proxies:
     udp: true
     tls: true
     servername: cdn.ywsqbw.uk
+    client-fingerprint: firefox
     network: ws
     ws-opts:
-      path: "/vmess-argo?ed=2560"
+      path: "/vmess-argo"
       headers:
         Host: cdn.ywsqbw.uk
-  - name: "TW-Sky_Digital_Co.-CF23"
-    type: vmess
-    server: 162.159.38.69
-    port: 443
-    uuid: b670b659-c872-48dc-a98f-ae48e51f33ba
-    alterId: 0
-    cipher: auto
-    udp: true
-    tls: true
-    servername: cdn.ywsqbw.uk
-    network: ws
-    ws-opts:
-      path: "/vmess-argo?ed=2560"
-      headers:
-        Host: cdn.ywsqbw.uk
-  - name: "TW-Sky_Digital_Co.-CF24"
-    type: vmess
-    server: 198.41.219.5
-    port: 443
-    uuid: b670b659-c872-48dc-a98f-ae48e51f33ba
-    alterId: 0
-    cipher: auto
-    udp: true
-    tls: true
-    servername: cdn.ywsqbw.uk
-    network: ws
-    ws-opts:
-      path: "/vmess-argo?ed=2560"
-      headers:
-        Host: cdn.ywsqbw.uk
-  - name: "TW-Sky_Digital_Co.-CF25"
+      max-early-data: 2560
+      early-data-header-name: Sec-WebSocket-Protocol
+  - name: "TW-Sky_Digital_Co.-CF15"
     type: vmess
     server: 103.31.4.0
     port: 443
@@ -418,11 +312,194 @@ proxies:
     udp: true
     tls: true
     servername: cdn.ywsqbw.uk
+    client-fingerprint: firefox
     network: ws
     ws-opts:
-      path: "/vmess-argo?ed=2560"
+      path: "/vmess-argo"
       headers:
         Host: cdn.ywsqbw.uk
+      max-early-data: 2560
+      early-data-header-name: Sec-WebSocket-Protocol
+  - name: "TW-Sky_Digital_Co.-CF16"
+    type: vmess
+    server: 188.114.96.0
+    port: 443
+    uuid: b670b659-c872-48dc-a98f-ae48e51f33ba
+    alterId: 0
+    cipher: auto
+    udp: true
+    tls: true
+    servername: cdn.ywsqbw.uk
+    client-fingerprint: firefox
+    network: ws
+    ws-opts:
+      path: "/vmess-argo"
+      headers:
+        Host: cdn.ywsqbw.uk
+      max-early-data: 2560
+      early-data-header-name: Sec-WebSocket-Protocol
+  - name: "TW-Sky_Digital_Co.-CF17"
+    type: vmess
+    server: 172.64.230.0
+    port: 443
+    uuid: b670b659-c872-48dc-a98f-ae48e51f33ba
+    alterId: 0
+    cipher: auto
+    udp: true
+    tls: true
+    servername: cdn.ywsqbw.uk
+    client-fingerprint: firefox
+    network: ws
+    ws-opts:
+      path: "/vmess-argo"
+      headers:
+        Host: cdn.ywsqbw.uk
+      max-early-data: 2560
+      early-data-header-name: Sec-WebSocket-Protocol
+  - name: "TW-Sky_Digital_Co.-CF18"
+    type: vmess
+    server: 172.64.232.0
+    port: 443
+    uuid: b670b659-c872-48dc-a98f-ae48e51f33ba
+    alterId: 0
+    cipher: auto
+    udp: true
+    tls: true
+    servername: cdn.ywsqbw.uk
+    client-fingerprint: firefox
+    network: ws
+    ws-opts:
+      path: "/vmess-argo"
+      headers:
+        Host: cdn.ywsqbw.uk
+      max-early-data: 2560
+      early-data-header-name: Sec-WebSocket-Protocol
+  - name: "TW-Sky_Digital_Co.-CF19"
+    type: vmess
+    server: 162.159.12.181
+    port: 443
+    uuid: b670b659-c872-48dc-a98f-ae48e51f33ba
+    alterId: 0
+    cipher: auto
+    udp: true
+    tls: true
+    servername: cdn.ywsqbw.uk
+    client-fingerprint: firefox
+    network: ws
+    ws-opts:
+      path: "/vmess-argo"
+      headers:
+        Host: cdn.ywsqbw.uk
+      max-early-data: 2560
+      early-data-header-name: Sec-WebSocket-Protocol
+  - name: "TW-Sky_Digital_Co.-CF20"
+    type: vmess
+    server: 172.64.229.0
+    port: 443
+    uuid: b670b659-c872-48dc-a98f-ae48e51f33ba
+    alterId: 0
+    cipher: auto
+    udp: true
+    tls: true
+    servername: cdn.ywsqbw.uk
+    client-fingerprint: firefox
+    network: ws
+    ws-opts:
+      path: "/vmess-argo"
+      headers:
+        Host: cdn.ywsqbw.uk
+      max-early-data: 2560
+      early-data-header-name: Sec-WebSocket-Protocol
+  - name: "TW-Sky_Digital_Co.-CF21"
+    type: vmess
+    server: 104.18.63.219
+    port: 443
+    uuid: b670b659-c872-48dc-a98f-ae48e51f33ba
+    alterId: 0
+    cipher: auto
+    udp: true
+    tls: true
+    servername: cdn.ywsqbw.uk
+    client-fingerprint: firefox
+    network: ws
+    ws-opts:
+      path: "/vmess-argo"
+      headers:
+        Host: cdn.ywsqbw.uk
+      max-early-data: 2560
+      early-data-header-name: Sec-WebSocket-Protocol
+  - name: "TW-Sky_Digital_Co.-CF22"
+    type: vmess
+    server: 162.159.38.58
+    port: 443
+    uuid: b670b659-c872-48dc-a98f-ae48e51f33ba
+    alterId: 0
+    cipher: auto
+    udp: true
+    tls: true
+    servername: cdn.ywsqbw.uk
+    client-fingerprint: firefox
+    network: ws
+    ws-opts:
+      path: "/vmess-argo"
+      headers:
+        Host: cdn.ywsqbw.uk
+      max-early-data: 2560
+      early-data-header-name: Sec-WebSocket-Protocol
+  - name: "TW-Sky_Digital_Co.-CF23"
+    type: vmess
+    server: 162.159.237.170
+    port: 443
+    uuid: b670b659-c872-48dc-a98f-ae48e51f33ba
+    alterId: 0
+    cipher: auto
+    udp: true
+    tls: true
+    servername: cdn.ywsqbw.uk
+    client-fingerprint: firefox
+    network: ws
+    ws-opts:
+      path: "/vmess-argo"
+      headers:
+        Host: cdn.ywsqbw.uk
+      max-early-data: 2560
+      early-data-header-name: Sec-WebSocket-Protocol
+  - name: "TW-Sky_Digital_Co.-CF24"
+    type: vmess
+    server: 108.162.192.0
+    port: 443
+    uuid: b670b659-c872-48dc-a98f-ae48e51f33ba
+    alterId: 0
+    cipher: auto
+    udp: true
+    tls: true
+    servername: cdn.ywsqbw.uk
+    client-fingerprint: firefox
+    network: ws
+    ws-opts:
+      path: "/vmess-argo"
+      headers:
+        Host: cdn.ywsqbw.uk
+      max-early-data: 2560
+      early-data-header-name: Sec-WebSocket-Protocol
+  - name: "TW-Sky_Digital_Co.-CF25"
+    type: vmess
+    server: 103.21.244.0
+    port: 443
+    uuid: b670b659-c872-48dc-a98f-ae48e51f33ba
+    alterId: 0
+    cipher: auto
+    udp: true
+    tls: true
+    servername: cdn.ywsqbw.uk
+    client-fingerprint: firefox
+    network: ws
+    ws-opts:
+      path: "/vmess-argo"
+      headers:
+        Host: cdn.ywsqbw.uk
+      max-early-data: 2560
+      early-data-header-name: Sec-WebSocket-Protocol
 
 proxy-groups:
   - name: "节点选择"
@@ -494,22 +571,11 @@ proxy-groups:
       - "节点选择"
       - "自动选择"
       - DIRECT
-  - name: "私有网络"
-    type: select
-    proxies:
-      - DIRECT
-      - "节点选择"
   - name: "国内服务"
     type: select
     proxies:
       - DIRECT
       - "节点选择"
-  - name: "非中国"
-    type: select
-    proxies:
-      - "节点选择"
-      - "自动选择"
-      - DIRECT
   - name: "漏网之鱼"
     type: select
     proxies:
@@ -517,72 +583,19 @@ proxy-groups:
       - "自动选择"
       - DIRECT
 
-rule-providers:
-  reject:
-    type: http
-    behavior: classical
-    url: "https://fastly.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/reject.txt"
-    path: ./ruleset/reject.txt
-    interval: 86400
-  private:
-    type: http
-    behavior: classical
-    url: "https://fastly.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/private.txt"
-    path: ./ruleset/private.txt
-    interval: 86400
-  direct:
-    type: http
-    behavior: classical
-    url: "https://fastly.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/direct.txt"
-    path: ./ruleset/direct.txt
-    interval: 86400
-  proxy:
-    type: http
-    behavior: classical
-    url: "https://fastly.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/proxy.txt"
-    path: ./ruleset/proxy.txt
-    interval: 86400
-  gfw:
-    type: http
-    behavior: classical
-    url: "https://fastly.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/gfw.txt"
-    path: ./ruleset/gfw.txt
-    interval: 86400
-  tld-not-cn:
-    type: http
-    behavior: classical
-    url: "https://fastly.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/tld-not-cn.txt"
-    path: ./ruleset/tld-not-cn.txt
-    interval: 86400
-  cncidr:
-    type: http
-    behavior: ipcidr
-    url: "https://fastly.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/cncidr.txt"
-    path: ./ruleset/cncidr.txt
-    interval: 86400
-  telegramcidr:
-    type: http
-    behavior: ipcidr
-    url: "https://fastly.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/telegramcidr.txt"
-    path: ./ruleset/telegramcidr.txt
-    interval: 86400
-
 rules:
+  - PROCESS-NAME,Xshell.exe,DIRECT
+  - PROCESS-NAME,ssh.exe,DIRECT
   - IP-CIDR,103.158.228.187/32,DIRECT,no-resolve
+  - DOMAIN-SUFFIX,ywsqbw.uk,DIRECT
+  - DOMAIN,cdn.ywsqbw.uk,DIRECT
   - DST-PORT,22,DIRECT
-  - RULE-SET,private,私有网络
-  - RULE-SET,reject,REJECT
   - DOMAIN-SUFFIX,openai.com,ChatGPT
   - DOMAIN-SUFFIX,chatgpt.com,ChatGPT
   - DOMAIN-SUFFIX,oaistatic.com,ChatGPT
   - DOMAIN-SUFFIX,oaiusercontent.com,ChatGPT
   - DOMAIN-SUFFIX,auth0.com,ChatGPT
   - DOMAIN-KEYWORD,openai,ChatGPT
-  - RULE-SET,direct,国内服务
-  - RULE-SET,cncidr,国内服务
+  - DOMAIN-SUFFIX,cn,国内服务
   - GEOIP,CN,国内服务
-  - RULE-SET,telegramcidr,非中国
-  - RULE-SET,proxy,非中国
-  - RULE-SET,gfw,非中国
-  - RULE-SET,tld-not-cn,非中国
   - MATCH,漏网之鱼
