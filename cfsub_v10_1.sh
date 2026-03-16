@@ -236,6 +236,11 @@ push_github_files() {
 echo "$GITHUB_TOKEN"
 EOF
 
+  # 关键：先同步远端
+  GIT_ASKPASS="$askpass" GIT_TERMINAL_PROMPT=0 \
+    git pull --rebase "https://${GITHUB_USER}@github.com/${GITHUB_USER}/${GITHUB_REPO}.git" "${GITHUB_BRANCH}" >/dev/null 2>&1 || true
+
+  # 再 push
   GIT_ASKPASS="$askpass" GIT_TERMINAL_PROMPT=0 \
     git push "https://${GITHUB_USER}@github.com/${GITHUB_USER}/${GITHUB_REPO}.git" "${GITHUB_BRANCH}" >/dev/null
 
