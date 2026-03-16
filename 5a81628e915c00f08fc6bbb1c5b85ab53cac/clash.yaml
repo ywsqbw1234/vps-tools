@@ -7,11 +7,11 @@ dns:
   enable: true
   enhanced-mode: redir-host
   nameserver:
-    - 223.5.5.5
-    - 119.29.29.29
+    - https://1.1.1.1/dns-query
+    - https://8.8.8.8/dns-query
   fallback:
-    - 1.1.1.1
-    - 8.8.8.8
+    - tls://1.1.1.1
+    - tls://8.8.8.8
 
 proxies:
   - name: "TW-Sky_Digital_Co.-FIX01-yx"
@@ -142,7 +142,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "TW-Sky_Digital_Co.-CF01"
     type: vmess
-    server: 103.21.244.0
+    server: 162.159.20.194
     port: 443
     uuid: d747084a-0e2d-4a53-9e4b-11616da5cc19
     alterId: 0
@@ -160,7 +160,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "TW-Sky_Digital_Co.-CF02"
     type: vmess
-    server: 172.64.230.0
+    server: 162.159.61.183
     port: 443
     uuid: d747084a-0e2d-4a53-9e4b-11616da5cc19
     alterId: 0
@@ -178,7 +178,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "TW-Sky_Digital_Co.-CF03"
     type: vmess
-    server: 162.159.61.183
+    server: 162.159.34.178
     port: 443
     uuid: d747084a-0e2d-4a53-9e4b-11616da5cc19
     alterId: 0
@@ -196,7 +196,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "TW-Sky_Digital_Co.-CF04"
     type: vmess
-    server: 162.159.58.138
+    server: 104.18.151.172
     port: 443
     uuid: d747084a-0e2d-4a53-9e4b-11616da5cc19
     alterId: 0
@@ -214,7 +214,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "TW-Sky_Digital_Co.-CF05"
     type: vmess
-    server: 162.159.24.131
+    server: 104.17.167.134
     port: 443
     uuid: d747084a-0e2d-4a53-9e4b-11616da5cc19
     alterId: 0
@@ -232,7 +232,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "TW-Sky_Digital_Co.-CF06"
     type: vmess
-    server: 162.159.20.195
+    server: 104.17.108.4
     port: 443
     uuid: d747084a-0e2d-4a53-9e4b-11616da5cc19
     alterId: 0
@@ -250,7 +250,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "TW-Sky_Digital_Co.-CF07"
     type: vmess
-    server: 162.159.140.116
+    server: 104.16.0.0
     port: 443
     uuid: d747084a-0e2d-4a53-9e4b-11616da5cc19
     alterId: 0
@@ -268,7 +268,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "TW-Sky_Digital_Co.-CF08"
     type: vmess
-    server: 162.159.136.89
+    server: 104.17.162.3
     port: 443
     uuid: d747084a-0e2d-4a53-9e4b-11616da5cc19
     alterId: 0
@@ -286,7 +286,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "TW-Sky_Digital_Co.-CF09"
     type: vmess
-    server: 162.159.137.204
+    server: 103.21.244.0
     port: 443
     uuid: d747084a-0e2d-4a53-9e4b-11616da5cc19
     alterId: 0
@@ -304,7 +304,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "TW-Sky_Digital_Co.-CF10"
     type: vmess
-    server: 108.162.192.0
+    server: 188.114.96.0
     port: 443
     uuid: d747084a-0e2d-4a53-9e4b-11616da5cc19
     alterId: 0
@@ -322,7 +322,25 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "TW-Sky_Digital_Co.-CF11"
     type: vmess
-    server: 104.31.16.158
+    server: 173.245.49.194
+    port: 443
+    uuid: d747084a-0e2d-4a53-9e4b-11616da5cc19
+    alterId: 0
+    cipher: auto
+    udp: true
+    tls: true
+    servername: cdn.ywsqbw.uk
+    client-fingerprint: firefox
+    network: ws
+    ws-opts:
+      path: "/vmess-argo"
+      headers:
+        Host: cdn.ywsqbw.uk
+      max-early-data: 2560
+      early-data-header-name: Sec-WebSocket-Protocol
+  - name: "TW-Sky_Digital_Co.-CF12"
+    type: vmess
+    server: 172.64.48.226
     port: 443
     uuid: d747084a-0e2d-4a53-9e4b-11616da5cc19
     alterId: 0
@@ -362,6 +380,7 @@ proxy-groups:
       - "TW-Sky_Digital_Co.-CF09"
       - "TW-Sky_Digital_Co.-CF10"
       - "TW-Sky_Digital_Co.-CF11"
+      - "TW-Sky_Digital_Co.-CF12"
       - DIRECT
   - name: "自动选择"
     type: url-test
@@ -380,6 +399,7 @@ proxy-groups:
       - "TW-Sky_Digital_Co.-CF09"
       - "TW-Sky_Digital_Co.-CF10"
       - "TW-Sky_Digital_Co.-CF11"
+      - "TW-Sky_Digital_Co.-CF12"
   - name: "ChatGPT"
     type: select
     proxies:
