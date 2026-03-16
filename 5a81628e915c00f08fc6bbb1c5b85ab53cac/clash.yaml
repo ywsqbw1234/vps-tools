@@ -1,17 +1,25 @@
 mixed-port: 7890
 allow-lan: true
+bind-address: '*'
 mode: rule
 log-level: info
+external-controller: '127.0.0.1:9090'
+ipv6: true
 
 dns:
   enable: true
-  enhanced-mode: redir-host
+  ipv6: true
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  default-nameserver:
+    - 1.1.1.1
+    - 8.8.8.8
   nameserver:
-    - https://1.1.1.1/dns-query
-    - https://8.8.8.8/dns-query
+    - 1.1.1.1
+    - 8.8.8.8
   fallback:
-    - tls://1.1.1.1
-    - tls://8.8.8.8
+    - 1.1.1.1
+    - 8.8.8.8
 
 proxies:
   - name: "TW-Sky_Digital_Co.-FIX01-yx"
@@ -142,7 +150,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "TW-Sky_Digital_Co.-CF01"
     type: vmess
-    server: 173.245.49.194
+    server: 162.159.3.49
     port: 443
     uuid: d747084a-0e2d-4a53-9e4b-11616da5cc19
     alterId: 0
@@ -160,7 +168,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "TW-Sky_Digital_Co.-CF02"
     type: vmess
-    server: 172.65.0.0
+    server: 198.41.211.161
     port: 443
     uuid: d747084a-0e2d-4a53-9e4b-11616da5cc19
     alterId: 0
@@ -178,7 +186,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "TW-Sky_Digital_Co.-CF03"
     type: vmess
-    server: 172.64.82.114
+    server: 172.64.230.0
     port: 443
     uuid: d747084a-0e2d-4a53-9e4b-11616da5cc19
     alterId: 0
@@ -196,7 +204,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "TW-Sky_Digital_Co.-CF04"
     type: vmess
-    server: 188.114.96.0
+    server: 104.19.41.18
     port: 443
     uuid: d747084a-0e2d-4a53-9e4b-11616da5cc19
     alterId: 0
@@ -214,7 +222,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "TW-Sky_Digital_Co.-CF05"
     type: vmess
-    server: 172.64.41.70
+    server: 104.17.144.65
     port: 443
     uuid: d747084a-0e2d-4a53-9e4b-11616da5cc19
     alterId: 0
@@ -232,7 +240,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "TW-Sky_Digital_Co.-CF06"
     type: vmess
-    server: 172.64.48.226
+    server: 104.17.144.66
     port: 443
     uuid: d747084a-0e2d-4a53-9e4b-11616da5cc19
     alterId: 0
@@ -250,7 +258,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "TW-Sky_Digital_Co.-CF07"
     type: vmess
-    server: 172.64.91.69
+    server: 162.159.14.36
     port: 443
     uuid: d747084a-0e2d-4a53-9e4b-11616da5cc19
     alterId: 0
@@ -268,7 +276,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "TW-Sky_Digital_Co.-CF08"
     type: vmess
-    server: 172.66.0.0
+    server: 172.64.146.246
     port: 443
     uuid: d747084a-0e2d-4a53-9e4b-11616da5cc19
     alterId: 0
@@ -286,7 +294,61 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "TW-Sky_Digital_Co.-CF09"
     type: vmess
-    server: 172.64.230.0
+    server: 162.159.41.148
+    port: 443
+    uuid: d747084a-0e2d-4a53-9e4b-11616da5cc19
+    alterId: 0
+    cipher: auto
+    udp: true
+    tls: true
+    servername: cdn.ywsqbw.uk
+    client-fingerprint: firefox
+    network: ws
+    ws-opts:
+      path: "/vmess-argo"
+      headers:
+        Host: cdn.ywsqbw.uk
+      max-early-data: 2560
+      early-data-header-name: Sec-WebSocket-Protocol
+  - name: "TW-Sky_Digital_Co.-CF10"
+    type: vmess
+    server: 172.64.232.0
+    port: 443
+    uuid: d747084a-0e2d-4a53-9e4b-11616da5cc19
+    alterId: 0
+    cipher: auto
+    udp: true
+    tls: true
+    servername: cdn.ywsqbw.uk
+    client-fingerprint: firefox
+    network: ws
+    ws-opts:
+      path: "/vmess-argo"
+      headers:
+        Host: cdn.ywsqbw.uk
+      max-early-data: 2560
+      early-data-header-name: Sec-WebSocket-Protocol
+  - name: "TW-Sky_Digital_Co.-CF11"
+    type: vmess
+    server: 188.114.96.0
+    port: 443
+    uuid: d747084a-0e2d-4a53-9e4b-11616da5cc19
+    alterId: 0
+    cipher: auto
+    udp: true
+    tls: true
+    servername: cdn.ywsqbw.uk
+    client-fingerprint: firefox
+    network: ws
+    ws-opts:
+      path: "/vmess-argo"
+      headers:
+        Host: cdn.ywsqbw.uk
+      max-early-data: 2560
+      early-data-header-name: Sec-WebSocket-Protocol
+  - name: "TW-Sky_Digital_Co.-CF12"
+    type: vmess
+    server: 104.16.0.0
     port: 443
     uuid: d747084a-0e2d-4a53-9e4b-11616da5cc19
     alterId: 0
@@ -307,7 +369,6 @@ proxy-groups:
   - name: "节点选择"
     type: select
     proxies:
-      - "自动选择"
       - "TW-Sky_Digital_Co.-FIX01-yx"
       - "TW-Sky_Digital_Co.-FIX02-wendin1"
       - "TW-Sky_Digital_Co.-FIX03-wendin2"
@@ -324,13 +385,20 @@ proxy-groups:
       - "TW-Sky_Digital_Co.-CF07"
       - "TW-Sky_Digital_Co.-CF08"
       - "TW-Sky_Digital_Co.-CF09"
+      - "TW-Sky_Digital_Co.-CF10"
+      - "TW-Sky_Digital_Co.-CF11"
+      - "TW-Sky_Digital_Co.-CF12"
       - DIRECT
   - name: "自动选择"
     type: select
-    url: http://cp.cloudflare.com/generate_204
-    interval: 300
-    tolerance: 50
     proxies:
+      - "TW-Sky_Digital_Co.-FIX01-yx"
+      - "TW-Sky_Digital_Co.-FIX02-wendin1"
+      - "TW-Sky_Digital_Co.-FIX03-wendin2"
+      - "TW-Sky_Digital_Co.-FIX04-wendin3"
+      - "TW-Sky_Digital_Co.-FIX05-wendin4"
+      - "TW-Sky_Digital_Co.-FIX06-备用域名"
+      - "TW-Sky_Digital_Co.-FIX07-主域名"
       - "TW-Sky_Digital_Co.-CF01"
       - "TW-Sky_Digital_Co.-CF02"
       - "TW-Sky_Digital_Co.-CF03"
@@ -340,6 +408,16 @@ proxy-groups:
       - "TW-Sky_Digital_Co.-CF07"
       - "TW-Sky_Digital_Co.-CF08"
       - "TW-Sky_Digital_Co.-CF09"
+      - "TW-Sky_Digital_Co.-CF10"
+      - "TW-Sky_Digital_Co.-CF11"
+      - "TW-Sky_Digital_Co.-CF12"
+      - DIRECT
+  - name: "X专用"
+    type: select
+    proxies:
+      - "节点选择"
+      - "自动选择"
+      - DIRECT
   - name: "ChatGPT"
     type: select
     proxies:
@@ -361,19 +439,25 @@ proxy-groups:
 rules:
   - PROCESS-NAME,Xshell.exe,DIRECT
   - PROCESS-NAME,ssh.exe,DIRECT
+  - PROCESS-NAME,ssh,DIRECT
+  - PROCESS-NAME,Terminal,DIRECT
+  - PROCESS-NAME,WindowsTerminal.exe,DIRECT
   - IP-CIDR,103.158.228.187/32,DIRECT,no-resolve
   - DOMAIN-SUFFIX,ywsqbw.uk,DIRECT
   - DOMAIN,cdn.ywsqbw.uk,DIRECT
   - DST-PORT,22,DIRECT
+  - DOMAIN-SUFFIX,x.com,X专用
+  - DOMAIN-SUFFIX,twitter.com,X专用
+  - DOMAIN-SUFFIX,twimg.com,X专用
+  - DOMAIN-SUFFIX,twimg.co,X专用
+  - DOMAIN-SUFFIX,twimg.org,X专用
+  - DOMAIN-KEYWORD,twitter,X专用
   - DOMAIN-SUFFIX,openai.com,ChatGPT
   - DOMAIN-SUFFIX,chatgpt.com,ChatGPT
   - DOMAIN-SUFFIX,oaistatic.com,ChatGPT
   - DOMAIN-SUFFIX,oaiusercontent.com,ChatGPT
   - DOMAIN-SUFFIX,auth0.com,ChatGPT
   - DOMAIN-KEYWORD,openai,ChatGPT
-  - DOMAIN-SUFFIX,anthropic.com,ChatGPT
-  - DOMAIN-SUFFIX,claude.ai,ChatGPT
-  - DOMAIN-KEYWORD,claude,ChatGPT
   - DOMAIN-SUFFIX,cn,国内服务
   - GEOIP,CN,国内服务
   - MATCH,漏网之鱼
