@@ -148,6 +148,9 @@ fetch_ips_sources() {
 
   curl -fsSL "https://raw.githubusercontent.com/XIU2/CloudflareSpeedTest/master/ip.txt" \
     | grep -oE '([0-9]{1,3}\.){3}[0-9]{1,3}' >> "$tmp" || true
+    
+  curl -fsSL "https://api.uouin.com/cloudflare.html" \
+    | grep -oE '([0-9]{1,3}\.){3}[0-9]{1,3}' >> "$tmp" || true
 
   awk '
     function ok(ip, a, i) {
@@ -188,8 +191,8 @@ write_builtin_tw_nodes() {
   local out_file="$1"
   cat > "$out_file" <<'EOF'
   - { name: "[anytls]🇹🇼台湾T01 家宽 1x 直连", type: anytls, server: tw-hinet-1.nchc.cc, port: 27171, password: "d14015da-1861-4439-9ca5-da877f917f86", client-fingerprint: chrome, udp: true, idle-session-check-interval: 30, idle-session-timeout: 30, min-idle-session: 0, skip-cert-verify: false }
-  - { name: "[anytls]🇹🇼台湾T02 家宽 1x 直连", type: anytls, server: tw-hinet-2.nchc.cc, port: 443, password: "84427453-c5d8-4f7f-b0a7-717d1bf866aa", client-fingerprint: chrome, udp: true, idle-session-check-interval: 30, idle-session-timeout: 30, min-idle-session: 0, skip-cert-verify: false }
-  - { name: "[anytls]🇹🇼台湾T03 家宽 1x 直连", type: anytls, server: tw-hinet-3.nchc.cc, port: 443, password: "84427453-c5d8-4f7f-b0a7-717d1bf866aa", client-fingerprint: chrome, udp: true, idle-session-check-interval: 30, idle-session-timeout: 30, min-idle-session: 0, skip-cert-verify: false }
+  - { name: "[anytls]🇹🇼台湾T02 家宽 1x 直连", type: anytls, server: tw-hinet-2.nchc.cc, port: 27172, password: "d14015da-1861-4439-9ca5-da877f917f86", client-fingerprint: chrome, udp: true, idle-session-check-interval: 30, idle-session-timeout: 30, min-idle-session: 0, skip-cert-verify: false }
+  - { name: "[anytls]🇹🇼台湾T03 家宽 1x 直连", type: anytls, server: tw-hinet-3.nchc.cc, port: 27173, password: "d14015da-1861-4439-9ca5-da877f917f86", client-fingerprint: chrome, udp: true, idle-session-check-interval: 30, idle-session-timeout: 30, min-idle-session: 0, skip-cert-verify: false }
 EOF
 }
 
@@ -526,6 +529,9 @@ main() {
     echo "  - DOMAIN-SUFFIX,oaiusercontent.com,ChatGPT"
     echo "  - DOMAIN-SUFFIX,auth0.com,ChatGPT"
     echo "  - DOMAIN-KEYWORD,openai,ChatGPT"
+    echo "  - DOMAIN-SUFFIX,anthropic.com,ChatGPT"
+    echo "  - DOMAIN-SUFFIX,claude.ai,ChatGPT"
+    echo "  - DOMAIN-KEYWORD,claude,ChatGPT"
 
     echo "  - DOMAIN-SUFFIX,cn,国内服务"
     echo "  - GEOIP,CN,国内服务"
