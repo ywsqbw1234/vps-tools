@@ -150,7 +150,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "TW-Sky_Digital_Co.-CF01"
     type: vmess
-    server: 198.41.208.15
+    server: 104.18.89.52
     port: 443
     uuid: d747084a-0e2d-4a53-9e4b-11616da5cc19
     alterId: 0
@@ -168,7 +168,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "TW-Sky_Digital_Co.-CF02"
     type: vmess
-    server: 173.245.49.194
+    server: 104.18.166.129
     port: 443
     uuid: d747084a-0e2d-4a53-9e4b-11616da5cc19
     alterId: 0
@@ -186,7 +186,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "TW-Sky_Digital_Co.-CF03"
     type: vmess
-    server: 188.114.96.0
+    server: 104.17.167.134
     port: 443
     uuid: d747084a-0e2d-4a53-9e4b-11616da5cc19
     alterId: 0
@@ -204,7 +204,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "TW-Sky_Digital_Co.-CF04"
     type: vmess
-    server: 172.64.230.0
+    server: 188.114.96.0
     port: 443
     uuid: d747084a-0e2d-4a53-9e4b-11616da5cc19
     alterId: 0
@@ -240,7 +240,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "TW-Sky_Digital_Co.-CF06"
     type: vmess
-    server: 104.18.255.167
+    server: 172.64.82.114
     port: 443
     uuid: d747084a-0e2d-4a53-9e4b-11616da5cc19
     alterId: 0
@@ -258,7 +258,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "TW-Sky_Digital_Co.-CF07"
     type: vmess
-    server: 104.18.223.253
+    server: 172.64.230.0
     port: 443
     uuid: d747084a-0e2d-4a53-9e4b-11616da5cc19
     alterId: 0
@@ -276,7 +276,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "TW-Sky_Digital_Co.-CF08"
     type: vmess
-    server: 104.18.189.153
+    server: 172.64.48.226
     port: 443
     uuid: d747084a-0e2d-4a53-9e4b-11616da5cc19
     alterId: 0
@@ -312,25 +312,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "TW-Sky_Digital_Co.-CF10"
     type: vmess
-    server: 172.64.48.226
-    port: 443
-    uuid: d747084a-0e2d-4a53-9e4b-11616da5cc19
-    alterId: 0
-    cipher: auto
-    udp: true
-    tls: true
-    servername: cdn.ywsqbw.uk
-    client-fingerprint: firefox
-    network: ws
-    ws-opts:
-      path: "/vmess-argo"
-      headers:
-        Host: cdn.ywsqbw.uk
-      max-early-data: 2560
-      early-data-header-name: Sec-WebSocket-Protocol
-  - name: "TW-Sky_Digital_Co.-CF11"
-    type: vmess
-    server: 104.17.167.134
+    server: 172.64.232.0
     port: 443
     uuid: d747084a-0e2d-4a53-9e4b-11616da5cc19
     alterId: 0
@@ -371,7 +353,6 @@ proxy-groups:
       - "TW-Sky_Digital_Co.-CF08"
       - "TW-Sky_Digital_Co.-CF09"
       - "TW-Sky_Digital_Co.-CF10"
-      - "TW-Sky_Digital_Co.-CF11"
       - DIRECT
   - name: "自动选择"
     type: select
@@ -393,7 +374,6 @@ proxy-groups:
       - "TW-Sky_Digital_Co.-CF08"
       - "TW-Sky_Digital_Co.-CF09"
       - "TW-Sky_Digital_Co.-CF10"
-      - "TW-Sky_Digital_Co.-CF11"
       - DIRECT
   - name: "X专用"
     type: select
