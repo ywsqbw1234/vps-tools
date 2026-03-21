@@ -490,6 +490,9 @@ main() {
     echo "  - name: \"ChatGPT\""
     echo "    type: select"
     echo "    proxies:"
+    while IFS= read -r n; do
+     [[ -n "$n" ]] && echo "      - \"${n}\""
+    done < "$airport_tw_names"
     echo "      - \"节点选择\""
     echo "      - \"自动选择\""
     echo "      - DIRECT"
