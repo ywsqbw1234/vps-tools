@@ -260,7 +260,7 @@ main() {
   vmjson="$(b64dec "${tpl#vmess://}")"
 
   local ps uuid port raw_path aid fp
-  ps="$(echo "$vmjson" | jq -r .ps)"
+  ps="DE"
   uuid="$(echo "$vmjson" | jq -r .id)"
   port="$(echo "$vmjson" | jq -r '.port // 443')"
   raw_path="$(echo "$vmjson" | jq -r '.path // "/"')"
