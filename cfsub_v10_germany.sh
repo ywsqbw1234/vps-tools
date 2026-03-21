@@ -190,18 +190,18 @@ speedtest_pick_top() {
 write_builtin_tw_nodes() {
   local out_file="$1"
   cat > "$out_file" <<'EOF'
-  - { name: "[anytls]í ¼í·¹í ¼í·¼å°æ¹¾T01 å®¶å®½ 1x ç›´è¿ž", type: anytls, server: tw-hinet-1.nchc.cc, port: 27171, password: "d14015da-1861-4439-9ca5-da877f917f86", client-fingerprint: chrome, udp: true, idle-session-check-interval: 30, idle-session-timeout: 30, min-idle-session: 0, skip-cert-verify: false }
-  - { name: "[anytls]í ¼í·¹í ¼í·¼å°æ¹¾T02 å®¶å®½ 1x ç›´è¿ž", type: anytls, server: tw-hinet-2.nchc.cc, port: 27172, password: "d14015da-1861-4439-9ca5-da877f917f86", client-fingerprint: chrome, udp: true, idle-session-check-interval: 30, idle-session-timeout: 30, min-idle-session: 0, skip-cert-verify: false }
-  - { name: "[anytls]í ¼í·¹í ¼í·¼å°æ¹¾T03 å®¶å®½ 1x ç›´è¿ž", type: anytls, server: tw-hinet-3.nchc.cc, port: 27173, password: "d14015da-1861-4439-9ca5-da877f917f86", client-fingerprint: chrome, udp: true, idle-session-check-interval: 30, idle-session-timeout: 30, min-idle-session: 0, skip-cert-verify: false }
+  - { name: "[anytls]å°æ¹¾T01 å®¶å®½ 1x ç›´è¿ž", type: anytls, server: tw-hinet-1.nchc.cc, port: 27171, password: "d14015da-1861-4439-9ca5-da877f917f86", client-fingerprint: chrome, udp: true, idle-session-check-interval: 30, idle-session-timeout: 30, min-idle-session: 0, skip-cert-verify: false }
+  - { name: "[anytls]å°æ¹¾T02 å®¶å®½ 1x ç›´è¿ž", type: anytls, server: tw-hinet-2.nchc.cc, port: 27172, password: "d14015da-1861-4439-9ca5-da877f917f86", client-fingerprint: chrome, udp: true, idle-session-check-interval: 30, idle-session-timeout: 30, min-idle-session: 0, skip-cert-verify: false }
+  - { name: "[anytls]å°æ¹¾T03 å®¶å®½ 1x ç›´è¿ž", type: anytls, server: tw-hinet-3.nchc.cc, port: 27173, password: "d14015da-1861-4439-9ca5-da877f917f86", client-fingerprint: chrome, udp: true, idle-session-check-interval: 30, idle-session-timeout: 30, min-idle-session: 0, skip-cert-verify: false }
 EOF
 }
 
 write_builtin_tw_names() {
   local out_file="$1"
   cat > "$out_file" <<'EOF'
-[anytls]í ¼í·¹í ¼í·¼å°æ¹¾T01 å®¶å®½ 1x ç›´è¿ž
-[anytls]í ¼í·¹í ¼í·¼å°æ¹¾T02 å®¶å®½ 1x ç›´è¿ž
-[anytls]í ¼í·¹í ¼í·¼å°æ¹¾T03 å®¶å®½ 1x ç›´è¿ž
+[anytls]å°æ¹¾T01 å®¶å®½ 1x ç›´è¿ž
+[anytls]å°æ¹¾T02 å®¶å®½ 1x ç›´è¿ž
+[anytls]å°æ¹¾T03 å®¶å®½ 1x ç›´è¿ž
 EOF
 }
 
