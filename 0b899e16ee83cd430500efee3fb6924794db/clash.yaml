@@ -312,7 +312,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF01"
     type: vmess
-    server: 108.162.192.38
+    server: 104.26.5.134
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -330,7 +330,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF02"
     type: vmess
-    server: 104.19.148.121
+    server: 198.41.194.162
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -348,7 +348,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF03"
     type: vmess
-    server: 104.18.81.19
+    server: 172.64.230.0
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -366,7 +366,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF04"
     type: vmess
-    server: 172.66.0.0
+    server: 172.64.232.0
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -384,7 +384,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF05"
     type: vmess
-    server: 104.26.5.134
+    server: 172.64.48.226
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -402,7 +402,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF06"
     type: vmess
-    server: 172.64.91.69
+    server: 104.26.4.90
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -420,7 +420,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF07"
     type: vmess
-    server: 104.26.8.117
+    server: 104.25.166.132
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -438,7 +438,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF08"
     type: vmess
-    server: 104.31.16.158
+    server: 104.26.3.162
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -456,7 +456,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF09"
     type: vmess
-    server: 172.64.82.114
+    server: 162.159.137.204
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -474,25 +474,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF10"
     type: vmess
-    server: 104.19.212.207
-    port: 443
-    uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
-    alterId: 0
-    cipher: auto
-    udp: true
-    tls: true
-    servername: de.ywsqbw.uk
-    client-fingerprint: firefox
-    network: ws
-    ws-opts:
-      path: "/vmess-argo"
-      headers:
-        Host: de.ywsqbw.uk
-      max-early-data: 2560
-      early-data-header-name: Sec-WebSocket-Protocol
-  - name: "DE-CF11"
-    type: vmess
-    server: 104.18.89.52
+    server: 198.41.208.15
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -511,6 +493,8 @@ proxies:
   - { name: "[anytls]台湾T01 家宽 1x 直连", type: anytls, server: tw-hinet-1.nchc.cc, port: 27171, password: "d14015da-1861-4439-9ca5-da877f917f86", client-fingerprint: chrome, udp: true, idle-session-check-interval: 30, idle-session-timeout: 30, min-idle-session: 0, skip-cert-verify: false }
   - { name: "[anytls]台湾T02 家宽 1x 直连", type: anytls, server: tw-hinet-2.nchc.cc, port: 27172, password: "d14015da-1861-4439-9ca5-da877f917f86", client-fingerprint: chrome, udp: true, idle-session-check-interval: 30, idle-session-timeout: 30, min-idle-session: 0, skip-cert-verify: false }
   - { name: "[anytls]台湾T03 家宽 1x 直连", type: anytls, server: tw-hinet-3.nchc.cc, port: 27173, password: "d14015da-1861-4439-9ca5-da877f917f86", client-fingerprint: chrome, udp: true, idle-session-check-interval: 30, idle-session-timeout: 30, min-idle-session: 0, skip-cert-verify: false }
+  - { name: "[anytls]🇩🇪德国 T01 家宽 1x 直连", type: anytls, server: de-lisa-1.nchc.cc, port: 27181, password: "d14015da-1861-4439-9ca5-da877f917f86", udp: true, sni: de-lisa-1.nchc.cc, skip-cert-verify: true }
+  - { name: "[anytls]🇯🇵日本T01 IDC 1x 直连", type: anytls, server: jp-aws-1.nchc.cc, port: 27161, password: "d14015da-1861-4439-9ca5-da877f917f86", udp: true, sni: jp-aws-1.nchc.cc, skip-cert-verify: true }
 
 proxy-groups:
   - name: "节点选择"
@@ -542,7 +526,6 @@ proxy-groups:
       - "DE-CF08"
       - "DE-CF09"
       - "DE-CF10"
-      - "DE-CF11"
       - DIRECT
   - name: "自动选择"
     type: select
@@ -573,25 +556,29 @@ proxy-groups:
       - "DE-CF08"
       - "DE-CF09"
       - "DE-CF10"
-      - "DE-CF11"
       - DIRECT
   - name: "X专用"
     type: select
     proxies:
+      - "节点选择"
+      - "自动选择"
       - "[anytls]台湾T01 家宽 1x 直连"
       - "[anytls]台湾T02 家宽 1x 直连"
       - "[anytls]台湾T03 家宽 1x 直连"
-      - "节点选择"
-      - "自动选择"
       - DIRECT
   - name: "ChatGPT"
     type: select
     proxies:
-      - "[anytls]台湾T01 家宽 1x 直连"
-      - "[anytls]台湾T02 家宽 1x 直连"
-      - "[anytls]台湾T03 家宽 1x 直连"
       - "节点选择"
       - "自动选择"
+      - "[anytls]🇩🇪德国 T01 家宽 1x 直连"
+      - DIRECT
+  - name: "T专用"
+    type: select
+    proxies:
+      - "节点选择"
+      - "自动选择"
+      - "[anytls]🇯🇵日本T01 IDC 1x 直连"
       - DIRECT
   - name: "国内服务"
     type: select
@@ -630,6 +617,12 @@ rules:
   - DOMAIN-SUFFIX,anthropic.com,ChatGPT
   - DOMAIN-SUFFIX,claude.ai,ChatGPT
   - DOMAIN-KEYWORD,claude,ChatGPT
+  - DOMAIN-SUFFIX,t.me,T专用
+  - DOMAIN-SUFFIX,telegram.org,T专用
+  - DOMAIN-SUFFIX,telegra.ph,T专用
+  - DOMAIN-SUFFIX,telegram.me,T专用
+  - IP-CIDR,91.108.0.0/16,T专用,no-resolve
+  - IP-CIDR,149.154.0.0/16,T专用,no-resolve
   - DOMAIN-SUFFIX,cn,国内服务
   - GEOIP,CN,国内服务
   - MATCH,漏网之鱼
