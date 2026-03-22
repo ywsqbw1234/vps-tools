@@ -22,7 +22,7 @@ dns:
     - 8.8.8.8
 
 proxies:
-  - name: "DE-Wisdom_Cloud_Internet_Technology-FIX01-yx"
+  - name: "DE-FIX01-yx"
     type: vmess
     server: 108.162.198.205
     port: 443
@@ -31,16 +31,16 @@ proxies:
     cipher: auto
     udp: true
     tls: true
-    servername: cdn.ywsqbw.uk
+    servername: de.ywsqbw.uk
     client-fingerprint: firefox
     network: ws
     ws-opts:
       path: "/vmess-argo"
       headers:
-        Host: cdn.ywsqbw.uk
+        Host: de.ywsqbw.uk
       max-early-data: 2560
       early-data-header-name: Sec-WebSocket-Protocol
-  - name: "DE-Wisdom_Cloud_Internet_Technology-FIX02-wendin1"
+  - name: "DE-FIX02-wendin1"
     type: vmess
     server: 162.159.39.162
     port: 443
@@ -49,16 +49,16 @@ proxies:
     cipher: auto
     udp: true
     tls: true
-    servername: cdn.ywsqbw.uk
+    servername: de.ywsqbw.uk
     client-fingerprint: firefox
     network: ws
     ws-opts:
       path: "/vmess-argo"
       headers:
-        Host: cdn.ywsqbw.uk
+        Host: de.ywsqbw.uk
       max-early-data: 2560
       early-data-header-name: Sec-WebSocket-Protocol
-  - name: "DE-Wisdom_Cloud_Internet_Technology-FIX03-wendin2"
+  - name: "DE-FIX03-wendin2"
     type: vmess
     server: 172.64.52.127
     port: 443
@@ -67,16 +67,16 @@ proxies:
     cipher: auto
     udp: true
     tls: true
-    servername: cdn.ywsqbw.uk
+    servername: de.ywsqbw.uk
     client-fingerprint: firefox
     network: ws
     ws-opts:
       path: "/vmess-argo"
       headers:
-        Host: cdn.ywsqbw.uk
+        Host: de.ywsqbw.uk
       max-early-data: 2560
       early-data-header-name: Sec-WebSocket-Protocol
-  - name: "DE-Wisdom_Cloud_Internet_Technology-FIX04-wendin3"
+  - name: "DE-FIX04-wendin3"
     type: vmess
     server: 172.64.229.7
     port: 443
@@ -85,16 +85,16 @@ proxies:
     cipher: auto
     udp: true
     tls: true
-    servername: cdn.ywsqbw.uk
+    servername: de.ywsqbw.uk
     client-fingerprint: firefox
     network: ws
     ws-opts:
       path: "/vmess-argo"
       headers:
-        Host: cdn.ywsqbw.uk
+        Host: de.ywsqbw.uk
       max-early-data: 2560
       early-data-header-name: Sec-WebSocket-Protocol
-  - name: "DE-Wisdom_Cloud_Internet_Technology-FIX05-wendin4"
+  - name: "DE-FIX05-wendin4"
     type: vmess
     server: 172.64.229.0
     port: 443
@@ -103,16 +103,16 @@ proxies:
     cipher: auto
     udp: true
     tls: true
-    servername: cdn.ywsqbw.uk
+    servername: de.ywsqbw.uk
     client-fingerprint: firefox
     network: ws
     ws-opts:
       path: "/vmess-argo"
       headers:
-        Host: cdn.ywsqbw.uk
+        Host: de.ywsqbw.uk
       max-early-data: 2560
       early-data-header-name: Sec-WebSocket-Protocol
-  - name: "DE-Wisdom_Cloud_Internet_Technology-FIX06-备用域名"
+  - name: "DE-FIX06-备用域名"
     type: vmess
     server: cf.877774.xyz
     port: 443
@@ -121,16 +121,16 @@ proxies:
     cipher: auto
     udp: true
     tls: true
-    servername: cdn.ywsqbw.uk
+    servername: de.ywsqbw.uk
     client-fingerprint: firefox
     network: ws
     ws-opts:
       path: "/vmess-argo"
       headers:
-        Host: cdn.ywsqbw.uk
+        Host: de.ywsqbw.uk
       max-early-data: 2560
       early-data-header-name: Sec-WebSocket-Protocol
-  - name: "DE-Wisdom_Cloud_Internet_Technology-FIX07-主域名"
+  - name: "DE-FIX07-主域名"
     type: vmess
     server: de.ywsqbw.uk
     port: 443
@@ -139,16 +139,16 @@ proxies:
     cipher: auto
     udp: true
     tls: true
-    servername: cdn.ywsqbw.uk
+    servername: de.ywsqbw.uk
     client-fingerprint: firefox
     network: ws
     ws-opts:
       path: "/vmess-argo"
       headers:
-        Host: cdn.ywsqbw.uk
+        Host: de.ywsqbw.uk
       max-early-data: 2560
       early-data-header-name: Sec-WebSocket-Protocol
-  - name: "DE-Wisdom_Cloud_Internet_Technology-FIX08-japan1"
+  - name: "DE-FIX08-japan1"
     type: vmess
     server: 162.159.45.48
     port: 443
@@ -157,16 +157,16 @@ proxies:
     cipher: auto
     udp: true
     tls: true
-    servername: cdn.ywsqbw.uk
+    servername: de.ywsqbw.uk
     client-fingerprint: firefox
     network: ws
     ws-opts:
       path: "/vmess-argo"
       headers:
-        Host: cdn.ywsqbw.uk
+        Host: de.ywsqbw.uk
       max-early-data: 2560
       early-data-header-name: Sec-WebSocket-Protocol
-  - name: "DE-Wisdom_Cloud_Internet_Technology-FIX09-japan2"
+  - name: "DE-FIX09-japan2"
     type: vmess
     server: 162.159.44.19
     port: 443
@@ -175,16 +175,16 @@ proxies:
     cipher: auto
     udp: true
     tls: true
-    servername: cdn.ywsqbw.uk
+    servername: de.ywsqbw.uk
     client-fingerprint: firefox
     network: ws
     ws-opts:
       path: "/vmess-argo"
       headers:
-        Host: cdn.ywsqbw.uk
+        Host: de.ywsqbw.uk
       max-early-data: 2560
       early-data-header-name: Sec-WebSocket-Protocol
-  - name: "DE-Wisdom_Cloud_Internet_Technology-FIX10-japan3"
+  - name: "DE-FIX10-japan3"
     type: vmess
     server: 108.162.198.111
     port: 443
@@ -193,16 +193,16 @@ proxies:
     cipher: auto
     udp: true
     tls: true
-    servername: cdn.ywsqbw.uk
+    servername: de.ywsqbw.uk
     client-fingerprint: firefox
     network: ws
     ws-opts:
       path: "/vmess-argo"
       headers:
-        Host: cdn.ywsqbw.uk
+        Host: de.ywsqbw.uk
       max-early-data: 2560
       early-data-header-name: Sec-WebSocket-Protocol
-  - name: "DE-Wisdom_Cloud_Internet_Technology-FIX11-japan4"
+  - name: "DE-FIX11-japan4"
     type: vmess
     server: 162.159.39.154
     port: 443
@@ -211,16 +211,16 @@ proxies:
     cipher: auto
     udp: true
     tls: true
-    servername: cdn.ywsqbw.uk
+    servername: de.ywsqbw.uk
     client-fingerprint: firefox
     network: ws
     ws-opts:
       path: "/vmess-argo"
       headers:
-        Host: cdn.ywsqbw.uk
+        Host: de.ywsqbw.uk
       max-early-data: 2560
       early-data-header-name: Sec-WebSocket-Protocol
-  - name: "DE-Wisdom_Cloud_Internet_Technology-FIX12-japanT1"
+  - name: "DE-FIX12-japanT1"
     type: vmess
     server: 172.64.53.177
     port: 443
@@ -229,16 +229,16 @@ proxies:
     cipher: auto
     udp: true
     tls: true
-    servername: cdn.ywsqbw.uk
+    servername: de.ywsqbw.uk
     client-fingerprint: firefox
     network: ws
     ws-opts:
       path: "/vmess-argo"
       headers:
-        Host: cdn.ywsqbw.uk
+        Host: de.ywsqbw.uk
       max-early-data: 2560
       early-data-header-name: Sec-WebSocket-Protocol
-  - name: "DE-Wisdom_Cloud_Internet_Technology-FIX13-japanT2"
+  - name: "DE-FIX13-japanT2"
     type: vmess
     server: 108.162.198.190
     port: 443
@@ -247,16 +247,16 @@ proxies:
     cipher: auto
     udp: true
     tls: true
-    servername: cdn.ywsqbw.uk
+    servername: de.ywsqbw.uk
     client-fingerprint: firefox
     network: ws
     ws-opts:
       path: "/vmess-argo"
       headers:
-        Host: cdn.ywsqbw.uk
+        Host: de.ywsqbw.uk
       max-early-data: 2560
       early-data-header-name: Sec-WebSocket-Protocol
-  - name: "DE-Wisdom_Cloud_Internet_Technology-FIX14-japanT3"
+  - name: "DE-FIX14-japanT3"
     type: vmess
     server: 162.159.38.148
     port: 443
@@ -265,16 +265,16 @@ proxies:
     cipher: auto
     udp: true
     tls: true
-    servername: cdn.ywsqbw.uk
+    servername: de.ywsqbw.uk
     client-fingerprint: firefox
     network: ws
     ws-opts:
       path: "/vmess-argo"
       headers:
-        Host: cdn.ywsqbw.uk
+        Host: de.ywsqbw.uk
       max-early-data: 2560
       early-data-header-name: Sec-WebSocket-Protocol
-  - name: "DE-Wisdom_Cloud_Internet_Technology-FIX15-singapore1"
+  - name: "DE-FIX15-singapore1"
     type: vmess
     server: 108.162.195.180
     port: 443
@@ -283,16 +283,16 @@ proxies:
     cipher: auto
     udp: true
     tls: true
-    servername: cdn.ywsqbw.uk
+    servername: de.ywsqbw.uk
     client-fingerprint: firefox
     network: ws
     ws-opts:
       path: "/vmess-argo"
       headers:
-        Host: cdn.ywsqbw.uk
+        Host: de.ywsqbw.uk
       max-early-data: 2560
       early-data-header-name: Sec-WebSocket-Protocol
-  - name: "DE-Wisdom_Cloud_Internet_Technology-FIX16-singapore2"
+  - name: "DE-FIX16-singapore2"
     type: vmess
     server: 172.64.152.51
     port: 443
@@ -301,16 +301,16 @@ proxies:
     cipher: auto
     udp: true
     tls: true
-    servername: cdn.ywsqbw.uk
+    servername: de.ywsqbw.uk
     client-fingerprint: firefox
     network: ws
     ws-opts:
       path: "/vmess-argo"
       headers:
-        Host: cdn.ywsqbw.uk
+        Host: de.ywsqbw.uk
       max-early-data: 2560
       early-data-header-name: Sec-WebSocket-Protocol
-  - name: "DE-Wisdom_Cloud_Internet_Technology-FIX17-singapore3"
+  - name: "DE-FIX17-singapore3"
     type: vmess
     server: 162.159.58.27
     port: 443
@@ -319,16 +319,16 @@ proxies:
     cipher: auto
     udp: true
     tls: true
-    servername: cdn.ywsqbw.uk
+    servername: de.ywsqbw.uk
     client-fingerprint: firefox
     network: ws
     ws-opts:
       path: "/vmess-argo"
       headers:
-        Host: cdn.ywsqbw.uk
+        Host: de.ywsqbw.uk
       max-early-data: 2560
       early-data-header-name: Sec-WebSocket-Protocol
-  - name: "DE-Wisdom_Cloud_Internet_Technology-FIX18-AMS1"
+  - name: "DE-FIX18-AMS1"
     type: vmess
     server: 172.65.204.130
     port: 443
@@ -337,16 +337,16 @@ proxies:
     cipher: auto
     udp: true
     tls: true
-    servername: cdn.ywsqbw.uk
+    servername: de.ywsqbw.uk
     client-fingerprint: firefox
     network: ws
     ws-opts:
       path: "/vmess-argo"
       headers:
-        Host: cdn.ywsqbw.uk
+        Host: de.ywsqbw.uk
       max-early-data: 2560
       early-data-header-name: Sec-WebSocket-Protocol
-  - name: "DE-Wisdom_Cloud_Internet_Technology-FIX19-AMS2"
+  - name: "DE-FIX19-AMS2"
     type: vmess
     server: 172.67.247.194
     port: 443
@@ -355,16 +355,16 @@ proxies:
     cipher: auto
     udp: true
     tls: true
-    servername: cdn.ywsqbw.uk
+    servername: de.ywsqbw.uk
     client-fingerprint: firefox
     network: ws
     ws-opts:
       path: "/vmess-argo"
       headers:
-        Host: cdn.ywsqbw.uk
+        Host: de.ywsqbw.uk
       max-early-data: 2560
       early-data-header-name: Sec-WebSocket-Protocol
-  - name: "DE-Wisdom_Cloud_Internet_Technology-FIX20-NA"
+  - name: "DE-FIX20-NA"
     type: vmess
     server: 104.19.173.197
     port: 443
@@ -373,214 +373,70 @@ proxies:
     cipher: auto
     udp: true
     tls: true
-    servername: cdn.ywsqbw.uk
+    servername: de.ywsqbw.uk
     client-fingerprint: firefox
     network: ws
     ws-opts:
       path: "/vmess-argo"
       headers:
-        Host: cdn.ywsqbw.uk
+        Host: de.ywsqbw.uk
       max-early-data: 2560
       early-data-header-name: Sec-WebSocket-Protocol
-  - name: "DE-Wisdom_Cloud_Internet_Technology-CF01"
+  - name: "DE-CF01"
     type: vmess
-    server: 104.26.8.117
+    server: 104.16.0.0
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
     cipher: auto
     udp: true
     tls: true
-    servername: cdn.ywsqbw.uk
+    servername: de.ywsqbw.uk
     client-fingerprint: firefox
     network: ws
     ws-opts:
       path: "/vmess-argo"
       headers:
-        Host: cdn.ywsqbw.uk
+        Host: de.ywsqbw.uk
       max-early-data: 2560
       early-data-header-name: Sec-WebSocket-Protocol
-  - name: "DE-Wisdom_Cloud_Internet_Technology-CF02"
+  - name: "DE-CF02"
     type: vmess
-    server: 104.31.16.158
+    server: 188.114.96.0
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
     cipher: auto
     udp: true
     tls: true
-    servername: cdn.ywsqbw.uk
+    servername: de.ywsqbw.uk
     client-fingerprint: firefox
     network: ws
     ws-opts:
       path: "/vmess-argo"
       headers:
-        Host: cdn.ywsqbw.uk
+        Host: de.ywsqbw.uk
       max-early-data: 2560
       early-data-header-name: Sec-WebSocket-Protocol
-  - name: "DE-Wisdom_Cloud_Internet_Technology-CF03"
+  - name: "DE-CF03"
     type: vmess
-    server: 172.66.0.0
+    server: 173.245.49.194
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
     cipher: auto
     udp: true
     tls: true
-    servername: cdn.ywsqbw.uk
+    servername: de.ywsqbw.uk
     client-fingerprint: firefox
     network: ws
     ws-opts:
       path: "/vmess-argo"
       headers:
-        Host: cdn.ywsqbw.uk
+        Host: de.ywsqbw.uk
       max-early-data: 2560
       early-data-header-name: Sec-WebSocket-Protocol
-  - name: "DE-Wisdom_Cloud_Internet_Technology-CF04"
-    type: vmess
-    server: 104.19.212.207
-    port: 443
-    uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
-    alterId: 0
-    cipher: auto
-    udp: true
-    tls: true
-    servername: cdn.ywsqbw.uk
-    client-fingerprint: firefox
-    network: ws
-    ws-opts:
-      path: "/vmess-argo"
-      headers:
-        Host: cdn.ywsqbw.uk
-      max-early-data: 2560
-      early-data-header-name: Sec-WebSocket-Protocol
-  - name: "DE-Wisdom_Cloud_Internet_Technology-CF05"
-    type: vmess
-    server: 108.162.192.0
-    port: 443
-    uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
-    alterId: 0
-    cipher: auto
-    udp: true
-    tls: true
-    servername: cdn.ywsqbw.uk
-    client-fingerprint: firefox
-    network: ws
-    ws-opts:
-      path: "/vmess-argo"
-      headers:
-        Host: cdn.ywsqbw.uk
-      max-early-data: 2560
-      early-data-header-name: Sec-WebSocket-Protocol
-  - name: "DE-Wisdom_Cloud_Internet_Technology-CF06"
-    type: vmess
-    server: 104.19.154.200
-    port: 443
-    uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
-    alterId: 0
-    cipher: auto
-    udp: true
-    tls: true
-    servername: cdn.ywsqbw.uk
-    client-fingerprint: firefox
-    network: ws
-    ws-opts:
-      path: "/vmess-argo"
-      headers:
-        Host: cdn.ywsqbw.uk
-      max-early-data: 2560
-      early-data-header-name: Sec-WebSocket-Protocol
-  - name: "DE-Wisdom_Cloud_Internet_Technology-CF07"
-    type: vmess
-    server: 104.17.124.66
-    port: 443
-    uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
-    alterId: 0
-    cipher: auto
-    udp: true
-    tls: true
-    servername: cdn.ywsqbw.uk
-    client-fingerprint: firefox
-    network: ws
-    ws-opts:
-      path: "/vmess-argo"
-      headers:
-        Host: cdn.ywsqbw.uk
-      max-early-data: 2560
-      early-data-header-name: Sec-WebSocket-Protocol
-  - name: "DE-Wisdom_Cloud_Internet_Technology-CF08"
-    type: vmess
-    server: 162.159.58.65
-    port: 443
-    uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
-    alterId: 0
-    cipher: auto
-    udp: true
-    tls: true
-    servername: cdn.ywsqbw.uk
-    client-fingerprint: firefox
-    network: ws
-    ws-opts:
-      path: "/vmess-argo"
-      headers:
-        Host: cdn.ywsqbw.uk
-      max-early-data: 2560
-      early-data-header-name: Sec-WebSocket-Protocol
-  - name: "DE-Wisdom_Cloud_Internet_Technology-CF09"
-    type: vmess
-    server: 104.17.162.3
-    port: 443
-    uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
-    alterId: 0
-    cipher: auto
-    udp: true
-    tls: true
-    servername: cdn.ywsqbw.uk
-    client-fingerprint: firefox
-    network: ws
-    ws-opts:
-      path: "/vmess-argo"
-      headers:
-        Host: cdn.ywsqbw.uk
-      max-early-data: 2560
-      early-data-header-name: Sec-WebSocket-Protocol
-  - name: "DE-Wisdom_Cloud_Internet_Technology-CF10"
-    type: vmess
-    server: 108.162.193.152
-    port: 443
-    uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
-    alterId: 0
-    cipher: auto
-    udp: true
-    tls: true
-    servername: cdn.ywsqbw.uk
-    client-fingerprint: firefox
-    network: ws
-    ws-opts:
-      path: "/vmess-argo"
-      headers:
-        Host: cdn.ywsqbw.uk
-      max-early-data: 2560
-      early-data-header-name: Sec-WebSocket-Protocol
-  - name: "DE-Wisdom_Cloud_Internet_Technology-CF11"
-    type: vmess
-    server: 172.66.172.213
-    port: 443
-    uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
-    alterId: 0
-    cipher: auto
-    udp: true
-    tls: true
-    servername: cdn.ywsqbw.uk
-    client-fingerprint: firefox
-    network: ws
-    ws-opts:
-      path: "/vmess-argo"
-      headers:
-        Host: cdn.ywsqbw.uk
-      max-early-data: 2560
-      early-data-header-name: Sec-WebSocket-Protocol
-  - name: "DE-Wisdom_Cloud_Internet_Technology-CF12"
+  - name: "DE-CF04"
     type: vmess
     server: 198.41.194.162
     port: 443
@@ -589,106 +445,240 @@ proxies:
     cipher: auto
     udp: true
     tls: true
-    servername: cdn.ywsqbw.uk
+    servername: de.ywsqbw.uk
     client-fingerprint: firefox
     network: ws
     ws-opts:
       path: "/vmess-argo"
       headers:
-        Host: cdn.ywsqbw.uk
+        Host: de.ywsqbw.uk
       max-early-data: 2560
       early-data-header-name: Sec-WebSocket-Protocol
-  - { name: "[anytls]🇹🇼台湾T01 家宽 1x 直连", type: anytls, server: tw-hinet-1.nchc.cc, port: 27171, password: "d14015da-1861-4439-9ca5-da877f917f86", client-fingerprint: chrome, udp: true, idle-session-check-interval: 30, idle-session-timeout: 30, min-idle-session: 0, skip-cert-verify: false }
-  - { name: "[anytls]🇹🇼台湾T02 家宽 1x 直连", type: anytls, server: tw-hinet-2.nchc.cc, port: 27172, password: "d14015da-1861-4439-9ca5-da877f917f86", client-fingerprint: chrome, udp: true, idle-session-check-interval: 30, idle-session-timeout: 30, min-idle-session: 0, skip-cert-verify: false }
-  - { name: "[anytls]🇹🇼台湾T03 家宽 1x 直连", type: anytls, server: tw-hinet-3.nchc.cc, port: 27173, password: "d14015da-1861-4439-9ca5-da877f917f86", client-fingerprint: chrome, udp: true, idle-session-check-interval: 30, idle-session-timeout: 30, min-idle-session: 0, skip-cert-verify: false }
+  - name: "DE-CF05"
+    type: vmess
+    server: 172.66.172.213
+    port: 443
+    uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
+    alterId: 0
+    cipher: auto
+    udp: true
+    tls: true
+    servername: de.ywsqbw.uk
+    client-fingerprint: firefox
+    network: ws
+    ws-opts:
+      path: "/vmess-argo"
+      headers:
+        Host: de.ywsqbw.uk
+      max-early-data: 2560
+      early-data-header-name: Sec-WebSocket-Protocol
+  - name: "DE-CF06"
+    type: vmess
+    server: 198.41.208.15
+    port: 443
+    uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
+    alterId: 0
+    cipher: auto
+    udp: true
+    tls: true
+    servername: de.ywsqbw.uk
+    client-fingerprint: firefox
+    network: ws
+    ws-opts:
+      path: "/vmess-argo"
+      headers:
+        Host: de.ywsqbw.uk
+      max-early-data: 2560
+      early-data-header-name: Sec-WebSocket-Protocol
+  - name: "DE-CF07"
+    type: vmess
+    server: 104.16.105.166
+    port: 443
+    uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
+    alterId: 0
+    cipher: auto
+    udp: true
+    tls: true
+    servername: de.ywsqbw.uk
+    client-fingerprint: firefox
+    network: ws
+    ws-opts:
+      path: "/vmess-argo"
+      headers:
+        Host: de.ywsqbw.uk
+      max-early-data: 2560
+      early-data-header-name: Sec-WebSocket-Protocol
+  - name: "DE-CF08"
+    type: vmess
+    server: 172.66.0.0
+    port: 443
+    uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
+    alterId: 0
+    cipher: auto
+    udp: true
+    tls: true
+    servername: de.ywsqbw.uk
+    client-fingerprint: firefox
+    network: ws
+    ws-opts:
+      path: "/vmess-argo"
+      headers:
+        Host: de.ywsqbw.uk
+      max-early-data: 2560
+      early-data-header-name: Sec-WebSocket-Protocol
+  - name: "DE-CF09"
+    type: vmess
+    server: 162.159.128.253
+    port: 443
+    uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
+    alterId: 0
+    cipher: auto
+    udp: true
+    tls: true
+    servername: de.ywsqbw.uk
+    client-fingerprint: firefox
+    network: ws
+    ws-opts:
+      path: "/vmess-argo"
+      headers:
+        Host: de.ywsqbw.uk
+      max-early-data: 2560
+      early-data-header-name: Sec-WebSocket-Protocol
+  - name: "DE-CF10"
+    type: vmess
+    server: 104.20.44.65
+    port: 443
+    uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
+    alterId: 0
+    cipher: auto
+    udp: true
+    tls: true
+    servername: de.ywsqbw.uk
+    client-fingerprint: firefox
+    network: ws
+    ws-opts:
+      path: "/vmess-argo"
+      headers:
+        Host: de.ywsqbw.uk
+      max-early-data: 2560
+      early-data-header-name: Sec-WebSocket-Protocol
+  - name: "DE-CF11"
+    type: vmess
+    server: 172.64.48.226
+    port: 443
+    uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
+    alterId: 0
+    cipher: auto
+    udp: true
+    tls: true
+    servername: de.ywsqbw.uk
+    client-fingerprint: firefox
+    network: ws
+    ws-opts:
+      path: "/vmess-argo"
+      headers:
+        Host: de.ywsqbw.uk
+      max-early-data: 2560
+      early-data-header-name: Sec-WebSocket-Protocol
+  - { name: "[anytls]台湾T01 家宽 1x 直连", type: anytls, server: tw-hinet-1.nchc.cc, port: 27171, password: "d14015da-1861-4439-9ca5-da877f917f86", client-fingerprint: chrome, udp: true, idle-session-check-interval: 30, idle-session-timeout: 30, min-idle-session: 0, skip-cert-verify: false }
+  - { name: "[anytls]台湾T02 家宽 1x 直连", type: anytls, server: tw-hinet-2.nchc.cc, port: 27172, password: "d14015da-1861-4439-9ca5-da877f917f86", client-fingerprint: chrome, udp: true, idle-session-check-interval: 30, idle-session-timeout: 30, min-idle-session: 0, skip-cert-verify: false }
+  - { name: "[anytls]台湾T03 家宽 1x 直连", type: anytls, server: tw-hinet-3.nchc.cc, port: 27173, password: "d14015da-1861-4439-9ca5-da877f917f86", client-fingerprint: chrome, udp: true, idle-session-check-interval: 30, idle-session-timeout: 30, min-idle-session: 0, skip-cert-verify: false }
+  - { name: "[anytls]🇩🇪德国 T01 家宽 1x 直连", type: anytls, server: de-lisa-1.nchc.cc, port: 27181, password: "d14015da-1861-4439-9ca5-da877f917f86", udp: true, sni: de-lisa-1.nchc.cc, skip-cert-verify: true }
+  - { name: "[anytls]🇯🇵日本T01 IDC 1x 直连", type: anytls, server: jp-aws-1.nchc.cc, port: 27161, password: "d14015da-1861-4439-9ca5-da877f917f86", udp: true, sni: jp-aws-1.nchc.cc, skip-cert-verify: true }
 
 proxy-groups:
   - name: "节点选择"
     type: select
     proxies:
-      - "DE-Wisdom_Cloud_Internet_Technology-FIX01-yx"
-      - "DE-Wisdom_Cloud_Internet_Technology-FIX02-wendin1"
-      - "DE-Wisdom_Cloud_Internet_Technology-FIX03-wendin2"
-      - "DE-Wisdom_Cloud_Internet_Technology-FIX04-wendin3"
-      - "DE-Wisdom_Cloud_Internet_Technology-FIX05-wendin4"
-      - "DE-Wisdom_Cloud_Internet_Technology-FIX06-备用域名"
-      - "DE-Wisdom_Cloud_Internet_Technology-FIX07-主域名"
-      - "DE-Wisdom_Cloud_Internet_Technology-FIX08-japan1"
-      - "DE-Wisdom_Cloud_Internet_Technology-FIX09-japan2"
-      - "DE-Wisdom_Cloud_Internet_Technology-FIX10-japan3"
-      - "DE-Wisdom_Cloud_Internet_Technology-FIX11-japan4"
-      - "DE-Wisdom_Cloud_Internet_Technology-FIX12-japanT1"
-      - "DE-Wisdom_Cloud_Internet_Technology-FIX13-japanT2"
-      - "DE-Wisdom_Cloud_Internet_Technology-FIX14-japanT3"
-      - "DE-Wisdom_Cloud_Internet_Technology-FIX15-singapore1"
-      - "DE-Wisdom_Cloud_Internet_Technology-FIX16-singapore2"
-      - "DE-Wisdom_Cloud_Internet_Technology-FIX17-singapore3"
-      - "DE-Wisdom_Cloud_Internet_Technology-FIX18-AMS1"
-      - "DE-Wisdom_Cloud_Internet_Technology-FIX19-AMS2"
-      - "DE-Wisdom_Cloud_Internet_Technology-FIX20-NA"
-      - "DE-Wisdom_Cloud_Internet_Technology-CF01"
-      - "DE-Wisdom_Cloud_Internet_Technology-CF02"
-      - "DE-Wisdom_Cloud_Internet_Technology-CF03"
-      - "DE-Wisdom_Cloud_Internet_Technology-CF04"
-      - "DE-Wisdom_Cloud_Internet_Technology-CF05"
-      - "DE-Wisdom_Cloud_Internet_Technology-CF06"
-      - "DE-Wisdom_Cloud_Internet_Technology-CF07"
-      - "DE-Wisdom_Cloud_Internet_Technology-CF08"
-      - "DE-Wisdom_Cloud_Internet_Technology-CF09"
-      - "DE-Wisdom_Cloud_Internet_Technology-CF10"
-      - "DE-Wisdom_Cloud_Internet_Technology-CF11"
-      - "DE-Wisdom_Cloud_Internet_Technology-CF12"
+      - "DE-FIX01-yx"
+      - "DE-FIX02-wendin1"
+      - "DE-FIX03-wendin2"
+      - "DE-FIX04-wendin3"
+      - "DE-FIX05-wendin4"
+      - "DE-FIX06-备用域名"
+      - "DE-FIX07-主域名"
+      - "DE-FIX08-japan1"
+      - "DE-FIX09-japan2"
+      - "DE-FIX10-japan3"
+      - "DE-FIX11-japan4"
+      - "DE-FIX12-japanT1"
+      - "DE-FIX13-japanT2"
+      - "DE-FIX14-japanT3"
+      - "DE-FIX15-singapore1"
+      - "DE-FIX16-singapore2"
+      - "DE-FIX17-singapore3"
+      - "DE-FIX18-AMS1"
+      - "DE-FIX19-AMS2"
+      - "DE-FIX20-NA"
+      - "DE-CF01"
+      - "DE-CF02"
+      - "DE-CF03"
+      - "DE-CF04"
+      - "DE-CF05"
+      - "DE-CF06"
+      - "DE-CF07"
+      - "DE-CF08"
+      - "DE-CF09"
+      - "DE-CF10"
+      - "DE-CF11"
       - DIRECT
   - name: "自动选择"
     type: select
     proxies:
-      - "DE-Wisdom_Cloud_Internet_Technology-FIX01-yx"
-      - "DE-Wisdom_Cloud_Internet_Technology-FIX02-wendin1"
-      - "DE-Wisdom_Cloud_Internet_Technology-FIX03-wendin2"
-      - "DE-Wisdom_Cloud_Internet_Technology-FIX04-wendin3"
-      - "DE-Wisdom_Cloud_Internet_Technology-FIX05-wendin4"
-      - "DE-Wisdom_Cloud_Internet_Technology-FIX06-备用域名"
-      - "DE-Wisdom_Cloud_Internet_Technology-FIX07-主域名"
-      - "DE-Wisdom_Cloud_Internet_Technology-FIX08-japan1"
-      - "DE-Wisdom_Cloud_Internet_Technology-FIX09-japan2"
-      - "DE-Wisdom_Cloud_Internet_Technology-FIX10-japan3"
-      - "DE-Wisdom_Cloud_Internet_Technology-FIX11-japan4"
-      - "DE-Wisdom_Cloud_Internet_Technology-FIX12-japanT1"
-      - "DE-Wisdom_Cloud_Internet_Technology-FIX13-japanT2"
-      - "DE-Wisdom_Cloud_Internet_Technology-FIX14-japanT3"
-      - "DE-Wisdom_Cloud_Internet_Technology-FIX15-singapore1"
-      - "DE-Wisdom_Cloud_Internet_Technology-FIX16-singapore2"
-      - "DE-Wisdom_Cloud_Internet_Technology-FIX17-singapore3"
-      - "DE-Wisdom_Cloud_Internet_Technology-FIX18-AMS1"
-      - "DE-Wisdom_Cloud_Internet_Technology-FIX19-AMS2"
-      - "DE-Wisdom_Cloud_Internet_Technology-FIX20-NA"
-      - "DE-Wisdom_Cloud_Internet_Technology-CF01"
-      - "DE-Wisdom_Cloud_Internet_Technology-CF02"
-      - "DE-Wisdom_Cloud_Internet_Technology-CF03"
-      - "DE-Wisdom_Cloud_Internet_Technology-CF04"
-      - "DE-Wisdom_Cloud_Internet_Technology-CF05"
-      - "DE-Wisdom_Cloud_Internet_Technology-CF06"
-      - "DE-Wisdom_Cloud_Internet_Technology-CF07"
-      - "DE-Wisdom_Cloud_Internet_Technology-CF08"
-      - "DE-Wisdom_Cloud_Internet_Technology-CF09"
-      - "DE-Wisdom_Cloud_Internet_Technology-CF10"
-      - "DE-Wisdom_Cloud_Internet_Technology-CF11"
-      - "DE-Wisdom_Cloud_Internet_Technology-CF12"
+      - "DE-FIX01-yx"
+      - "DE-FIX02-wendin1"
+      - "DE-FIX03-wendin2"
+      - "DE-FIX04-wendin3"
+      - "DE-FIX05-wendin4"
+      - "DE-FIX06-备用域名"
+      - "DE-FIX07-主域名"
+      - "DE-FIX08-japan1"
+      - "DE-FIX09-japan2"
+      - "DE-FIX10-japan3"
+      - "DE-FIX11-japan4"
+      - "DE-FIX12-japanT1"
+      - "DE-FIX13-japanT2"
+      - "DE-FIX14-japanT3"
+      - "DE-FIX15-singapore1"
+      - "DE-FIX16-singapore2"
+      - "DE-FIX17-singapore3"
+      - "DE-FIX18-AMS1"
+      - "DE-FIX19-AMS2"
+      - "DE-FIX20-NA"
+      - "DE-CF01"
+      - "DE-CF02"
+      - "DE-CF03"
+      - "DE-CF04"
+      - "DE-CF05"
+      - "DE-CF06"
+      - "DE-CF07"
+      - "DE-CF08"
+      - "DE-CF09"
+      - "DE-CF10"
+      - "DE-CF11"
       - DIRECT
   - name: "X专用"
     type: select
     proxies:
-      - "[anytls]🇹🇼台湾T01 家宽 1x 直连"
-      - "[anytls]🇹🇼台湾T02 家宽 1x 直连"
-      - "[anytls]🇹🇼台湾T03 家宽 1x 直连"
       - "节点选择"
       - "自动选择"
+      - "[anytls]台湾T01 家宽 1x 直连"
+      - "[anytls]台湾T02 家宽 1x 直连"
+      - "[anytls]台湾T03 家宽 1x 直连"
       - DIRECT
   - name: "ChatGPT"
     type: select
     proxies:
       - "节点选择"
       - "自动选择"
+      - "[anytls]🇩🇪德国 T01 家宽 1x 直连"
+      - DIRECT
+  - name: "T专用"
+    type: select
+    proxies:
+      - "节点选择"
+      - "自动选择"
+      - "[anytls]🇯🇵日本T01 IDC 1x 直连"
       - DIRECT
   - name: "国内服务"
     type: select
@@ -708,9 +698,9 @@ rules:
   - PROCESS-NAME,ssh,DIRECT
   - PROCESS-NAME,Terminal,DIRECT
   - PROCESS-NAME,WindowsTerminal.exe,DIRECT
-  - IP-CIDR,103.158.228.187/32,DIRECT,no-resolve
+  - IP-CIDR,82.139.205.22/32,DIRECT,no-resolve
   - DOMAIN-SUFFIX,ywsqbw.uk,DIRECT
-  - DOMAIN,cdn.ywsqbw.uk,DIRECT
+  - DOMAIN,de.ywsqbw.uk,DIRECT
   - DST-PORT,22,DIRECT
   - DOMAIN-SUFFIX,x.com,X专用
   - DOMAIN-SUFFIX,twitter.com,X专用
@@ -727,6 +717,12 @@ rules:
   - DOMAIN-SUFFIX,anthropic.com,ChatGPT
   - DOMAIN-SUFFIX,claude.ai,ChatGPT
   - DOMAIN-KEYWORD,claude,ChatGPT
+  - DOMAIN-SUFFIX,t.me,T专用
+  - DOMAIN-SUFFIX,telegram.org,T专用
+  - DOMAIN-SUFFIX,telegra.ph,T专用
+  - DOMAIN-SUFFIX,telegram.me,T专用
+  - IP-CIDR,91.108.0.0/16,T专用,no-resolve
+  - IP-CIDR,149.154.0.0/16,T专用,no-resolve
   - DOMAIN-SUFFIX,cn,国内服务
   - GEOIP,CN,国内服务
   - MATCH,漏网之鱼
