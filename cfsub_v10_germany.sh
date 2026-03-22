@@ -204,6 +204,33 @@ write_builtin_tw_names() {
 [anytls]台湾T03 家宽 1x 直连
 EOF
 }
+write_builtin_de_nodes() {
+  local out_file="$1"
+  cat > "$out_file" <<'EOF'
+  - { name: "[anytls]🇩🇪德国 T01 家宽 1x 直连", type: anytls, server: de-lisa-1.nchc.cc, port: 27181, password: "d14015da-1861-4439-9ca5-da877f917f86", udp: true, sni: de-lisa-1.nchc.cc, skip-cert-verify: true }
+EOF
+}
+
+write_builtin_de_names() {
+  local out_file="$1"
+  cat > "$out_file" <<'EOF'
+[anytls]🇩🇪德国 T01 家宽 1x 直连
+EOF
+}
+
+write_builtin_jp_nodes() {
+  local out_file="$1"
+  cat > "$out_file" <<'EOF'
+  - { name: "[anytls]🇯🇵日本T01 IDC 1x 直连", type: anytls, server: jp-aws-1.nchc.cc, port: 27161, password: "d14015da-1861-4439-9ca5-da877f917f86", udp: true, sni: jp-aws-1.nchc.cc, skip-cert-verify: true }
+EOF
+}
+
+write_builtin_jp_names() {
+  local out_file="$1"
+  cat > "$out_file" <<'EOF'
+[anytls]🇯🇵日本T01 IDC 1x 直连
+EOF
+}
 
 push_github_files() {
   local secret_dir="$1"
@@ -281,6 +308,8 @@ main() {
   local tmpdir
   local fixed_nodes_txt all_ips auto_top final_nodes vmess_list clash_yaml
   local airport_tw_proxies airport_tw_names
+  local airport_de_proxies airport_de_names
+  local airport_jp_proxies airport_jp_names
 
   tmpdir="$(mktemp -d)"
   fixed_nodes_txt="${tmpdir}/fixed_nodes.txt"
@@ -291,12 +320,20 @@ main() {
   clash_yaml="${tmpdir}/clash.yaml"
   airport_tw_proxies="${tmpdir}/airport_tw_proxies.txt"
   airport_tw_names="${tmpdir}/airport_tw_names.txt"
+  airport_de_proxies="${tmpdir}/airport_de_proxies.txt"
+  airport_de_names="${tmpdir}/airport_de_names.txt"
+  airport_jp_proxies="${tmpdir}/airport_jp_proxies.txt"
+  airport_jp_names="${tmpdir}/airport_jp_names.txt"
 
   read_fixed_nodes "$fixed_nodes_txt"
   log "固定节点数量：$(wc -l < "$fixed_nodes_txt" 2>/dev/null | tr -d ' ' || echo 0)"
 
   write_builtin_tw_nodes "$airport_tw_proxies"
   write_builtin_tw_names "$airport_tw_names"
+  write_builtin_de_nodes "$airport_de_proxies"
+  write_builtin_de_names "$airport_de_names"
+  write_builtin_jp_nodes "$airport_jp_proxies"
+  write_builtin_jp_names "$airport_jp_names"
   log "内置台湾节点数量：$(wc -l < "$airport_tw_names" | tr -d ' ')"
 
   fetch_ips_sources "$all_ips" > "${all_ips}.sorted"
@@ -421,8 +458,16 @@ main() {
     done < "$final_nodes"
 
     while IFS= read -r line; do
-      echo "${line}"
+       echo "${line}"
     done < "$airport_tw_proxies"
+
+    while IFS= read -r line; do
+       echo "${line}"
+    done < "$airport_de_proxies"
+
+    while IFS= read -r line; do
+       echo "${line}"
+    done < "$airport_jp_proxies"
 
     echo ""
     echo "proxy-groups:"
@@ -480,21 +525,31 @@ main() {
     echo "  - name: \"X专用\""
     echo "    type: select"
     echo "    proxies:"
-    while IFS= read -r n; do
-      [[ -n "$n" ]] && echo "      - \"${n}\""
-    done < "$airport_tw_names"
     echo "      - \"节点选择\""
     echo "      - \"自动选择\""
+    while IFS= read -r n; do
+     [[ -n "$n" ]] && echo "      - \"${n}\""
+    done < "$airport_tw_names"
     echo "      - DIRECT"
 
     echo "  - name: \"ChatGPT\""
     echo "    type: select"
     echo "    proxies:"
-    while IFS= read -r n; do
-     [[ -n "$n" ]] && echo "      - \"${n}\""
-    done < "$airport_tw_names"
     echo "      - \"节点选择\""
     echo "      - \"自动选择\""
+    while IFS= read -r n; do
+     [[ -n "$n" ]] && echo "      - \"${n}\""
+    done < "$airport_de_names"
+    echo "      - DIRECT"
+
+    echo "  - name: \"T专用\""
+    echo "    type: select"
+    echo "    proxies:"
+    echo "      - \"节点选择\""
+    echo "      - \"自动选择\""
+    while IFS= read -r n; do
+     [[ -n "$n" ]] && echo "      - \"${n}\""
+    done < "$airport_jp_names"
     echo "      - DIRECT"
 
     echo "  - name: \"国内服务\""
@@ -538,6 +593,13 @@ main() {
     echo "  - DOMAIN-SUFFIX,anthropic.com,ChatGPT"
     echo "  - DOMAIN-SUFFIX,claude.ai,ChatGPT"
     echo "  - DOMAIN-KEYWORD,claude,ChatGPT"
+    
+    echo "  - DOMAIN-SUFFIX,t.me,T专用"
+    echo "  - DOMAIN-SUFFIX,telegram.org,T专用"
+    echo "  - DOMAIN-SUFFIX,telegra.ph,T专用"
+    echo "  - DOMAIN-SUFFIX,telegram.me,T专用"
+    echo "  - IP-CIDR,91.108.0.0/16,T专用,no-resolve"
+    echo "  - IP-CIDR,149.154.0.0/16,T专用,no-resolve"
 
     echo "  - DOMAIN-SUFFIX,cn,国内服务"
     echo "  - GEOIP,CN,国内服务"
