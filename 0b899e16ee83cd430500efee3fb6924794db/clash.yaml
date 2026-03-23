@@ -456,7 +456,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF01"
     type: vmess
-    server: 108.162.192.0
+    server: 198.41.194.162
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -474,7 +474,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF02"
     type: vmess
-    server: 172.67.181.77
+    server: 173.245.49.194
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -492,7 +492,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF03"
     type: vmess
-    server: 104.19.148.121
+    server: 104.20.41.240
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -510,7 +510,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF04"
     type: vmess
-    server: 104.19.154.200
+    server: 188.114.96.0
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -528,7 +528,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF05"
     type: vmess
-    server: 162.159.137.204
+    server: 198.41.208.15
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -546,7 +546,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF06"
     type: vmess
-    server: 162.159.140.116
+    server: 162.159.58.65
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -564,7 +564,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF07"
     type: vmess
-    server: 104.19.212.207
+    server: 104.18.189.153
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -582,7 +582,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF08"
     type: vmess
-    server: 104.19.220.22
+    server: 172.66.0.0
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -600,7 +600,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF09"
     type: vmess
-    server: 162.159.128.253
+    server: 172.66.171.212
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -634,42 +634,6 @@ proxies:
         Host: de.ywsqbw.uk
       max-early-data: 2560
       early-data-header-name: Sec-WebSocket-Protocol
-  - name: "DE-CF11"
-    type: vmess
-    server: 162.159.0.64
-    port: 443
-    uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
-    alterId: 0
-    cipher: auto
-    udp: true
-    tls: true
-    servername: de.ywsqbw.uk
-    client-fingerprint: firefox
-    network: ws
-    ws-opts:
-      path: "/vmess-argo"
-      headers:
-        Host: de.ywsqbw.uk
-      max-early-data: 2560
-      early-data-header-name: Sec-WebSocket-Protocol
-  - name: "DE-CF12"
-    type: vmess
-    server: 173.245.49.194
-    port: 443
-    uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
-    alterId: 0
-    cipher: auto
-    udp: true
-    tls: true
-    servername: de.ywsqbw.uk
-    client-fingerprint: firefox
-    network: ws
-    ws-opts:
-      path: "/vmess-argo"
-      headers:
-        Host: de.ywsqbw.uk
-      max-early-data: 2560
-      early-data-header-name: Sec-WebSocket-Protocol
   - { name: "[anytls]台湾T01 家宽 1x 直连", type: anytls, server: tw-hinet-1.nchc.cc, port: 27171, password: "d14015da-1861-4439-9ca5-da877f917f86", client-fingerprint: chrome, udp: true, idle-session-check-interval: 30, idle-session-timeout: 30, min-idle-session: 0, skip-cert-verify: false }
   - { name: "[anytls]台湾T02 家宽 1x 直连", type: anytls, server: tw-hinet-2.nchc.cc, port: 27172, password: "d14015da-1861-4439-9ca5-da877f917f86", client-fingerprint: chrome, udp: true, idle-session-check-interval: 30, idle-session-timeout: 30, min-idle-session: 0, skip-cert-verify: false }
   - { name: "[anytls]台湾T03 家宽 1x 直连", type: anytls, server: tw-hinet-3.nchc.cc, port: 27173, password: "d14015da-1861-4439-9ca5-da877f917f86", client-fingerprint: chrome, udp: true, idle-session-check-interval: 30, idle-session-timeout: 30, min-idle-session: 0, skip-cert-verify: false }
@@ -680,6 +644,7 @@ proxies:
     server: 82.139.205.22
     port: 38049
     password: "78c0fd3d-860c-4b63-ab12-27846c30174c"
+    sni: "www.bing.com"
     skip-cert-verify: true
     alpn:
       - h3
@@ -691,6 +656,7 @@ proxies:
     password: "78c0fd3d-860c-4b63-ab12-27846c30174c"
     up: "5 Mbps"
     down: "5 Mbps"
+    sni: "www.bing.com"
     skip-cert-verify: true
     alpn:
       - h3
@@ -702,6 +668,7 @@ proxies:
     password: "78c0fd3d-860c-4b63-ab12-27846c30174c"
     up: "10 Mbps"
     down: "10 Mbps"
+    sni: "www.bing.com"
     skip-cert-verify: true
     alpn:
       - h3
@@ -744,8 +711,6 @@ proxy-groups:
       - "DE-CF08"
       - "DE-CF09"
       - "DE-CF10"
-      - "DE-CF11"
-      - "DE-CF12"
       - "DE-HY2-直连"
       - "DE-HY2-5M"
       - "DE-HY2-10M"
@@ -787,8 +752,6 @@ proxy-groups:
       - "DE-CF08"
       - "DE-CF09"
       - "DE-CF10"
-      - "DE-CF11"
-      - "DE-CF12"
       - DIRECT
   - name: "X专用"
     type: select
