@@ -456,7 +456,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF01"
     type: vmess
-    server: 104.19.220.22
+    server: 108.162.192.0
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -474,7 +474,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF02"
     type: vmess
-    server: 198.41.208.15
+    server: 172.67.181.77
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -492,7 +492,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF03"
     type: vmess
-    server: 172.64.91.69
+    server: 104.19.148.121
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -510,7 +510,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF04"
     type: vmess
-    server: 104.19.212.207
+    server: 104.19.154.200
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -528,7 +528,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF05"
     type: vmess
-    server: 198.41.194.162
+    server: 162.159.137.204
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -546,7 +546,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF06"
     type: vmess
-    server: 104.26.4.90
+    server: 162.159.140.116
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -564,7 +564,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF07"
     type: vmess
-    server: 104.26.8.117
+    server: 104.19.212.207
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -582,7 +582,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF08"
     type: vmess
-    server: 104.20.42.36
+    server: 104.19.220.22
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -600,7 +600,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF09"
     type: vmess
-    server: 104.17.162.3
+    server: 162.159.128.253
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -618,7 +618,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF10"
     type: vmess
-    server: 172.66.0.0
+    server: 172.64.48.226
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -636,7 +636,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF11"
     type: vmess
-    server: 162.159.128.253
+    server: 162.159.0.64
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -654,7 +654,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF12"
     type: vmess
-    server: 104.19.154.200
+    server: 173.245.49.194
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -675,6 +675,36 @@ proxies:
   - { name: "[anytls]台湾T03 家宽 1x 直连", type: anytls, server: tw-hinet-3.nchc.cc, port: 27173, password: "d14015da-1861-4439-9ca5-da877f917f86", client-fingerprint: chrome, udp: true, idle-session-check-interval: 30, idle-session-timeout: 30, min-idle-session: 0, skip-cert-verify: false }
   - { name: "[anytls]🇩🇪德国 T01 家宽 1x 直连", type: anytls, server: de-lisa-1.nchc.cc, port: 27181, password: "d14015da-1861-4439-9ca5-da877f917f86", udp: true, sni: de-lisa-1.nchc.cc, skip-cert-verify: true }
   - { name: "[anytls]🇯🇵日本T01 IDC 1x 直连", type: anytls, server: jp-aws-1.nchc.cc, port: 27161, password: "d14015da-1861-4439-9ca5-da877f917f86", udp: true, sni: jp-aws-1.nchc.cc, skip-cert-verify: true }
+  - name: "DE-HY2-直连"
+    type: hysteria2
+    server: 82.139.205.22
+    port: 38049
+    password: "78c0fd3d-860c-4b63-ab12-27846c30174c"
+    skip-cert-verify: true
+    alpn:
+      - h3
+
+  - name: "DE-HY2-5M"
+    type: hysteria2
+    server: 82.139.205.22
+    port: 38050
+    password: "78c0fd3d-860c-4b63-ab12-27846c30174c"
+    up: "5 Mbps"
+    down: "5 Mbps"
+    skip-cert-verify: true
+    alpn:
+      - h3
+
+  - name: "DE-HY2-10M"
+    type: hysteria2
+    server: 82.139.205.22
+    port: 38051
+    password: "78c0fd3d-860c-4b63-ab12-27846c30174c"
+    up: "10 Mbps"
+    down: "10 Mbps"
+    skip-cert-verify: true
+    alpn:
+      - h3
 
 proxy-groups:
   - name: "节点选择"
@@ -716,6 +746,9 @@ proxy-groups:
       - "DE-CF10"
       - "DE-CF11"
       - "DE-CF12"
+      - "DE-HY2-直连"
+      - "DE-HY2-5M"
+      - "DE-HY2-10M"
       - DIRECT
   - name: "自动选择"
     type: select
@@ -772,6 +805,7 @@ proxy-groups:
       - "节点选择"
       - "自动选择"
       - "[anytls]🇩🇪德国 T01 家宽 1x 直连"
+      - "DE-HY2-直连"
       - DIRECT
   - name: "T专用"
     type: select
@@ -779,6 +813,18 @@ proxy-groups:
       - "节点选择"
       - "自动选择"
       - "[anytls]🇯🇵日本T01 IDC 1x 直连"
+      - "DE-HY2-直连"
+      - "DE-HY2-10M"
+      - "DE-HY2-5M"
+      - DIRECT
+  - name: "流媒体"
+    type: select
+    proxies:
+      - "节点选择"
+      - "自动选择"
+      - "DE-HY2-直连"
+      - "DE-HY2-10M"
+      - "DE-HY2-5M"
       - DIRECT
   - name: "国内服务"
     type: select
@@ -823,6 +869,17 @@ rules:
   - DOMAIN-SUFFIX,telegram.me,T专用
   - IP-CIDR,91.108.0.0/16,T专用,no-resolve
   - IP-CIDR,149.154.0.0/16,T专用,no-resolve
+  - DOMAIN-SUFFIX,youtube.com,流媒体
+  - DOMAIN-SUFFIX,youtu.be,流媒体
+  - DOMAIN-SUFFIX,googlevideo.com,流媒体
+  - DOMAIN-SUFFIX,ytimg.com,流媒体
+  - DOMAIN-SUFFIX,netflix.com,流媒体
+  - DOMAIN-SUFFIX,nflxvideo.net,流媒体
+  - DOMAIN-SUFFIX,nflximg.net,流媒体
+  - DOMAIN-SUFFIX,nflxso.net,流媒体
+  - DOMAIN-SUFFIX,disneyplus.com,流媒体
+  - DOMAIN-SUFFIX,dssott.com,流媒体
+  - DOMAIN-SUFFIX,primevideo.com,流媒体
   - DOMAIN-SUFFIX,cn,国内服务
   - GEOIP,CN,国内服务
   - MATCH,漏网之鱼
