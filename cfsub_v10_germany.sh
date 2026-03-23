@@ -16,7 +16,7 @@ VPS_IP="${VPS_IP:-82.139.205.22}"
 SBOX_CONFIG="${SBOX_CONFIG:-/etc/sing-box/config.json}"
 
 HY2_SERVER="${HY2_SERVER:-$VPS_IP}"
-HY2_SNI="${HY2_SNI:-}"
+HY2_SNI="${HY2_SNI:-www.bing.com}"
 HY2_INSECURE="${HY2_INSECURE:-true}"
 
 HY2_MAIN_PORT="${HY2_MAIN_PORT:-38049}"
