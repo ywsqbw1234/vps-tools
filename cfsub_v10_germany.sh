@@ -259,41 +259,41 @@ read_hy2_info() {
 write_builtin_hy2_proxies() {
   local out_file="$1"
 
-  cat > "$out_file" <<EOF
-  - name: "DE-HY2-直连"
-    type: hysteria2
-    server: ${HY2_SERVER}
-    port: ${HY2_MAIN_PORT}
-    password: "${HY2_PASSWORD}"
-    sni: "${HY2_SNI}"
-    skip-cert-verify: ${HY2_INSECURE}
-    alpn:
-      - h3
-
-  - name: "DE-HY2-5M"
-    type: hysteria2
-    server: ${HY2_SERVER}
-    port: ${HY2_LIMIT5_PORT}
-    password: "${HY2_PASSWORD}"
-    up: "5 Mbps"
-    down: "5 Mbps"
-    sni: "${HY2_SNI}"
-    skip-cert-verify: ${HY2_INSECURE}
-    alpn:
-      - h3
-
-  - name: "DE-HY2-10M"
-    type: hysteria2
-    server: ${HY2_SERVER}
-    port: ${HY2_LIMIT10_PORT}
-    password: "${HY2_PASSWORD}"
-    up: "10 Mbps"
-    down: "10 Mbps"
-    sni: "${HY2_SNI}"
-    skip-cert-verify: ${HY2_INSECURE}
-    alpn:
-      - h3
-EOF
+  {
+    echo '  - name: "DE-HY2-直连"'
+    echo '    type: hysteria2'
+    echo "    server: ${HY2_SERVER}"
+    echo "    port: ${HY2_MAIN_PORT}"
+    echo "    password: \"${HY2_PASSWORD}\""
+    [[ -n "$HY2_SNI" ]] && echo "    sni: \"${HY2_SNI}\""
+    echo "    skip-cert-verify: ${HY2_INSECURE}"
+    echo "    alpn:"
+    echo "      - h3"
+    echo
+    echo '  - name: "DE-HY2-5M"'
+    echo '    type: hysteria2'
+    echo "    server: ${HY2_SERVER}"
+    echo "    port: ${HY2_LIMIT5_PORT}"
+    echo "    password: \"${HY2_PASSWORD}\""
+    echo '    up: "5 Mbps"'
+    echo '    down: "5 Mbps"'
+    [[ -n "$HY2_SNI" ]] && echo "    sni: \"${HY2_SNI}\""
+    echo "    skip-cert-verify: ${HY2_INSECURE}"
+    echo "    alpn:"
+    echo "      - h3"
+    echo
+    echo '  - name: "DE-HY2-10M"'
+    echo '    type: hysteria2'
+    echo "    server: ${HY2_SERVER}"
+    echo "    port: ${HY2_LIMIT10_PORT}"
+    echo "    password: \"${HY2_PASSWORD}\""
+    echo '    up: "10 Mbps"'
+    echo '    down: "10 Mbps"'
+    [[ -n "$HY2_SNI" ]] && echo "    sni: \"${HY2_SNI}\""
+    echo "    skip-cert-verify: ${HY2_INSECURE}"
+    echo "    alpn:"
+    echo "      - h3"
+  } > "$out_file"
 }
 
 write_builtin_hy2_names() {
