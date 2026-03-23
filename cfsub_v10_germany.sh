@@ -13,6 +13,16 @@ FIXED_IP_FILE="${FIXED_IP_FILE:-/root/cf_fixed_ip.txt}"
 DOMAIN="${DOMAIN:-de.ywsqbw.uk}"
 VPS_IP="${VPS_IP:-82.139.205.22}"
 
+SBOX_CONFIG="${SBOX_CONFIG:-/etc/sing-box/config.json}"
+
+HY2_SERVER="${HY2_SERVER:-$VPS_IP}"
+HY2_SNI="${HY2_SNI:-}"
+HY2_INSECURE="${HY2_INSECURE:-true}"
+
+HY2_MAIN_PORT="${HY2_MAIN_PORT:-38049}"
+HY2_LIMIT5_PORT="${HY2_LIMIT5_PORT:-38050}"
+HY2_LIMIT10_PORT="${HY2_LIMIT10_PORT:-38051}"
+
 CANDIDATES="${CANDIDATES:-250}"
 KEEP_TOP="${KEEP_TOP:-12}"
 
@@ -232,6 +242,85 @@ write_builtin_jp_names() {
 EOF
 }
 
+urlenc() {
+  python3 - "$1" <<'PY'
+import sys, urllib.parse
+print(urllib.parse.quote(sys.argv[1], safe=''))
+PY
+}
+
+read_hy2_info() {
+  [[ -f "$SBOX_CONFIG" ]] || die "找不到 $SBOX_CONFIG"
+
+  HY2_PASSWORD="$(jq -r '.inbounds[] | select(.type=="hysteria2") | .users[0].password // empty' "$SBOX_CONFIG" | head -n1)"
+  [[ -n "$HY2_PASSWORD" ]] || die "无法从 $SBOX_CONFIG 读取 Hysteria2 密码"
+}
+
+write_builtin_hy2_proxies() {
+  local out_file="$1"
+
+  cat > "$out_file" <<EOF
+  - name: "DE-HY2-直连"
+    type: hysteria2
+    server: ${HY2_SERVER}
+    port: ${HY2_MAIN_PORT}
+    password: "${HY2_PASSWORD}"
+    sni: "${HY2_SNI}"
+    skip-cert-verify: ${HY2_INSECURE}
+    alpn:
+      - h3
+
+  - name: "DE-HY2-5M"
+    type: hysteria2
+    server: ${HY2_SERVER}
+    port: ${HY2_LIMIT5_PORT}
+    password: "${HY2_PASSWORD}"
+    up: "5 Mbps"
+    down: "5 Mbps"
+    sni: "${HY2_SNI}"
+    skip-cert-verify: ${HY2_INSECURE}
+    alpn:
+      - h3
+
+  - name: "DE-HY2-10M"
+    type: hysteria2
+    server: ${HY2_SERVER}
+    port: ${HY2_LIMIT10_PORT}
+    password: "${HY2_PASSWORD}"
+    up: "10 Mbps"
+    down: "10 Mbps"
+    sni: "${HY2_SNI}"
+    skip-cert-verify: ${HY2_INSECURE}
+    alpn:
+      - h3
+EOF
+}
+
+write_builtin_hy2_names() {
+  local out_file="$1"
+  cat > "$out_file" <<'EOF'
+DE-HY2-直连
+DE-HY2-5M
+DE-HY2-10M
+EOF
+}
+
+write_builtin_hy2_links() {
+  local out_file="$1"
+  local enc_pw query
+  enc_pw="$(urlenc "$HY2_PASSWORD")"
+  query="insecure=1"
+  if [[ -n "$HY2_SNI" ]]; then
+    query="${query}&sni=$(urlenc "$HY2_SNI")"
+  fi
+
+  cat > "$out_file" <<EOF
+hysteria2://${enc_pw}@${HY2_SERVER}:${HY2_MAIN_PORT}/?${query}#DE-HY2-直连
+hysteria2://${enc_pw}@${HY2_SERVER}:${HY2_LIMIT5_PORT}/?${query}#DE-HY2-5M
+hysteria2://${enc_pw}@${HY2_SERVER}:${HY2_LIMIT10_PORT}/?${query}#DE-HY2-10M
+EOF
+}
+
 push_github_files() {
   local secret_dir="$1"
   local sub_b64="$2"
@@ -310,6 +399,7 @@ main() {
   local airport_tw_proxies airport_tw_names
   local airport_de_proxies airport_de_names
   local airport_jp_proxies airport_jp_names
+  local hy2_proxies hy2_names hy2_links
 
   tmpdir="$(mktemp -d)"
   fixed_nodes_txt="${tmpdir}/fixed_nodes.txt"
@@ -324,6 +414,9 @@ main() {
   airport_de_names="${tmpdir}/airport_de_names.txt"
   airport_jp_proxies="${tmpdir}/airport_jp_proxies.txt"
   airport_jp_names="${tmpdir}/airport_jp_names.txt"
+  hy2_proxies="${tmpdir}/hy2_proxies.txt"
+  hy2_names="${tmpdir}/hy2_names.txt"
+  hy2_links="${tmpdir}/hy2_links.txt"
 
   read_fixed_nodes "$fixed_nodes_txt"
   log "固定节点数量：$(wc -l < "$fixed_nodes_txt" 2>/dev/null | tr -d ' ' || echo 0)"
@@ -334,7 +427,14 @@ main() {
   write_builtin_de_names "$airport_de_names"
   write_builtin_jp_nodes "$airport_jp_proxies"
   write_builtin_jp_names "$airport_jp_names"
+
+  read_hy2_info
+  write_builtin_hy2_proxies "$hy2_proxies"
+  write_builtin_hy2_names "$hy2_names"
+  write_builtin_hy2_links "$hy2_links"
+
   log "内置台湾节点数量：$(wc -l < "$airport_tw_names" | tr -d ' ')"
+  log "内置 Hy2 节点数量：$(wc -l < "$hy2_names" | tr -d ' ')"
 
   fetch_ips_sources "$all_ips" > "${all_ips}.sorted"
   mv "${all_ips}.sorted" "$all_ips"
@@ -388,7 +488,12 @@ main() {
   done < "$final_nodes"
 
   local sub_b64
-  sub_b64="$(cat "$vmess_list" | awk 'NF' | base64 -w0)"
+  sub_b64="$(
+    {
+      cat "$vmess_list"
+      cat "$hy2_links"
+    } | awk 'NF' | base64 -w0
+  )"
 
   {
     echo "mixed-port: 7890"
@@ -469,6 +574,10 @@ main() {
        echo "${line}"
     done < "$airport_jp_proxies"
 
+    while IFS= read -r line; do
+       echo "${line}"
+    done < "$hy2_proxies"
+
     echo ""
     echo "proxy-groups:"
     echo "  - name: \"节点选择\""
@@ -495,6 +604,10 @@ main() {
       fi
       echo "      - \"${name}\""
     done < "$final_nodes"
+
+    while IFS= read -r n; do
+      [[ -n "$n" ]] && echo "      - \"${n}\""
+    done < "$hy2_names"
     echo "      - DIRECT"
 
     echo "  - name: \"自动选择\""
@@ -540,6 +653,7 @@ main() {
     while IFS= read -r n; do
      [[ -n "$n" ]] && echo "      - \"${n}\""
     done < "$airport_de_names"
+    echo "      - \"DE-HY2-直连\""
     echo "      - DIRECT"
 
     echo "  - name: \"T专用\""
@@ -550,6 +664,19 @@ main() {
     while IFS= read -r n; do
      [[ -n "$n" ]] && echo "      - \"${n}\""
     done < "$airport_jp_names"
+    echo "      - \"DE-HY2-直连\""
+    echo "      - \"DE-HY2-10M\""
+    echo "      - \"DE-HY2-5M\""
+    echo "      - DIRECT"
+    
+    echo "  - name: \"流媒体\""
+    echo "    type: select"
+    echo "    proxies:"
+    echo "      - \"节点选择\""
+    echo "      - \"自动选择\""
+    echo "      - \"DE-HY2-直连\""
+    echo "      - \"DE-HY2-10M\""
+    echo "      - \"DE-HY2-5M\""
     echo "      - DIRECT"
 
     echo "  - name: \"国内服务\""
@@ -601,6 +728,18 @@ main() {
     echo "  - IP-CIDR,91.108.0.0/16,T专用,no-resolve"
     echo "  - IP-CIDR,149.154.0.0/16,T专用,no-resolve"
 
+    echo "  - DOMAIN-SUFFIX,youtube.com,流媒体"
+    echo "  - DOMAIN-SUFFIX,youtu.be,流媒体"
+    echo "  - DOMAIN-SUFFIX,googlevideo.com,流媒体"
+    echo "  - DOMAIN-SUFFIX,ytimg.com,流媒体"
+    echo "  - DOMAIN-SUFFIX,netflix.com,流媒体"
+    echo "  - DOMAIN-SUFFIX,nflxvideo.net,流媒体"
+    echo "  - DOMAIN-SUFFIX,nflximg.net,流媒体"
+    echo "  - DOMAIN-SUFFIX,nflxso.net,流媒体"
+    echo "  - DOMAIN-SUFFIX,disneyplus.com,流媒体"
+    echo "  - DOMAIN-SUFFIX,dssott.com,流媒体"
+    echo "  - DOMAIN-SUFFIX,primevideo.com,流媒体"
+
     echo "  - DOMAIN-SUFFIX,cn,国内服务"
     echo "  - GEOIP,CN,国内服务"
     echo "  - MATCH,漏网之鱼"
@@ -612,10 +751,10 @@ main() {
 
   echo
   echo "================= 固定订阅地址（不变） ================="
-  echo "v2rayN（base64，仅 VPS 节点）:"
+  echo "v2rayN（base64，含 VPS 节点 + Hy2直连/限速节点）:"
   echo "https://raw.githubusercontent.com/${GITHUB_USER}/${GITHUB_REPO}/${GITHUB_BRANCH}/${secret_dir}/sub.txt"
   echo
-  echo "Clash Verge / Mihomo（总配置，含内置台湾节点）:"
+  echo "Clash Verge / Mihomo（总配置，含内置节点 + Hy2直连/限速节点）:"
   echo "https://raw.githubusercontent.com/${GITHUB_USER}/${GITHUB_REPO}/${GITHUB_BRANCH}/${secret_dir}/clash.yaml"
   echo "========================================================"
   echo
