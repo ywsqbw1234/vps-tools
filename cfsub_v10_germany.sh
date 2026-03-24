@@ -270,25 +270,25 @@ write_builtin_hy2_proxies() {
     echo "    alpn:"
     echo "      - h3"
     echo
-    echo '  - name: "DE-HY2-5M"'
+    echo '  - name: "DE-HY2-50M"'
     echo '    type: hysteria2'
     echo "    server: ${HY2_SERVER}"
     echo "    port: ${HY2_LIMIT5_PORT}"
     echo "    password: \"${HY2_PASSWORD}\""
-    echo '    up: "5 Mbps"'
-    echo '    down: "5 Mbps"'
+    echo '    up: "50 Mbps"'
+    echo '    down: "50 Mbps"'
     [[ -n "$HY2_SNI" ]] && echo "    sni: \"${HY2_SNI}\""
     echo "    skip-cert-verify: ${HY2_INSECURE}"
     echo "    alpn:"
     echo "      - h3"
     echo
-    echo '  - name: "DE-HY2-10M"'
+    echo '  - name: "DE-HY2-100M"'
     echo '    type: hysteria2'
     echo "    server: ${HY2_SERVER}"
     echo "    port: ${HY2_LIMIT10_PORT}"
     echo "    password: \"${HY2_PASSWORD}\""
-    echo '    up: "10 Mbps"'
-    echo '    down: "10 Mbps"'
+    echo '    up: "100 Mbps"'
+    echo '    down: "100 Mbps"'
     [[ -n "$HY2_SNI" ]] && echo "    sni: \"${HY2_SNI}\""
     echo "    skip-cert-verify: ${HY2_INSECURE}"
     echo "    alpn:"
@@ -300,8 +300,8 @@ write_builtin_hy2_names() {
   local out_file="$1"
   cat > "$out_file" <<'EOF'
 DE-HY2-直连
-DE-HY2-5M
-DE-HY2-10M
+DE-HY2-50M
+DE-HY2-100M
 EOF
 }
 
@@ -316,8 +316,8 @@ write_builtin_hy2_links() {
 
   cat > "$out_file" <<EOF
 hysteria2://${enc_pw}@${HY2_SERVER}:${HY2_MAIN_PORT}/?${query}#DE-HY2-直连
-hysteria2://${enc_pw}@${HY2_SERVER}:${HY2_LIMIT5_PORT}/?${query}#DE-HY2-5M
-hysteria2://${enc_pw}@${HY2_SERVER}:${HY2_LIMIT10_PORT}/?${query}#DE-HY2-10M
+hysteria2://${enc_pw}@${HY2_SERVER}:${HY2_LIMIT5_PORT}/?${query}#DE-HY2-50M
+hysteria2://${enc_pw}@${HY2_SERVER}:${HY2_LIMIT10_PORT}/?${query}#DE-HY2-100M
 EOF
 }
 
@@ -665,8 +665,8 @@ main() {
      [[ -n "$n" ]] && echo "      - \"${n}\""
     done < "$airport_jp_names"
     echo "      - \"DE-HY2-直连\""
-    echo "      - \"DE-HY2-10M\""
-    echo "      - \"DE-HY2-5M\""
+    echo "      - \"DE-HY2-100M\""
+    echo "      - \"DE-HY2-50M\""
     echo "      - DIRECT"
     
     echo "  - name: \"流媒体\""
@@ -675,8 +675,8 @@ main() {
     echo "      - \"节点选择\""
     echo "      - \"自动选择\""
     echo "      - \"DE-HY2-直连\""
-    echo "      - \"DE-HY2-10M\""
-    echo "      - \"DE-HY2-5M\""
+    echo "      - \"DE-HY2-100M\""
+    echo "      - \"DE-HY2-50M\""
     echo "      - DIRECT"
 
     echo "  - name: \"国内服务\""
