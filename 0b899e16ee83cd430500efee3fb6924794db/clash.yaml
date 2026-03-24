@@ -456,7 +456,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF01"
     type: vmess
-    server: 198.41.194.162
+    server: 104.31.16.158
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -474,7 +474,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF02"
     type: vmess
-    server: 173.245.49.194
+    server: 172.66.164.167
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -492,7 +492,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF03"
     type: vmess
-    server: 104.20.41.240
+    server: 104.26.3.162
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -510,7 +510,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF04"
     type: vmess
-    server: 188.114.96.0
+    server: 104.26.8.117
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -528,7 +528,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF05"
     type: vmess
-    server: 198.41.208.15
+    server: 172.64.82.114
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -546,7 +546,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF06"
     type: vmess
-    server: 162.159.58.65
+    server: 172.64.91.69
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -564,7 +564,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF07"
     type: vmess
-    server: 104.18.189.153
+    server: 104.18.255.167
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -582,7 +582,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF08"
     type: vmess
-    server: 172.66.0.0
+    server: 104.26.5.134
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -600,7 +600,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF09"
     type: vmess
-    server: 172.66.171.212
+    server: 104.20.35.70
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -618,7 +618,25 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF10"
     type: vmess
-    server: 172.64.48.226
+    server: 172.66.0.0
+    port: 443
+    uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
+    alterId: 0
+    cipher: auto
+    udp: true
+    tls: true
+    servername: de.ywsqbw.uk
+    client-fingerprint: firefox
+    network: ws
+    ws-opts:
+      path: "/vmess-argo"
+      headers:
+        Host: de.ywsqbw.uk
+      max-early-data: 2560
+      early-data-header-name: Sec-WebSocket-Protocol
+  - name: "DE-CF11"
+    type: vmess
+    server: 104.19.56.15
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -649,25 +667,25 @@ proxies:
     alpn:
       - h3
 
-  - name: "DE-HY2-5M"
+  - name: "DE-HY2-50M"
     type: hysteria2
     server: 82.139.205.22
     port: 38050
     password: "78c0fd3d-860c-4b63-ab12-27846c30174c"
-    up: "5 Mbps"
-    down: "5 Mbps"
+    up: "50 Mbps"
+    down: "50 Mbps"
     sni: "www.bing.com"
     skip-cert-verify: true
     alpn:
       - h3
 
-  - name: "DE-HY2-10M"
+  - name: "DE-HY2-100M"
     type: hysteria2
     server: 82.139.205.22
     port: 38051
     password: "78c0fd3d-860c-4b63-ab12-27846c30174c"
-    up: "10 Mbps"
-    down: "10 Mbps"
+    up: "100 Mbps"
+    down: "100 Mbps"
     sni: "www.bing.com"
     skip-cert-verify: true
     alpn:
@@ -711,9 +729,10 @@ proxy-groups:
       - "DE-CF08"
       - "DE-CF09"
       - "DE-CF10"
+      - "DE-CF11"
       - "DE-HY2-直连"
-      - "DE-HY2-5M"
-      - "DE-HY2-10M"
+      - "DE-HY2-50M"
+      - "DE-HY2-100M"
       - DIRECT
   - name: "自动选择"
     type: select
@@ -752,6 +771,7 @@ proxy-groups:
       - "DE-CF08"
       - "DE-CF09"
       - "DE-CF10"
+      - "DE-CF11"
       - DIRECT
   - name: "X专用"
     type: select
@@ -777,8 +797,8 @@ proxy-groups:
       - "自动选择"
       - "[anytls]🇯🇵日本T01 IDC 1x 直连"
       - "DE-HY2-直连"
-      - "DE-HY2-10M"
-      - "DE-HY2-5M"
+      - "DE-HY2-100M"
+      - "DE-HY2-50M"
       - DIRECT
   - name: "流媒体"
     type: select
@@ -786,8 +806,8 @@ proxy-groups:
       - "节点选择"
       - "自动选择"
       - "DE-HY2-直连"
-      - "DE-HY2-10M"
-      - "DE-HY2-5M"
+      - "DE-HY2-100M"
+      - "DE-HY2-50M"
       - DIRECT
   - name: "国内服务"
     type: select
