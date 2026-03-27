@@ -214,6 +214,21 @@ write_builtin_tw_names() {
 [anytls]台湾T03 家宽 1x 直连
 EOF
 }
+write_builtin_hk_nodes() {
+  local out_file="$1"
+  cat > "$out_file" <<'EOF'
+  - { name: "[anytls]🇭🇰香港T02 IDC 1x 直连", type: anytls, server: hk-aws-1.nchc.cc, port: 27152, password: d14015da-1861-4439-9ca5-da877f917f86, udp: true, sni: hk-aws-1.nchc.cc, skip-cert-verify: true}
+  - { name: "[anytls]🇭🇰香港T03 IDC 1x 直连", type: anytls, server: hk-aws-2.nchc.cc, port: 27153, password: d14015da-1861-4439-9ca5-da877f917f86, udp: true, sni: hk-aws-2.nchc.cc, skip-cert-verify: true}
+EOF
+}
+
+write_builtin_hk_names() {
+  local out_file="$1"
+  cat > "$out_file" <<'EOF'
+[anytls]🇭🇰香港T02 IDC 1x 直连
+[anytls]🇭🇰香港T03 IDC 1x 直连
+EOF
+}
 write_builtin_de_nodes() {
   local out_file="$1"
   cat > "$out_file" <<'EOF'
@@ -399,6 +414,7 @@ main() {
   local airport_tw_proxies airport_tw_names
   local airport_de_proxies airport_de_names
   local airport_jp_proxies airport_jp_names
+  local airport_hk_proxies airport_hk_names
   local hy2_proxies hy2_names hy2_links
 
   tmpdir="$(mktemp -d)"
@@ -414,6 +430,8 @@ main() {
   airport_de_names="${tmpdir}/airport_de_names.txt"
   airport_jp_proxies="${tmpdir}/airport_jp_proxies.txt"
   airport_jp_names="${tmpdir}/airport_jp_names.txt"
+  airport_hk_proxies="${tmpdir}/airport_hk_proxies.txt"
+  airport_hk_names="${tmpdir}/airport_hk_names.txt"
   hy2_proxies="${tmpdir}/hy2_proxies.txt"
   hy2_names="${tmpdir}/hy2_names.txt"
   hy2_links="${tmpdir}/hy2_links.txt"
@@ -427,7 +445,8 @@ main() {
   write_builtin_de_names "$airport_de_names"
   write_builtin_jp_nodes "$airport_jp_proxies"
   write_builtin_jp_names "$airport_jp_names"
-
+  write_builtin_hk_nodes "$airport_hk_proxies"
+  write_builtin_hk_names "$airport_hk_names"
   read_hy2_info
   write_builtin_hy2_proxies "$hy2_proxies"
   write_builtin_hy2_names "$hy2_names"
@@ -576,6 +595,10 @@ main() {
 
     while IFS= read -r line; do
        echo "${line}"
+    done < "$airport_hk_proxies"
+
+    while IFS= read -r line; do
+       echo "${line}"
     done < "$hy2_proxies"
 
     echo ""
@@ -604,10 +627,18 @@ main() {
       fi
       echo "      - \"${name}\""
     done < "$final_nodes"
-
     while IFS= read -r n; do
       [[ -n "$n" ]] && echo "      - \"${n}\""
     done < "$hy2_names"
+    while IFS= read -r n; do
+     [[ -n "$n" ]] && echo "      - \"${n}\""
+    done < "$airport_tw_names"
+    while IFS= read -r n; do
+     [[ -n "$n" ]] && echo "      - \"${n}\""
+    done < "$airport_hk_names"
+    while IFS= read -r n; do
+     [[ -n "$n" ]] && echo "      - \"${n}\""
+    done < "$airport_de_names"
     echo "      - DIRECT"
 
     echo "  - name: \"自动选择\""
