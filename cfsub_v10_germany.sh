@@ -208,8 +208,8 @@ EOF
 write_builtin_tw_names() {
   local out_file="$1"
   cat > "$out_file" <<'EOF'
-[anytls]台湾T01 家宽 1x 直连
-[anytls]台湾T02 家宽 1x 直连
+[anytls]🇹🇼台湾T01 家宽 1x 直连
+[anytls]🇹🇼台湾T02 家宽 1x 直连
 EOF
 }
 write_builtin_hk_nodes() {
