@@ -200,9 +200,8 @@ speedtest_pick_top() {
 write_builtin_tw_nodes() {
   local out_file="$1"
   cat > "$out_file" <<'EOF'
-  - { name: "[anytls]台湾T01 家宽 1x 直连", type: anytls, server: tw-hinet-1.nchc.cc, port: 27171, password: "d14015da-1861-4439-9ca5-da877f917f86", client-fingerprint: chrome, udp: true, idle-session-check-interval: 30, idle-session-timeout: 30, min-idle-session: 0, skip-cert-verify: false }
-  - { name: "[anytls]台湾T02 家宽 1x 直连", type: anytls, server: tw-hinet-2.nchc.cc, port: 27172, password: "d14015da-1861-4439-9ca5-da877f917f86", client-fingerprint: chrome, udp: true, idle-session-check-interval: 30, idle-session-timeout: 30, min-idle-session: 0, skip-cert-verify: false }
-  - { name: "[anytls]台湾T03 家宽 1x 直连", type: anytls, server: tw-hinet-3.nchc.cc, port: 27173, password: "d14015da-1861-4439-9ca5-da877f917f86", client-fingerprint: chrome, udp: true, idle-session-check-interval: 30, idle-session-timeout: 30, min-idle-session: 0, skip-cert-verify: false }
+  - { name: "[anytls]🇹🇼台湾T01 家宽 1x 直连", type: anytls, server: tw-hinet-1.nchc.cc, port: 27171, password: d14015da-1861-4439-9ca5-da877f917f86, udp: true, sni: tw-hinet-1.nchc.cc, skip-cert-verify: true }
+  - { name: "[anytls]🇹🇼台湾T02 家宽 1x 直连", type: anytls, server: tw-hinet-2.nchc.cc, port: 27172, password: d14015da-1861-4439-9ca5-da877f917f86, udp: true, sni: tw-hinet-2.nchc.cc, skip-cert-verify: true }
 EOF
 }
 
@@ -211,7 +210,6 @@ write_builtin_tw_names() {
   cat > "$out_file" <<'EOF'
 [anytls]台湾T01 家宽 1x 直连
 [anytls]台湾T02 家宽 1x 直连
-[anytls]台湾T03 家宽 1x 直连
 EOF
 }
 write_builtin_hk_nodes() {
@@ -636,6 +634,9 @@ main() {
     while IFS= read -r n; do
      [[ -n "$n" ]] && echo "      - \"${n}\""
     done < "$airport_hk_names"
+    while IFS= read -r n; do
+     [[ -n "$n" ]] && echo "      - \"${n}\""
+    done < "$airport_jp_names"
     while IFS= read -r n; do
      [[ -n "$n" ]] && echo "      - \"${n}\""
     done < "$airport_de_names"
