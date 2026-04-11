@@ -76,43 +76,7 @@ proxies:
         Host: cdn.ywsqbw.uk
       max-early-data: 2560
       early-data-header-name: Sec-WebSocket-Protocol
-  - name: "TW-Sky_Digital_Co.-FIX04-wendin3"
-    type: vmess
-    server: 172.64.229.7
-    port: 443
-    uuid: d747084a-0e2d-4a53-9e4b-11616da5cc19
-    alterId: 0
-    cipher: auto
-    udp: true
-    tls: true
-    servername: cdn.ywsqbw.uk
-    client-fingerprint: firefox
-    network: ws
-    ws-opts:
-      path: "/vmess-argo"
-      headers:
-        Host: cdn.ywsqbw.uk
-      max-early-data: 2560
-      early-data-header-name: Sec-WebSocket-Protocol
-  - name: "TW-Sky_Digital_Co.-FIX05-wendin4"
-    type: vmess
-    server: 172.64.229.0
-    port: 443
-    uuid: d747084a-0e2d-4a53-9e4b-11616da5cc19
-    alterId: 0
-    cipher: auto
-    udp: true
-    tls: true
-    servername: cdn.ywsqbw.uk
-    client-fingerprint: firefox
-    network: ws
-    ws-opts:
-      path: "/vmess-argo"
-      headers:
-        Host: cdn.ywsqbw.uk
-      max-early-data: 2560
-      early-data-header-name: Sec-WebSocket-Protocol
-  - name: "TW-Sky_Digital_Co.-FIX06-备用域名"
+  - name: "TW-Sky_Digital_Co.-FIX04-备用域名"
     type: vmess
     server: cf.877774.xyz
     port: 443
@@ -130,9 +94,9 @@ proxies:
         Host: cdn.ywsqbw.uk
       max-early-data: 2560
       early-data-header-name: Sec-WebSocket-Protocol
-  - name: "TW-Sky_Digital_Co.-FIX07-主域名"
+  - name: "TW-Sky_Digital_Co.-FIX05-主域名"
     type: vmess
-    server: cdn.ywsqbw.uk
+    server: de.ywsqbw.uk
     port: 443
     uuid: d747084a-0e2d-4a53-9e4b-11616da5cc19
     alterId: 0
@@ -148,7 +112,7 @@ proxies:
         Host: cdn.ywsqbw.uk
       max-early-data: 2560
       early-data-header-name: Sec-WebSocket-Protocol
-  - name: "TW-Sky_Digital_Co.-FIX08-japan1"
+  - name: "TW-Sky_Digital_Co.-FIX06-japan1"
     type: vmess
     server: 162.159.45.48
     port: 443
@@ -166,7 +130,7 @@ proxies:
         Host: cdn.ywsqbw.uk
       max-early-data: 2560
       early-data-header-name: Sec-WebSocket-Protocol
-  - name: "TW-Sky_Digital_Co.-FIX09-japan2"
+  - name: "TW-Sky_Digital_Co.-FIX07-japan2"
     type: vmess
     server: 162.159.44.19
     port: 443
@@ -184,7 +148,7 @@ proxies:
         Host: cdn.ywsqbw.uk
       max-early-data: 2560
       early-data-header-name: Sec-WebSocket-Protocol
-  - name: "TW-Sky_Digital_Co.-FIX10-japan3"
+  - name: "TW-Sky_Digital_Co.-FIX08-japan3"
     type: vmess
     server: 108.162.198.170
     port: 443
@@ -202,7 +166,7 @@ proxies:
         Host: cdn.ywsqbw.uk
       max-early-data: 2560
       early-data-header-name: Sec-WebSocket-Protocol
-  - name: "TW-Sky_Digital_Co.-FIX11-japan4"
+  - name: "TW-Sky_Digital_Co.-FIX09-japan4"
     type: vmess
     server: 162.159.44.153
     port: 443
@@ -220,9 +184,9 @@ proxies:
         Host: cdn.ywsqbw.uk
       max-early-data: 2560
       early-data-header-name: Sec-WebSocket-Protocol
-  - name: "TW-Sky_Digital_Co.-FIX12-japan5"
+  - name: "TW-Sky_Digital_Co.-FIX10-SIN"
     type: vmess
-    server: 172.64.229.113
+    server: 162.159.22.254
     port: 443
     uuid: d747084a-0e2d-4a53-9e4b-11616da5cc19
     alterId: 0
@@ -238,9 +202,9 @@ proxies:
         Host: cdn.ywsqbw.uk
       max-early-data: 2560
       early-data-header-name: Sec-WebSocket-Protocol
-  - name: "TW-Sky_Digital_Co.-FIX13-japanT1"
+  - name: "TW-Sky_Digital_Co.-FIX11-SIN2"
     type: vmess
-    server: 172.64.52.243
+    server: 162.159.42.75
     port: 443
     uuid: d747084a-0e2d-4a53-9e4b-11616da5cc19
     alterId: 0
@@ -256,7 +220,205 @@ proxies:
         Host: cdn.ywsqbw.uk
       max-early-data: 2560
       early-data-header-name: Sec-WebSocket-Protocol
-  - name: "TW-Sky_Digital_Co.-FIX14-japanT2"
+  - name: "TW-Sky_Digital_Co.-FIX12-SIN3"
+    type: vmess
+    server: 172.64.33.101
+    port: 443
+    uuid: d747084a-0e2d-4a53-9e4b-11616da5cc19
+    alterId: 0
+    cipher: auto
+    udp: true
+    tls: true
+    servername: cdn.ywsqbw.uk
+    client-fingerprint: firefox
+    network: ws
+    ws-opts:
+      path: "/vmess-argo"
+      headers:
+        Host: cdn.ywsqbw.uk
+      max-early-data: 2560
+      early-data-header-name: Sec-WebSocket-Protocol
+  - name: "TW-Sky_Digital_Co.-FIX13-SIN4"
+    type: vmess
+    server: 104.18.47.98
+    port: 443
+    uuid: d747084a-0e2d-4a53-9e4b-11616da5cc19
+    alterId: 0
+    cipher: auto
+    udp: true
+    tls: true
+    servername: cdn.ywsqbw.uk
+    client-fingerprint: firefox
+    network: ws
+    ws-opts:
+      path: "/vmess-argo"
+      headers:
+        Host: cdn.ywsqbw.uk
+      max-early-data: 2560
+      early-data-header-name: Sec-WebSocket-Protocol
+  - name: "TW-Sky_Digital_Co.-FIX14-SIN5"
+    type: vmess
+    server: 162.159.12.182
+    port: 443
+    uuid: d747084a-0e2d-4a53-9e4b-11616da5cc19
+    alterId: 0
+    cipher: auto
+    udp: true
+    tls: true
+    servername: cdn.ywsqbw.uk
+    client-fingerprint: firefox
+    network: ws
+    ws-opts:
+      path: "/vmess-argo"
+      headers:
+        Host: cdn.ywsqbw.uk
+      max-early-data: 2560
+      early-data-header-name: Sec-WebSocket-Protocol
+  - name: "TW-Sky_Digital_Co.-FIX15-SIN6"
+    type: vmess
+    server: 104.18.34.196
+    port: 443
+    uuid: d747084a-0e2d-4a53-9e4b-11616da5cc19
+    alterId: 0
+    cipher: auto
+    udp: true
+    tls: true
+    servername: cdn.ywsqbw.uk
+    client-fingerprint: firefox
+    network: ws
+    ws-opts:
+      path: "/vmess-argo"
+      headers:
+        Host: cdn.ywsqbw.uk
+      max-early-data: 2560
+      early-data-header-name: Sec-WebSocket-Protocol
+  - name: "TW-Sky_Digital_Co.-FIX16-SIN7"
+    type: vmess
+    server: 172.64.32.183
+    port: 443
+    uuid: d747084a-0e2d-4a53-9e4b-11616da5cc19
+    alterId: 0
+    cipher: auto
+    udp: true
+    tls: true
+    servername: cdn.ywsqbw.uk
+    client-fingerprint: firefox
+    network: ws
+    ws-opts:
+      path: "/vmess-argo"
+      headers:
+        Host: cdn.ywsqbw.uk
+      max-early-data: 2560
+      early-data-header-name: Sec-WebSocket-Protocol
+  - name: "TW-Sky_Digital_Co.-FIX17-SIN8"
+    type: vmess
+    server: 108.162.194.110
+    port: 443
+    uuid: d747084a-0e2d-4a53-9e4b-11616da5cc19
+    alterId: 0
+    cipher: auto
+    udp: true
+    tls: true
+    servername: cdn.ywsqbw.uk
+    client-fingerprint: firefox
+    network: ws
+    ws-opts:
+      path: "/vmess-argo"
+      headers:
+        Host: cdn.ywsqbw.uk
+      max-early-data: 2560
+      early-data-header-name: Sec-WebSocket-Protocol
+  - name: "TW-Sky_Digital_Co.-FIX18-NRT"
+    type: vmess
+    server: 172.64.52.108
+    port: 443
+    uuid: d747084a-0e2d-4a53-9e4b-11616da5cc19
+    alterId: 0
+    cipher: auto
+    udp: true
+    tls: true
+    servername: cdn.ywsqbw.uk
+    client-fingerprint: firefox
+    network: ws
+    ws-opts:
+      path: "/vmess-argo"
+      headers:
+        Host: cdn.ywsqbw.uk
+      max-early-data: 2560
+      early-data-header-name: Sec-WebSocket-Protocol
+  - name: "TW-Sky_Digital_Co.-FIX19-NRT2"
+    type: vmess
+    server: 162.159.39.141
+    port: 443
+    uuid: d747084a-0e2d-4a53-9e4b-11616da5cc19
+    alterId: 0
+    cipher: auto
+    udp: true
+    tls: true
+    servername: cdn.ywsqbw.uk
+    client-fingerprint: firefox
+    network: ws
+    ws-opts:
+      path: "/vmess-argo"
+      headers:
+        Host: cdn.ywsqbw.uk
+      max-early-data: 2560
+      early-data-header-name: Sec-WebSocket-Protocol
+  - name: "TW-Sky_Digital_Co.-FIX20-NRT3"
+    type: vmess
+    server: 162.159.45.121
+    port: 443
+    uuid: d747084a-0e2d-4a53-9e4b-11616da5cc19
+    alterId: 0
+    cipher: auto
+    udp: true
+    tls: true
+    servername: cdn.ywsqbw.uk
+    client-fingerprint: firefox
+    network: ws
+    ws-opts:
+      path: "/vmess-argo"
+      headers:
+        Host: cdn.ywsqbw.uk
+      max-early-data: 2560
+      early-data-header-name: Sec-WebSocket-Protocol
+  - name: "TW-Sky_Digital_Co.-FIX21-NRT4"
+    type: vmess
+    server: 172.64.53.135
+    port: 443
+    uuid: d747084a-0e2d-4a53-9e4b-11616da5cc19
+    alterId: 0
+    cipher: auto
+    udp: true
+    tls: true
+    servername: cdn.ywsqbw.uk
+    client-fingerprint: firefox
+    network: ws
+    ws-opts:
+      path: "/vmess-argo"
+      headers:
+        Host: cdn.ywsqbw.uk
+      max-early-data: 2560
+      early-data-header-name: Sec-WebSocket-Protocol
+  - name: "TW-Sky_Digital_Co.-FIX22-japanT1"
+    type: vmess
+    server: 172.64.229.87
+    port: 443
+    uuid: d747084a-0e2d-4a53-9e4b-11616da5cc19
+    alterId: 0
+    cipher: auto
+    udp: true
+    tls: true
+    servername: cdn.ywsqbw.uk
+    client-fingerprint: firefox
+    network: ws
+    ws-opts:
+      path: "/vmess-argo"
+      headers:
+        Host: cdn.ywsqbw.uk
+      max-early-data: 2560
+      early-data-header-name: Sec-WebSocket-Protocol
+  - name: "TW-Sky_Digital_Co.-FIX23-japanT2"
     type: vmess
     server: 108.162.198.33
     port: 443
@@ -274,43 +436,7 @@ proxies:
         Host: cdn.ywsqbw.uk
       max-early-data: 2560
       early-data-header-name: Sec-WebSocket-Protocol
-  - name: "TW-Sky_Digital_Co.-FIX15-japanT3"
-    type: vmess
-    server: 162.159.44.124
-    port: 443
-    uuid: d747084a-0e2d-4a53-9e4b-11616da5cc19
-    alterId: 0
-    cipher: auto
-    udp: true
-    tls: true
-    servername: cdn.ywsqbw.uk
-    client-fingerprint: firefox
-    network: ws
-    ws-opts:
-      path: "/vmess-argo"
-      headers:
-        Host: cdn.ywsqbw.uk
-      max-early-data: 2560
-      early-data-header-name: Sec-WebSocket-Protocol
-  - name: "TW-Sky_Digital_Co.-FIX16-japanT4"
-    type: vmess
-    server: 162.159.45.68
-    port: 443
-    uuid: d747084a-0e2d-4a53-9e4b-11616da5cc19
-    alterId: 0
-    cipher: auto
-    udp: true
-    tls: true
-    servername: cdn.ywsqbw.uk
-    client-fingerprint: firefox
-    network: ws
-    ws-opts:
-      path: "/vmess-argo"
-      headers:
-        Host: cdn.ywsqbw.uk
-      max-early-data: 2560
-      early-data-header-name: Sec-WebSocket-Protocol
-  - name: "TW-Sky_Digital_Co.-FIX17-singapore1"
+  - name: "TW-Sky_Digital_Co.-FIX24-singapore1"
     type: vmess
     server: 108.162.195.187
     port: 443
@@ -328,7 +454,7 @@ proxies:
         Host: cdn.ywsqbw.uk
       max-early-data: 2560
       early-data-header-name: Sec-WebSocket-Protocol
-  - name: "TW-Sky_Digital_Co.-FIX18-singapore2"
+  - name: "TW-Sky_Digital_Co.-FIX25-singapore2"
     type: vmess
     server: 172.64.155.159
     port: 443
@@ -346,81 +472,9 @@ proxies:
         Host: cdn.ywsqbw.uk
       max-early-data: 2560
       early-data-header-name: Sec-WebSocket-Protocol
-  - name: "TW-Sky_Digital_Co.-FIX19-singapore3"
-    type: vmess
-    server: 162.159.25.170
-    port: 443
-    uuid: d747084a-0e2d-4a53-9e4b-11616da5cc19
-    alterId: 0
-    cipher: auto
-    udp: true
-    tls: true
-    servername: cdn.ywsqbw.uk
-    client-fingerprint: firefox
-    network: ws
-    ws-opts:
-      path: "/vmess-argo"
-      headers:
-        Host: cdn.ywsqbw.uk
-      max-early-data: 2560
-      early-data-header-name: Sec-WebSocket-Protocol
-  - name: "TW-Sky_Digital_Co.-FIX20-singapore4"
-    type: vmess
-    server: 104.18.43.235
-    port: 443
-    uuid: d747084a-0e2d-4a53-9e4b-11616da5cc19
-    alterId: 0
-    cipher: auto
-    udp: true
-    tls: true
-    servername: cdn.ywsqbw.uk
-    client-fingerprint: firefox
-    network: ws
-    ws-opts:
-      path: "/vmess-argo"
-      headers:
-        Host: cdn.ywsqbw.uk
-      max-early-data: 2560
-      early-data-header-name: Sec-WebSocket-Protocol
-  - name: "TW-Sky_Digital_Co.-FIX21-singapore5"
-    type: vmess
-    server: 162.159.23.186
-    port: 443
-    uuid: d747084a-0e2d-4a53-9e4b-11616da5cc19
-    alterId: 0
-    cipher: auto
-    udp: true
-    tls: true
-    servername: cdn.ywsqbw.uk
-    client-fingerprint: firefox
-    network: ws
-    ws-opts:
-      path: "/vmess-argo"
-      headers:
-        Host: cdn.ywsqbw.uk
-      max-early-data: 2560
-      early-data-header-name: Sec-WebSocket-Protocol
-  - name: "TW-Sky_Digital_Co.-FIX22-singapore6"
-    type: vmess
-    server: 1.0.0.115
-    port: 443
-    uuid: d747084a-0e2d-4a53-9e4b-11616da5cc19
-    alterId: 0
-    cipher: auto
-    udp: true
-    tls: true
-    servername: cdn.ywsqbw.uk
-    client-fingerprint: firefox
-    network: ws
-    ws-opts:
-      path: "/vmess-argo"
-      headers:
-        Host: cdn.ywsqbw.uk
-      max-early-data: 2560
-      early-data-header-name: Sec-WebSocket-Protocol
   - name: "TW-Sky_Digital_Co.-CF01"
     type: vmess
-    server: 104.18.89.52
+    server: 188.114.96.0
     port: 443
     uuid: d747084a-0e2d-4a53-9e4b-11616da5cc19
     alterId: 0
@@ -438,7 +492,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "TW-Sky_Digital_Co.-CF02"
     type: vmess
-    server: 104.19.212.207
+    server: 162.159.4.133
     port: 443
     uuid: d747084a-0e2d-4a53-9e4b-11616da5cc19
     alterId: 0
@@ -456,7 +510,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "TW-Sky_Digital_Co.-CF03"
     type: vmess
-    server: 104.18.81.19
+    server: 104.18.223.253
     port: 443
     uuid: d747084a-0e2d-4a53-9e4b-11616da5cc19
     alterId: 0
@@ -474,7 +528,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "TW-Sky_Digital_Co.-CF04"
     type: vmess
-    server: 104.18.223.253
+    server: 104.19.212.207
     port: 443
     uuid: d747084a-0e2d-4a53-9e4b-11616da5cc19
     alterId: 0
@@ -492,7 +546,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "TW-Sky_Digital_Co.-CF05"
     type: vmess
-    server: 104.18.151.172
+    server: 162.159.11.14
     port: 443
     uuid: d747084a-0e2d-4a53-9e4b-11616da5cc19
     alterId: 0
@@ -510,7 +564,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "TW-Sky_Digital_Co.-CF06"
     type: vmess
-    server: 104.18.255.167
+    server: 104.18.81.19
     port: 443
     uuid: d747084a-0e2d-4a53-9e4b-11616da5cc19
     alterId: 0
@@ -528,7 +582,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "TW-Sky_Digital_Co.-CF07"
     type: vmess
-    server: 104.18.166.129
+    server: 104.19.154.200
     port: 443
     uuid: d747084a-0e2d-4a53-9e4b-11616da5cc19
     alterId: 0
@@ -546,7 +600,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "TW-Sky_Digital_Co.-CF08"
     type: vmess
-    server: 104.19.154.200
+    server: 104.17.147.14
     port: 443
     uuid: d747084a-0e2d-4a53-9e4b-11616da5cc19
     alterId: 0
@@ -564,7 +618,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "TW-Sky_Digital_Co.-CF09"
     type: vmess
-    server: 104.17.167.134
+    server: 104.16.105.166
     port: 443
     uuid: d747084a-0e2d-4a53-9e4b-11616da5cc19
     alterId: 0
@@ -582,7 +636,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "TW-Sky_Digital_Co.-CF10"
     type: vmess
-    server: 104.17.145.26
+    server: 103.21.244.0
     port: 443
     uuid: d747084a-0e2d-4a53-9e4b-11616da5cc19
     alterId: 0
@@ -600,7 +654,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "TW-Sky_Digital_Co.-CF11"
     type: vmess
-    server: 104.17.154.205
+    server: 104.17.144.112
     port: 443
     uuid: d747084a-0e2d-4a53-9e4b-11616da5cc19
     alterId: 0
@@ -618,7 +672,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "TW-Sky_Digital_Co.-CF12"
     type: vmess
-    server: 104.17.153.16
+    server: 104.18.89.52
     port: 443
     uuid: d747084a-0e2d-4a53-9e4b-11616da5cc19
     alterId: 0
@@ -645,25 +699,28 @@ proxy-groups:
       - "TW-Sky_Digital_Co.-FIX01-yx"
       - "TW-Sky_Digital_Co.-FIX02-wendin1"
       - "TW-Sky_Digital_Co.-FIX03-wendin2"
-      - "TW-Sky_Digital_Co.-FIX04-wendin3"
-      - "TW-Sky_Digital_Co.-FIX05-wendin4"
-      - "TW-Sky_Digital_Co.-FIX06-备用域名"
-      - "TW-Sky_Digital_Co.-FIX07-主域名"
-      - "TW-Sky_Digital_Co.-FIX08-japan1"
-      - "TW-Sky_Digital_Co.-FIX09-japan2"
-      - "TW-Sky_Digital_Co.-FIX10-japan3"
-      - "TW-Sky_Digital_Co.-FIX11-japan4"
-      - "TW-Sky_Digital_Co.-FIX12-japan5"
-      - "TW-Sky_Digital_Co.-FIX13-japanT1"
-      - "TW-Sky_Digital_Co.-FIX14-japanT2"
-      - "TW-Sky_Digital_Co.-FIX15-japanT3"
-      - "TW-Sky_Digital_Co.-FIX16-japanT4"
-      - "TW-Sky_Digital_Co.-FIX17-singapore1"
-      - "TW-Sky_Digital_Co.-FIX18-singapore2"
-      - "TW-Sky_Digital_Co.-FIX19-singapore3"
-      - "TW-Sky_Digital_Co.-FIX20-singapore4"
-      - "TW-Sky_Digital_Co.-FIX21-singapore5"
-      - "TW-Sky_Digital_Co.-FIX22-singapore6"
+      - "TW-Sky_Digital_Co.-FIX04-备用域名"
+      - "TW-Sky_Digital_Co.-FIX05-主域名"
+      - "TW-Sky_Digital_Co.-FIX06-japan1"
+      - "TW-Sky_Digital_Co.-FIX07-japan2"
+      - "TW-Sky_Digital_Co.-FIX08-japan3"
+      - "TW-Sky_Digital_Co.-FIX09-japan4"
+      - "TW-Sky_Digital_Co.-FIX10-SIN"
+      - "TW-Sky_Digital_Co.-FIX11-SIN2"
+      - "TW-Sky_Digital_Co.-FIX12-SIN3"
+      - "TW-Sky_Digital_Co.-FIX13-SIN4"
+      - "TW-Sky_Digital_Co.-FIX14-SIN5"
+      - "TW-Sky_Digital_Co.-FIX15-SIN6"
+      - "TW-Sky_Digital_Co.-FIX16-SIN7"
+      - "TW-Sky_Digital_Co.-FIX17-SIN8"
+      - "TW-Sky_Digital_Co.-FIX18-NRT"
+      - "TW-Sky_Digital_Co.-FIX19-NRT2"
+      - "TW-Sky_Digital_Co.-FIX20-NRT3"
+      - "TW-Sky_Digital_Co.-FIX21-NRT4"
+      - "TW-Sky_Digital_Co.-FIX22-japanT1"
+      - "TW-Sky_Digital_Co.-FIX23-japanT2"
+      - "TW-Sky_Digital_Co.-FIX24-singapore1"
+      - "TW-Sky_Digital_Co.-FIX25-singapore2"
       - "TW-Sky_Digital_Co.-CF01"
       - "TW-Sky_Digital_Co.-CF02"
       - "TW-Sky_Digital_Co.-CF03"
@@ -683,25 +740,28 @@ proxy-groups:
       - "TW-Sky_Digital_Co.-FIX01-yx"
       - "TW-Sky_Digital_Co.-FIX02-wendin1"
       - "TW-Sky_Digital_Co.-FIX03-wendin2"
-      - "TW-Sky_Digital_Co.-FIX04-wendin3"
-      - "TW-Sky_Digital_Co.-FIX05-wendin4"
-      - "TW-Sky_Digital_Co.-FIX06-备用域名"
-      - "TW-Sky_Digital_Co.-FIX07-主域名"
-      - "TW-Sky_Digital_Co.-FIX08-japan1"
-      - "TW-Sky_Digital_Co.-FIX09-japan2"
-      - "TW-Sky_Digital_Co.-FIX10-japan3"
-      - "TW-Sky_Digital_Co.-FIX11-japan4"
-      - "TW-Sky_Digital_Co.-FIX12-japan5"
-      - "TW-Sky_Digital_Co.-FIX13-japanT1"
-      - "TW-Sky_Digital_Co.-FIX14-japanT2"
-      - "TW-Sky_Digital_Co.-FIX15-japanT3"
-      - "TW-Sky_Digital_Co.-FIX16-japanT4"
-      - "TW-Sky_Digital_Co.-FIX17-singapore1"
-      - "TW-Sky_Digital_Co.-FIX18-singapore2"
-      - "TW-Sky_Digital_Co.-FIX19-singapore3"
-      - "TW-Sky_Digital_Co.-FIX20-singapore4"
-      - "TW-Sky_Digital_Co.-FIX21-singapore5"
-      - "TW-Sky_Digital_Co.-FIX22-singapore6"
+      - "TW-Sky_Digital_Co.-FIX04-备用域名"
+      - "TW-Sky_Digital_Co.-FIX05-主域名"
+      - "TW-Sky_Digital_Co.-FIX06-japan1"
+      - "TW-Sky_Digital_Co.-FIX07-japan2"
+      - "TW-Sky_Digital_Co.-FIX08-japan3"
+      - "TW-Sky_Digital_Co.-FIX09-japan4"
+      - "TW-Sky_Digital_Co.-FIX10-SIN"
+      - "TW-Sky_Digital_Co.-FIX11-SIN2"
+      - "TW-Sky_Digital_Co.-FIX12-SIN3"
+      - "TW-Sky_Digital_Co.-FIX13-SIN4"
+      - "TW-Sky_Digital_Co.-FIX14-SIN5"
+      - "TW-Sky_Digital_Co.-FIX15-SIN6"
+      - "TW-Sky_Digital_Co.-FIX16-SIN7"
+      - "TW-Sky_Digital_Co.-FIX17-SIN8"
+      - "TW-Sky_Digital_Co.-FIX18-NRT"
+      - "TW-Sky_Digital_Co.-FIX19-NRT2"
+      - "TW-Sky_Digital_Co.-FIX20-NRT3"
+      - "TW-Sky_Digital_Co.-FIX21-NRT4"
+      - "TW-Sky_Digital_Co.-FIX22-japanT1"
+      - "TW-Sky_Digital_Co.-FIX23-japanT2"
+      - "TW-Sky_Digital_Co.-FIX24-singapore1"
+      - "TW-Sky_Digital_Co.-FIX25-singapore2"
       - "TW-Sky_Digital_Co.-CF01"
       - "TW-Sky_Digital_Co.-CF02"
       - "TW-Sky_Digital_Co.-CF03"
