@@ -3,6 +3,7 @@ allow-lan: true
 bind-address: '*'
 mode: rule
 log-level: info
+find-process-mode: always
 external-controller: '127.0.0.1:9090'
 ipv6: true
 
@@ -474,7 +475,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF01"
     type: vmess
-    server: 198.41.208.224
+    server: 104.26.8.117
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -492,7 +493,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF02"
     type: vmess
-    server: 104.17.144.194
+    server: 104.26.5.134
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -510,7 +511,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF03"
     type: vmess
-    server: 198.41.208.15
+    server: 188.114.96.0
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -528,7 +529,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF04"
     type: vmess
-    server: 104.17.144.112
+    server: 162.159.140.85
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -546,7 +547,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF05"
     type: vmess
-    server: 104.17.142.212
+    server: 172.66.0.0
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -564,7 +565,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF06"
     type: vmess
-    server: 198.41.194.162
+    server: 172.64.230.0
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -582,7 +583,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF07"
     type: vmess
-    server: 188.114.96.0
+    server: 198.41.194.162
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -600,7 +601,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF08"
     type: vmess
-    server: 104.17.162.3
+    server: 162.159.140.116
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -618,7 +619,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF09"
     type: vmess
-    server: 172.66.0.0
+    server: 198.41.208.15
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -636,7 +637,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF10"
     type: vmess
-    server: 104.17.139.37
+    server: 173.245.49.194
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -654,7 +655,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF11"
     type: vmess
-    server: 173.245.49.194
+    server: 172.64.232.0
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -672,7 +673,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF12"
     type: vmess
-    server: 172.64.48.226
+    server: 172.64.91.69
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -873,6 +874,7 @@ rules:
   - PROCESS-NAME,ssh,DIRECT
   - PROCESS-NAME,Terminal,DIRECT
   - PROCESS-NAME,WindowsTerminal.exe,DIRECT
+  - PROCESS-NAME,ChatGPT.exe,ChatGPT
   - IP-CIDR,82.139.205.22/32,DIRECT,no-resolve
   - DOMAIN-SUFFIX,ywsqbw.uk,DIRECT
   - DOMAIN,de.ywsqbw.uk,DIRECT
@@ -889,6 +891,7 @@ rules:
   - DOMAIN-SUFFIX,oaiusercontent.com,ChatGPT
   - DOMAIN-SUFFIX,auth0.com,ChatGPT
   - DOMAIN-KEYWORD,openai,ChatGPT
+  - DOMAIN-SUFFIX,sentry.io,ChatGPT
   - DOMAIN-SUFFIX,anthropic.com,ChatGPT
   - DOMAIN-SUFFIX,claude.ai,ChatGPT
   - DOMAIN-KEYWORD,claude,ChatGPT
