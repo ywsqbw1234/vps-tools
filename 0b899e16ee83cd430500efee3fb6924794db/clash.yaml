@@ -23,7 +23,187 @@ dns:
     - 8.8.8.8
 
 proxies:
-  - name: "DE-FIX01-162.159.45.48 japan2 162.159.44.19 japan3 108.162.198.170 japan4 162.159.44.153 japanT1 172.64.229.87 japanT2"
+  - name: "DE-FIX01-yx"
+    type: vmess
+    server: 108.162.198.205
+    port: 443
+    uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
+    alterId: 0
+    cipher: auto
+    udp: true
+    tls: true
+    servername: de.ywsqbw.uk
+    client-fingerprint: firefox
+    network: ws
+    ws-opts:
+      path: "/vmess-argo"
+      headers:
+        Host: de.ywsqbw.uk
+      max-early-data: 2560
+      early-data-header-name: Sec-WebSocket-Protocol
+  - name: "DE-FIX02-wendin1"
+    type: vmess
+    server: 162.159.39.162
+    port: 443
+    uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
+    alterId: 0
+    cipher: auto
+    udp: true
+    tls: true
+    servername: de.ywsqbw.uk
+    client-fingerprint: firefox
+    network: ws
+    ws-opts:
+      path: "/vmess-argo"
+      headers:
+        Host: de.ywsqbw.uk
+      max-early-data: 2560
+      early-data-header-name: Sec-WebSocket-Protocol
+  - name: "DE-FIX03-wendin2"
+    type: vmess
+    server: 172.64.52.127
+    port: 443
+    uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
+    alterId: 0
+    cipher: auto
+    udp: true
+    tls: true
+    servername: de.ywsqbw.uk
+    client-fingerprint: firefox
+    network: ws
+    ws-opts:
+      path: "/vmess-argo"
+      headers:
+        Host: de.ywsqbw.uk
+      max-early-data: 2560
+      early-data-header-name: Sec-WebSocket-Protocol
+  - name: "DE-FIX04-备用域名"
+    type: vmess
+    server: cf.877774.xyz
+    port: 443
+    uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
+    alterId: 0
+    cipher: auto
+    udp: true
+    tls: true
+    servername: de.ywsqbw.uk
+    client-fingerprint: firefox
+    network: ws
+    ws-opts:
+      path: "/vmess-argo"
+      headers:
+        Host: de.ywsqbw.uk
+      max-early-data: 2560
+      early-data-header-name: Sec-WebSocket-Protocol
+  - name: "DE-FIX05-主域名"
+    type: vmess
+    server: de.ywsqbw.uk
+    port: 443
+    uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
+    alterId: 0
+    cipher: auto
+    udp: true
+    tls: true
+    servername: de.ywsqbw.uk
+    client-fingerprint: firefox
+    network: ws
+    ws-opts:
+      path: "/vmess-argo"
+      headers:
+        Host: de.ywsqbw.uk
+      max-early-data: 2560
+      early-data-header-name: Sec-WebSocket-Protocol
+  - name: "DE-FIX06-japan1"
+    type: vmess
+    server: 162.159.45.48
+    port: 443
+    uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
+    alterId: 0
+    cipher: auto
+    udp: true
+    tls: true
+    servername: de.ywsqbw.uk
+    client-fingerprint: firefox
+    network: ws
+    ws-opts:
+      path: "/vmess-argo"
+      headers:
+        Host: de.ywsqbw.uk
+      max-early-data: 2560
+      early-data-header-name: Sec-WebSocket-Protocol
+  - name: "DE-FIX07-japan2"
+    type: vmess
+    server: 162.159.44.19
+    port: 443
+    uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
+    alterId: 0
+    cipher: auto
+    udp: true
+    tls: true
+    servername: de.ywsqbw.uk
+    client-fingerprint: firefox
+    network: ws
+    ws-opts:
+      path: "/vmess-argo"
+      headers:
+        Host: de.ywsqbw.uk
+      max-early-data: 2560
+      early-data-header-name: Sec-WebSocket-Protocol
+  - name: "DE-FIX08-japan3"
+    type: vmess
+    server: 108.162.198.170
+    port: 443
+    uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
+    alterId: 0
+    cipher: auto
+    udp: true
+    tls: true
+    servername: de.ywsqbw.uk
+    client-fingerprint: firefox
+    network: ws
+    ws-opts:
+      path: "/vmess-argo"
+      headers:
+        Host: de.ywsqbw.uk
+      max-early-data: 2560
+      early-data-header-name: Sec-WebSocket-Protocol
+  - name: "DE-FIX09-japan4"
+    type: vmess
+    server: 162.159.44.153
+    port: 443
+    uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
+    alterId: 0
+    cipher: auto
+    udp: true
+    tls: true
+    servername: de.ywsqbw.uk
+    client-fingerprint: firefox
+    network: ws
+    ws-opts:
+      path: "/vmess-argo"
+      headers:
+        Host: de.ywsqbw.uk
+      max-early-data: 2560
+      early-data-header-name: Sec-WebSocket-Protocol
+  - name: "DE-FIX10-japanT1"
+    type: vmess
+    server: 172.64.229.87
+    port: 443
+    uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
+    alterId: 0
+    cipher: auto
+    udp: true
+    tls: true
+    servername: de.ywsqbw.uk
+    client-fingerprint: firefox
+    network: ws
+    ws-opts:
+      path: "/vmess-argo"
+      headers:
+        Host: de.ywsqbw.uk
+      max-early-data: 2560
+      early-data-header-name: Sec-WebSocket-Protocol
+  - name: "DE-FIX11-japanT2"
     type: vmess
     server: 108.162.198.33
     port: 443
@@ -41,7 +221,115 @@ proxies:
         Host: de.ywsqbw.uk
       max-early-data: 2560
       early-data-header-name: Sec-WebSocket-Protocol
-  - name: "DE-FIX02-singapore1 108.162.195.187 singapore2 172.64.155.159 162.159.9.223 172.64.32.209 172.64.41.120 198.41.222.116"
+  - name: "DE-FIX12-singapore1"
+    type: vmess
+    server: 108.162.195.187
+    port: 443
+    uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
+    alterId: 0
+    cipher: auto
+    udp: true
+    tls: true
+    servername: de.ywsqbw.uk
+    client-fingerprint: firefox
+    network: ws
+    ws-opts:
+      path: "/vmess-argo"
+      headers:
+        Host: de.ywsqbw.uk
+      max-early-data: 2560
+      early-data-header-name: Sec-WebSocket-Protocol
+  - name: "DE-FIX13-singapore2"
+    type: vmess
+    server: 172.64.155.159
+    port: 443
+    uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
+    alterId: 0
+    cipher: auto
+    udp: true
+    tls: true
+    servername: de.ywsqbw.uk
+    client-fingerprint: firefox
+    network: ws
+    ws-opts:
+      path: "/vmess-argo"
+      headers:
+        Host: de.ywsqbw.uk
+      max-early-data: 2560
+      early-data-header-name: Sec-WebSocket-Protocol
+  - name: "DE-FIX14-test1"
+    type: vmess
+    server: 162.159.9.223
+    port: 443
+    uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
+    alterId: 0
+    cipher: auto
+    udp: true
+    tls: true
+    servername: de.ywsqbw.uk
+    client-fingerprint: firefox
+    network: ws
+    ws-opts:
+      path: "/vmess-argo"
+      headers:
+        Host: de.ywsqbw.uk
+      max-early-data: 2560
+      early-data-header-name: Sec-WebSocket-Protocol
+  - name: "DE-FIX15-test2"
+    type: vmess
+    server: 172.64.32.209
+    port: 443
+    uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
+    alterId: 0
+    cipher: auto
+    udp: true
+    tls: true
+    servername: de.ywsqbw.uk
+    client-fingerprint: firefox
+    network: ws
+    ws-opts:
+      path: "/vmess-argo"
+      headers:
+        Host: de.ywsqbw.uk
+      max-early-data: 2560
+      early-data-header-name: Sec-WebSocket-Protocol
+  - name: "DE-FIX16-test3"
+    type: vmess
+    server: 172.64.41.120
+    port: 443
+    uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
+    alterId: 0
+    cipher: auto
+    udp: true
+    tls: true
+    servername: de.ywsqbw.uk
+    client-fingerprint: firefox
+    network: ws
+    ws-opts:
+      path: "/vmess-argo"
+      headers:
+        Host: de.ywsqbw.uk
+      max-early-data: 2560
+      early-data-header-name: Sec-WebSocket-Protocol
+  - name: "DE-FIX17-test4"
+    type: vmess
+    server: 198.41.222.116
+    port: 443
+    uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
+    alterId: 0
+    cipher: auto
+    udp: true
+    tls: true
+    servername: de.ywsqbw.uk
+    client-fingerprint: firefox
+    network: ws
+    ws-opts:
+      path: "/vmess-argo"
+      headers:
+        Host: de.ywsqbw.uk
+      max-early-data: 2560
+      early-data-header-name: Sec-WebSocket-Protocol
+  - name: "DE-FIX18-test5"
     type: vmess
     server: 172.64.151.238
     port: 443
@@ -59,7 +347,61 @@ proxies:
         Host: de.ywsqbw.uk
       max-early-data: 2560
       early-data-header-name: Sec-WebSocket-Protocol
-  - name: "DE-FIX03-172.64.34.133 173.245.59.188 162.159.20.63"
+  - name: "DE-FIX19-test6"
+    type: vmess
+    server: 172.64.34.133
+    port: 443
+    uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
+    alterId: 0
+    cipher: auto
+    udp: true
+    tls: true
+    servername: de.ywsqbw.uk
+    client-fingerprint: firefox
+    network: ws
+    ws-opts:
+      path: "/vmess-argo"
+      headers:
+        Host: de.ywsqbw.uk
+      max-early-data: 2560
+      early-data-header-name: Sec-WebSocket-Protocol
+  - name: "DE-FIX20-test7"
+    type: vmess
+    server: 173.245.59.188
+    port: 443
+    uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
+    alterId: 0
+    cipher: auto
+    udp: true
+    tls: true
+    servername: de.ywsqbw.uk
+    client-fingerprint: firefox
+    network: ws
+    ws-opts:
+      path: "/vmess-argo"
+      headers:
+        Host: de.ywsqbw.uk
+      max-early-data: 2560
+      early-data-header-name: Sec-WebSocket-Protocol
+  - name: "DE-FIX21-test8"
+    type: vmess
+    server: 162.159.20.63
+    port: 443
+    uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
+    alterId: 0
+    cipher: auto
+    udp: true
+    tls: true
+    servername: de.ywsqbw.uk
+    client-fingerprint: firefox
+    network: ws
+    ws-opts:
+      path: "/vmess-argo"
+      headers:
+        Host: de.ywsqbw.uk
+      max-early-data: 2560
+      early-data-header-name: Sec-WebSocket-Protocol
+  - name: "DE-FIX22-test9"
     type: vmess
     server: 108.162.194.159
     port: 443
@@ -77,7 +419,7 @@ proxies:
         Host: de.ywsqbw.uk
       max-early-data: 2560
       early-data-header-name: Sec-WebSocket-Protocol
-  - name: "DE-FIX04"
+  - name: "DE-FIX23-test10"
     type: vmess
     server: 162.159.32.44
     port: 443
@@ -97,7 +439,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF01"
     type: vmess
-    server: 104.18.166.129
+    server: 104.16.0.0
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -115,7 +457,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF02"
     type: vmess
-    server: 172.64.232.0
+    server: 104.18.81.19
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -133,7 +475,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF03"
     type: vmess
-    server: 172.64.229.7
+    server: 104.18.255.167
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -151,7 +493,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF04"
     type: vmess
-    server: 172.64.229.0
+    server: 104.18.89.52
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -169,7 +511,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF05"
     type: vmess
-    server: 104.17.139.37
+    server: 104.17.167.134
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -187,7 +529,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF06"
     type: vmess
-    server: 162.159.60.143
+    server: 104.17.140.214
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -205,7 +547,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF07"
     type: vmess
-    server: 104.17.142.212
+    server: 104.26.3.162
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -223,7 +565,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF08"
     type: vmess
-    server: 104.17.138.27
+    server: 104.17.140.33
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -241,7 +583,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF09"
     type: vmess
-    server: 198.41.208.15
+    server: 104.17.142.212
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -259,7 +601,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF10"
     type: vmess
-    server: 104.25.245.242
+    server: 104.17.139.37
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -277,7 +619,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF11"
     type: vmess
-    server: 172.64.230.0
+    server: 104.25.250.26
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -295,7 +637,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF12"
     type: vmess
-    server: 104.17.167.134
+    server: 104.25.246.161
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -355,10 +697,29 @@ proxy-groups:
   - name: "节点选择"
     type: select
     proxies:
-      - "DE-FIX01-162.159.45.48 japan2 162.159.44.19 japan3 108.162.198.170 japan4 162.159.44.153 japanT1 172.64.229.87 japanT2"
-      - "DE-FIX02-singapore1 108.162.195.187 singapore2 172.64.155.159 162.159.9.223 172.64.32.209 172.64.41.120 198.41.222.116"
-      - "DE-FIX03-172.64.34.133 173.245.59.188 162.159.20.63"
-      - "DE-FIX04"
+      - "DE-FIX01-yx"
+      - "DE-FIX02-wendin1"
+      - "DE-FIX03-wendin2"
+      - "DE-FIX04-备用域名"
+      - "DE-FIX05-主域名"
+      - "DE-FIX06-japan1"
+      - "DE-FIX07-japan2"
+      - "DE-FIX08-japan3"
+      - "DE-FIX09-japan4"
+      - "DE-FIX10-japanT1"
+      - "DE-FIX11-japanT2"
+      - "DE-FIX12-singapore1"
+      - "DE-FIX13-singapore2"
+      - "DE-FIX14-test1"
+      - "DE-FIX15-test2"
+      - "DE-FIX16-test3"
+      - "DE-FIX17-test4"
+      - "DE-FIX18-test5"
+      - "DE-FIX19-test6"
+      - "DE-FIX20-test7"
+      - "DE-FIX21-test8"
+      - "DE-FIX22-test9"
+      - "DE-FIX23-test10"
       - "DE-CF01"
       - "DE-CF02"
       - "DE-CF03"
@@ -384,10 +745,29 @@ proxy-groups:
   - name: "自动选择"
     type: select
     proxies:
-      - "DE-FIX01-162.159.45.48 japan2 162.159.44.19 japan3 108.162.198.170 japan4 162.159.44.153 japanT1 172.64.229.87 japanT2"
-      - "DE-FIX02-singapore1 108.162.195.187 singapore2 172.64.155.159 162.159.9.223 172.64.32.209 172.64.41.120 198.41.222.116"
-      - "DE-FIX03-172.64.34.133 173.245.59.188 162.159.20.63"
-      - "DE-FIX04"
+      - "DE-FIX01-yx"
+      - "DE-FIX02-wendin1"
+      - "DE-FIX03-wendin2"
+      - "DE-FIX04-备用域名"
+      - "DE-FIX05-主域名"
+      - "DE-FIX06-japan1"
+      - "DE-FIX07-japan2"
+      - "DE-FIX08-japan3"
+      - "DE-FIX09-japan4"
+      - "DE-FIX10-japanT1"
+      - "DE-FIX11-japanT2"
+      - "DE-FIX12-singapore1"
+      - "DE-FIX13-singapore2"
+      - "DE-FIX14-test1"
+      - "DE-FIX15-test2"
+      - "DE-FIX16-test3"
+      - "DE-FIX17-test4"
+      - "DE-FIX18-test5"
+      - "DE-FIX19-test6"
+      - "DE-FIX20-test7"
+      - "DE-FIX21-test8"
+      - "DE-FIX22-test9"
+      - "DE-FIX23-test10"
       - "DE-CF01"
       - "DE-CF02"
       - "DE-CF03"
