@@ -119,6 +119,50 @@ pick_vmess_template() {
 
 declare -A FIXED_SET
 declare -A FIXNAME
+declare -A FIXHOST
+declare -A FIXPORT
+
+VMESS_TEMPLATE_PORT="443"
+
+parse_fixed_target() {
+  local target="$1" host port
+
+  if [[ "$target" =~ ^(.+):([0-9]{1,5})$ ]]; then
+    host="${BASH_REMATCH[1]}"
+    port="${BASH_REMATCH[2]}"
+  else
+    host="$target"
+    port="443"
+  fi
+
+  [[ "$port" =~ ^[0-9]+$ ]] || return 1
+  (( port >= 1 && port <= 65535 )) || return 1
+
+  if [[ "$host" =~ ^([0-9]{1,3}\.){3}[0-9]{1,3}$ ]] || [[ "$host" =~ ^[A-Za-z0-9.-]+\.[A-Za-z]{2,}$ ]]; then
+    printf '%s %s\n' "$host" "$port"
+    return 0
+  fi
+
+  return 1
+}
+
+get_node_host() {
+  local node="$1"
+  if is_fixed_node "$node"; then
+    echo "${FIXHOST[$node]}"
+  else
+    echo "$node"
+  fi
+}
+
+get_node_port() {
+  local node="$1"
+  if is_fixed_node "$node"; then
+    echo "${FIXPORT[$node]}"
+  else
+    echo "${VMESS_TEMPLATE_PORT}"
+  fi
+}
 
 read_fixed_nodes() {
   local fixed_nodes_txt="$1"
