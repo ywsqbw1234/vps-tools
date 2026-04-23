@@ -167,24 +167,38 @@ get_node_port() {
 read_fixed_nodes() {
   local fixed_nodes_txt="$1"
   : > "$fixed_nodes_txt"
+
   FIXED_SET=()
   FIXNAME=()
+  FIXHOST=()
+  FIXPORT=()
 
   [[ -f "$FIXED_IP_FILE" ]] || return 0
 
   while IFS= read -r line; do
-    [[ -z "$line" ]] && continue
+    [[ -z "${line//[[:space:]]/}" ]] && continue
     [[ "$line" =~ ^[[:space:]]*# ]] && continue
 
-    local target name
+    local target name host port node_key
     target="$(echo "$line" | awk '{print $NF}')"
     name="$(echo "$line" | awk '{NF--; sub(/[ \t]+$/,""); print}')"
 
-    if [[ "$target" =~ ^([0-9]{1,3}\.){3}[0-9]{1,3}$ ]] || [[ "$target" =~ ^[A-Za-z0-9.-]+\.[A-Za-z]{2,}$ ]]; then
-      echo "$target" >> "$fixed_nodes_txt"
-      FIXED_SET["$target"]=1
-      FIXNAME["$target"]="$name"
+    if ! read -r host port < <(parse_fixed_target "$target"); then
+      log "跳过无效固定节点：$line"
+      continue
     fi
+
+    if [[ "$target" == *:* ]]; then
+      node_key="${host}:${port}"
+    else
+      node_key="${host}"
+    fi
+
+    echo "$node_key" >> "$fixed_nodes_txt"
+    FIXED_SET["$node_key"]=1
+    FIXNAME["$node_key"]="$name"
+    FIXHOST["$node_key"]="$host"
+    FIXPORT["$node_key"]="$port"
   done < "$FIXED_IP_FILE"
 }
 
@@ -440,6 +454,8 @@ main() {
   aid="$(echo "$vmjson" | jq -r '.aid // "0"')"
   fp="$(echo "$vmjson" | jq -r '.fp // "firefox"')"
 
+  VMESS_TEMPLATE_PORT="$port"
+
   [[ -n "$uuid" && "$uuid" != "null" ]] || die "模板里没有 UUID(id)"
 
   local ws_path early_data
@@ -521,7 +537,8 @@ main() {
   : > "$vmess_list"
   local fix_i=0 cf_i=0
   while IFS= read -r node; do
-    local newps tag display mod b64
+    local newps tag display mod b64 node_host node_port
+
     if is_fixed_node "$node"; then
       fix_i=$((fix_i+1))
       tag="$(printf "%02d" "$fix_i")"
@@ -537,12 +554,16 @@ main() {
       newps="${ps}-CF${tag}"
     fi
 
+    node_host="$(get_node_host "$node")"
+    node_port="$(get_node_port "$node")"
+
     mod="$(echo "$vmjson" | jq \
-      --arg add "$node" \
+      --arg add "$node_host" \
       --arg host "$DOMAIN" \
       --arg sni "$DOMAIN" \
       --arg ps "$newps" \
-      '.add=$add | .host=$host | .sni=$sni | .ps=$ps')"
+      --argjson port "$node_port" \
+      '.add=$add | .host=$host | .sni=$sni | .ps=$ps | .port=$port')"
 
     b64="$(echo -n "$mod" | base64 -w0)"
     echo "vmess://${b64}" >> "$vmess_list"
@@ -586,7 +607,8 @@ main() {
     fix_i=0
     cf_i=0
     while IFS= read -r node; do
-      local name tag display
+      local name tag display node_host node_port
+
       if is_fixed_node "$node"; then
         fix_i=$((fix_i+1))
         tag="$(printf "%02d" "$fix_i")"
@@ -602,10 +624,13 @@ main() {
         name="${ps}-CF${tag}"
       fi
 
+      node_host="$(get_node_host "$node")"
+      node_port="$(get_node_port "$node")"
+
       echo "  - name: \"${name}\""
       echo "    type: vmess"
-      echo "    server: ${node}"
-      echo "    port: ${port}"
+      echo "    server: ${node_host}"
+      echo "    port: ${node_port}"
       echo "    uuid: ${uuid}"
       echo "    alterId: ${aid}"
       echo "    cipher: auto"
