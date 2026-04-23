@@ -162,7 +162,7 @@ fetch_ips_sources() {
   curl -fsSL "https://api.uouin.com/cloudflare.html" \
     | grep -oE '([0-9]{1,3}\.){3}[0-9]{1,3}' >> "$tmp" || true
 
-  curl -fsSL "https://ctcc.cloudflare.seeck.cn" \
+  curl -fsSL "https://saas.seeck.cn" \
     | grep -oE '([0-9]{1,3}\.){3}[0-9]{1,3}' >> "$tmp" || true
   
 
