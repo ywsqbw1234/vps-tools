@@ -526,7 +526,8 @@ main() {
   fi
 
   if [[ -s "$fixed_nodes_txt" ]]; then
-    grep -vxFf <(grep -E '^([0-9]{1,3}\.){3}[0-9]{1,3}$' "$fixed_nodes_txt" || true) "$auto_top" >> "$final_nodes" || true
+    awk -F: '{print $1}' "$fixed_nodes_txt" | sort -u > "${tmpdir}/fixed_hosts.txt"
+    grep -vxFf "${tmpdir}/fixed_hosts.txt" "$auto_top" >> "$final_nodes" || true
   else
     cat "$auto_top" >> "$final_nodes"
   fi
