@@ -9,6 +9,7 @@ WORKDIR="${WORKDIR:-/root/${GITHUB_REPO}}"
 
 URL_FILE="${URL_FILE:-/etc/sing-box/url.txt}"
 FIXED_IP_FILE="${FIXED_IP_FILE:-/root/cf_fixed_ip.txt}"
+FIXED_IP_URL="${FIXED_IP_URL:-https://raw.githubusercontent.com/ywsqbw1234/vps-tools/main/cf_fixed_ip.txt}"
 
 DOMAIN="${DOMAIN:-de.ywsqbw.uk}"
 VPS_IP="${VPS_IP:-82.139.205.22}"
@@ -161,6 +162,19 @@ get_node_port() {
     echo "${FIXPORT[$node]}"
   else
     echo "${VMESS_TEMPLATE_PORT}"
+  fi
+}
+
+prepare_fixed_ip_file() {
+  local tmp_fixed_ip
+  tmp_fixed_ip="$(mktemp)"
+
+  if curl -fsSL "$FIXED_IP_URL" -o "$tmp_fixed_ip"; then
+    log "已从 GitHub 拉取固定节点文件: $FIXED_IP_URL"
+    FIXED_IP_FILE="$tmp_fixed_ip"
+  else
+    log "GitHub 固定节点文件拉取失败，回退使用本地文件: $FIXED_IP_FILE"
+    rm -f "$tmp_fixed_ip"
   fi
 }
 
@@ -494,6 +508,7 @@ main() {
   hy2_names="${tmpdir}/hy2_names.txt"
   hy2_links="${tmpdir}/hy2_links.txt"
 
+  prepare_fixed_ip_file
   read_fixed_nodes "$fixed_nodes_txt"
   log "固定节点数量：$(wc -l < "$fixed_nodes_txt" 2>/dev/null | tr -d ' ' || echo 0)"
 
