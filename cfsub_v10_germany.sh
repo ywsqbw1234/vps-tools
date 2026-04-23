@@ -153,13 +153,16 @@ fetch_ips_sources() {
   local tmp="$1"
   : > "$tmp"
 
+  curl -fsSL "https://saas.seeck.cn/" \
+    | grep -oE '([0-9]{1,3}\.){3}[0-9]{1,3}' >> "$tmp" || true
+
+  curl -fsSL "https://api.uouin.com/cloudflare.html" \
+    | grep -oE '([0-9]{1,3}\.){3}[0-9]{1,3}' >> "$tmp" || true
+    
   curl -fsSL "https://www.wetest.vip/page/cloudflare/address_v4.html" \
     | grep -oE '([0-9]{1,3}\.){3}[0-9]{1,3}' >> "$tmp" || true
 
   curl -fsSL "https://raw.githubusercontent.com/XIU2/CloudflareSpeedTest/master/ip.txt" \
-    | grep -oE '([0-9]{1,3}\.){3}[0-9]{1,3}' >> "$tmp" || true
-
-  curl -fsSL "https://api.uouin.com/cloudflare.html" \
     | grep -oE '([0-9]{1,3}\.){3}[0-9]{1,3}' >> "$tmp" || true
 
   awk '
