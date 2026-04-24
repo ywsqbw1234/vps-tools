@@ -311,7 +311,25 @@ proxies:
         Host: de.ywsqbw.uk
       max-early-data: 2560
       early-data-header-name: Sec-WebSocket-Protocol
-  - name: "DE-FIX17-SIN1"
+  - name: "DE-FIX17-NTR3"
+    type: vmess
+    server: 172.64.52.189
+    port: 443
+    uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
+    alterId: 0
+    cipher: auto
+    udp: true
+    tls: true
+    servername: de.ywsqbw.uk
+    client-fingerprint: firefox
+    network: ws
+    ws-opts:
+      path: "/vmess-argo"
+      headers:
+        Host: de.ywsqbw.uk
+      max-early-data: 2560
+      early-data-header-name: Sec-WebSocket-Protocol
+  - name: "DE-FIX18-SIN1"
     type: vmess
     server: 104.18.38.223
     port: 443
@@ -329,7 +347,7 @@ proxies:
         Host: de.ywsqbw.uk
       max-early-data: 2560
       early-data-header-name: Sec-WebSocket-Protocol
-  - name: "DE-FIX18-SIN2"
+  - name: "DE-FIX19-SIN2"
     type: vmess
     server: 162.159.2.86
     port: 443
@@ -347,7 +365,7 @@ proxies:
         Host: de.ywsqbw.uk
       max-early-data: 2560
       early-data-header-name: Sec-WebSocket-Protocol
-  - name: "DE-FIX19-KR1"
+  - name: "DE-FIX20-KR1"
     type: vmess
     server: 112.165.88.232
     port: 25010
@@ -365,7 +383,7 @@ proxies:
         Host: de.ywsqbw.uk
       max-early-data: 2560
       early-data-header-name: Sec-WebSocket-Protocol
-  - name: "DE-FIX20-KR2"
+  - name: "DE-FIX21-KR2"
     type: vmess
     server: 121.180.225.222
     port: 11001
@@ -383,25 +401,7 @@ proxies:
         Host: de.ywsqbw.uk
       max-early-data: 2560
       early-data-header-name: Sec-WebSocket-Protocol
-  - name: "DE-FIX21-KR3"
-    type: vmess
-    server: 121.174.43.148
-    port: 15332
-    uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
-    alterId: 0
-    cipher: auto
-    udp: true
-    tls: true
-    servername: de.ywsqbw.uk
-    client-fingerprint: firefox
-    network: ws
-    ws-opts:
-      path: "/vmess-argo"
-      headers:
-        Host: de.ywsqbw.uk
-      max-early-data: 2560
-      early-data-header-name: Sec-WebSocket-Protocol
-  - name: "DE-FIX22-KR4"
+  - name: "DE-FIX22-KR3"
     type: vmess
     server: 1.239.100.90
     port: 18789
@@ -419,61 +419,7 @@ proxies:
         Host: de.ywsqbw.uk
       max-early-data: 2560
       early-data-header-name: Sec-WebSocket-Protocol
-  - name: "DE-FIX23-HK1"
-    type: vmess
-    server: 45.121.138.23
-    port: 26688
-    uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
-    alterId: 0
-    cipher: auto
-    udp: true
-    tls: true
-    servername: de.ywsqbw.uk
-    client-fingerprint: firefox
-    network: ws
-    ws-opts:
-      path: "/vmess-argo"
-      headers:
-        Host: de.ywsqbw.uk
-      max-early-data: 2560
-      early-data-header-name: Sec-WebSocket-Protocol
-  - name: "DE-FIX24-HK2"
-    type: vmess
-    server: 203.12.201.204
-    port: 7223
-    uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
-    alterId: 0
-    cipher: auto
-    udp: true
-    tls: true
-    servername: de.ywsqbw.uk
-    client-fingerprint: firefox
-    network: ws
-    ws-opts:
-      path: "/vmess-argo"
-      headers:
-        Host: de.ywsqbw.uk
-      max-early-data: 2560
-      early-data-header-name: Sec-WebSocket-Protocol
-  - name: "DE-FIX25-HK3"
-    type: vmess
-    server: 103.121.95.252
-    port: 4433
-    uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
-    alterId: 0
-    cipher: auto
-    udp: true
-    tls: true
-    servername: de.ywsqbw.uk
-    client-fingerprint: firefox
-    network: ws
-    ws-opts:
-      path: "/vmess-argo"
-      headers:
-        Host: de.ywsqbw.uk
-      max-early-data: 2560
-      early-data-header-name: Sec-WebSocket-Protocol
-  - name: "DE-FIX26-SG"
+  - name: "DE-FIX23-SG"
     type: vmess
     server: 103.26.8.49
     port: 10443
@@ -491,7 +437,7 @@ proxies:
         Host: de.ywsqbw.uk
       max-early-data: 2560
       early-data-header-name: Sec-WebSocket-Protocol
-  - name: "DE-FIX27-TW1"
+  - name: "DE-FIX24-TW1"
     type: vmess
     server: 220.128.110.108
     port: 43
@@ -509,7 +455,7 @@ proxies:
         Host: de.ywsqbw.uk
       max-early-data: 2560
       early-data-header-name: Sec-WebSocket-Protocol
-  - name: "DE-FIX28-TW2"
+  - name: "DE-FIX25-TW2"
     type: vmess
     server: 36.231.92.207
     port: 30001
@@ -547,7 +493,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF02"
     type: vmess
-    server: 172.64.82.114
+    server: 104.26.10.3
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -565,7 +511,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF03"
     type: vmess
-    server: 104.19.220.22
+    server: 104.26.3.162
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -583,7 +529,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF04"
     type: vmess
-    server: 104.17.142.212
+    server: 104.26.4.90
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -601,7 +547,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF05"
     type: vmess
-    server: 104.17.162.3
+    server: 104.31.16.158
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -619,7 +565,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF06"
     type: vmess
-    server: 104.17.167.134
+    server: 104.26.11.69
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -637,7 +583,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF07"
     type: vmess
-    server: 198.41.208.15
+    server: 172.64.232.0
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -655,7 +601,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF08"
     type: vmess
-    server: 104.16.105.166
+    server: 172.65.0.0
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -673,7 +619,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF09"
     type: vmess
-    server: 104.18.89.52
+    server: 108.162.192.224
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -691,7 +637,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF10"
     type: vmess
-    server: 104.16.0.0
+    server: 172.64.229.7
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -709,7 +655,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF11"
     type: vmess
-    server: 104.26.4.90
+    server: 172.64.230.0
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -727,7 +673,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF12"
     type: vmess
-    server: 104.16.65.1
+    server: 108.162.192.0
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -803,18 +749,15 @@ proxy-groups:
       - "DE-FIX14-japanT"
       - "DE-FIX15-NTR1"
       - "DE-FIX16-NRT2"
-      - "DE-FIX17-SIN1"
-      - "DE-FIX18-SIN2"
-      - "DE-FIX19-KR1"
-      - "DE-FIX20-KR2"
-      - "DE-FIX21-KR3"
-      - "DE-FIX22-KR4"
-      - "DE-FIX23-HK1"
-      - "DE-FIX24-HK2"
-      - "DE-FIX25-HK3"
-      - "DE-FIX26-SG"
-      - "DE-FIX27-TW1"
-      - "DE-FIX28-TW2"
+      - "DE-FIX17-NTR3"
+      - "DE-FIX18-SIN1"
+      - "DE-FIX19-SIN2"
+      - "DE-FIX20-KR1"
+      - "DE-FIX21-KR2"
+      - "DE-FIX22-KR3"
+      - "DE-FIX23-SG"
+      - "DE-FIX24-TW1"
+      - "DE-FIX25-TW2"
       - "DE-CF01"
       - "DE-CF02"
       - "DE-CF03"
@@ -856,18 +799,15 @@ proxy-groups:
       - "DE-FIX14-japanT"
       - "DE-FIX15-NTR1"
       - "DE-FIX16-NRT2"
-      - "DE-FIX17-SIN1"
-      - "DE-FIX18-SIN2"
-      - "DE-FIX19-KR1"
-      - "DE-FIX20-KR2"
-      - "DE-FIX21-KR3"
-      - "DE-FIX22-KR4"
-      - "DE-FIX23-HK1"
-      - "DE-FIX24-HK2"
-      - "DE-FIX25-HK3"
-      - "DE-FIX26-SG"
-      - "DE-FIX27-TW1"
-      - "DE-FIX28-TW2"
+      - "DE-FIX17-NTR3"
+      - "DE-FIX18-SIN1"
+      - "DE-FIX19-SIN2"
+      - "DE-FIX20-KR1"
+      - "DE-FIX21-KR2"
+      - "DE-FIX22-KR3"
+      - "DE-FIX23-SG"
+      - "DE-FIX24-TW1"
+      - "DE-FIX25-TW2"
       - "DE-CF01"
       - "DE-CF02"
       - "DE-CF03"
