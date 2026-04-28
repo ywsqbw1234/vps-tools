@@ -475,7 +475,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF01"
     type: vmess
-    server: 162.159.49.216
+    server: 172.66.0.0
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -493,7 +493,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF02"
     type: vmess
-    server: 162.159.24.131
+    server: 172.64.91.69
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -511,7 +511,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF03"
     type: vmess
-    server: 162.159.19.163
+    server: 172.64.82.114
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -529,7 +529,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF04"
     type: vmess
-    server: 172.64.229.7
+    server: 198.41.194.162
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -547,7 +547,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF05"
     type: vmess
-    server: 104.17.162.3
+    server: 188.114.96.0
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -565,7 +565,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF06"
     type: vmess
-    server: 172.64.229.0
+    server: 173.245.49.194
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -583,7 +583,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF07"
     type: vmess
-    server: 104.17.176.119
+    server: 172.64.49.160
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -601,7 +601,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF08"
     type: vmess
-    server: 104.17.167.134
+    server: 198.41.208.15
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -619,7 +619,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF09"
     type: vmess
-    server: 172.64.230.0
+    server: 172.64.48.226
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -637,7 +637,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF10"
     type: vmess
-    server: 162.159.61.183
+    server: 172.64.49.216
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -655,25 +655,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF11"
     type: vmess
-    server: 162.159.58.65
-    port: 443
-    uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
-    alterId: 0
-    cipher: auto
-    udp: true
-    tls: true
-    servername: de.ywsqbw.uk
-    client-fingerprint: firefox
-    network: ws
-    ws-opts:
-      path: "/vmess-argo"
-      headers:
-        Host: de.ywsqbw.uk
-      max-early-data: 2560
-      early-data-header-name: Sec-WebSocket-Protocol
-  - name: "DE-CF12"
-    type: vmess
-    server: 162.159.137.204
+    server: 162.159.24.131
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -769,7 +751,6 @@ proxy-groups:
       - "DE-CF09"
       - "DE-CF10"
       - "DE-CF11"
-      - "DE-CF12"
       - "DE-HY2-直连"
       - "DE-HY2-50M"
       - "DE-HY2-100M"
@@ -819,7 +800,6 @@ proxy-groups:
       - "DE-CF09"
       - "DE-CF10"
       - "DE-CF11"
-      - "DE-CF12"
       - DIRECT
   - name: "X专用"
     type: select
@@ -830,6 +810,14 @@ proxy-groups:
       - "[anytls]🇹🇼台湾T02 家宽 1x 直连"
       - DIRECT
   - name: "ChatGPT"
+    type: select
+    proxies:
+      - "节点选择"
+      - "自动选择"
+      - "[anytls]🇩🇪德国 T01 家宽 1x 直连"
+      - "DE-HY2-直连"
+      - DIRECT
+  - name: "Google"
     type: select
     proxies:
       - "节点选择"
@@ -895,6 +883,19 @@ rules:
   - DOMAIN-SUFFIX,anthropic.com,ChatGPT
   - DOMAIN-SUFFIX,claude.ai,ChatGPT
   - DOMAIN-KEYWORD,claude,ChatGPT
+  - PROCESS-NAME,com.google.android.apps.bard,Google
+  - DOMAIN,gemini.google.com,Google
+  - DOMAIN-SUFFIX,gemini.google.com,Google
+  - DOMAIN-SUFFIX,bard.google.com,Google
+  - DOMAIN-SUFFIX,generativelanguage.googleapis.com,Google
+  - DOMAIN-SUFFIX,aistudio.google.com,Google
+  - DOMAIN-SUFFIX,googleapis.com,Google
+  - DOMAIN-SUFFIX,google.com,Google
+  - DOMAIN-SUFFIX,gstatic.com,Google
+  - DOMAIN-SUFFIX,googleusercontent.com,Google
+  - DOMAIN-SUFFIX,ggpht.com,Google
+  - DOMAIN-SUFFIX,recaptcha.net,Google
+  - DOMAIN-KEYWORD,gemini,Google
   - DOMAIN-SUFFIX,t.me,T专用
   - DOMAIN-SUFFIX,telegram.org,T专用
   - DOMAIN-SUFFIX,telegra.ph,T专用
