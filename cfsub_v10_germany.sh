@@ -774,6 +774,17 @@ main() {
     echo "      - \"DE-HY2-直连\""
     echo "      - DIRECT"
 
+    echo "  - name: \"Google\""
+    echo "    type: select"
+    echo "    proxies:"
+    echo "      - \"节点选择\""
+    echo "      - \"自动选择\""
+    while IFS= read -r n; do
+     [[ -n "$n" ]] && echo "      - \"${n}\""
+    done < "$airport_de_names"
+    echo "      - \"DE-HY2-直连\""
+    echo "      - DIRECT"
+
     echo "  - name: \"T专用\""
     echo "    type: select"
     echo "    proxies:"
@@ -840,6 +851,20 @@ main() {
     echo "  - DOMAIN-SUFFIX,anthropic.com,ChatGPT"
     echo "  - DOMAIN-SUFFIX,claude.ai,ChatGPT"
     echo "  - DOMAIN-KEYWORD,claude,ChatGPT"
+
+    echo "  - PROCESS-NAME,com.google.android.apps.bard,Google"
+    echo "  - DOMAIN,gemini.google.com,Google"
+    echo "  - DOMAIN-SUFFIX,gemini.google.com,Google"
+    echo "  - DOMAIN-SUFFIX,bard.google.com,Google"
+    echo "  - DOMAIN-SUFFIX,generativelanguage.googleapis.com,Google"
+    echo "  - DOMAIN-SUFFIX,aistudio.google.com,Google"
+    echo "  - DOMAIN-SUFFIX,googleapis.com,Google"
+    echo "  - DOMAIN-SUFFIX,google.com,Google"
+    echo "  - DOMAIN-SUFFIX,gstatic.com,Google"
+    echo "  - DOMAIN-SUFFIX,googleusercontent.com,Google"
+    echo "  - DOMAIN-SUFFIX,ggpht.com,Google"
+    echo "  - DOMAIN-SUFFIX,recaptcha.net,Google"
+    echo "  - DOMAIN-KEYWORD,gemini,Google"
     
     echo "  - DOMAIN-SUFFIX,t.me,T专用"
     echo "  - DOMAIN-SUFFIX,telegram.org,T专用"
