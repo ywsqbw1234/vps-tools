@@ -475,7 +475,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF01"
     type: vmess
-    server: 104.17.167.134
+    server: 162.159.61.183
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -493,7 +493,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF02"
     type: vmess
-    server: 108.162.192.0
+    server: 104.20.58.118
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -511,7 +511,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF03"
     type: vmess
-    server: 104.31.16.158
+    server: 172.64.48.226
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -529,7 +529,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF04"
     type: vmess
-    server: 104.26.8.117
+    server: 104.20.55.195
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -547,7 +547,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF05"
     type: vmess
-    server: 172.66.2.9
+    server: 162.159.62.220
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -565,7 +565,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF06"
     type: vmess
-    server: 172.64.48.226
+    server: 162.159.58.65
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -583,7 +583,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF07"
     type: vmess
-    server: 172.64.33.177
+    server: 104.20.58.31
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -601,7 +601,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF08"
     type: vmess
-    server: 172.64.232.0
+    server: 162.159.140.85
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -619,7 +619,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF09"
     type: vmess
-    server: 172.64.229.0
+    server: 172.64.91.69
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -637,7 +637,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF10"
     type: vmess
-    server: 172.64.82.114
+    server: 172.64.229.7
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -655,7 +655,25 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF11"
     type: vmess
-    server: 172.64.91.69
+    server: 104.20.62.62
+    port: 443
+    uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
+    alterId: 0
+    cipher: auto
+    udp: true
+    tls: true
+    servername: de.ywsqbw.uk
+    client-fingerprint: firefox
+    network: ws
+    ws-opts:
+      path: "/vmess-argo"
+      headers:
+        Host: de.ywsqbw.uk
+      max-early-data: 2560
+      early-data-header-name: Sec-WebSocket-Protocol
+  - name: "DE-CF12"
+    type: vmess
+    server: 104.18.173.93
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -675,8 +693,8 @@ proxies:
   - { name: "[anytls]🇹🇼台湾T02 家宽 1x 直连", type: anytls, server: tw-hinet-2.nchc.cc, port: 27172, password: d14015da-1861-4439-9ca5-da877f917f86, udp: true, sni: tw-hinet-2.nchc.cc, skip-cert-verify: true }
   - { name: "[anytls]🇩🇪德国 T01 家宽 1x 直连", type: anytls, server: de-lisa-1.nchc.cc, port: 27181, password: "d14015da-1861-4439-9ca5-da877f917f86", udp: true, sni: de-lisa-1.nchc.cc, skip-cert-verify: true }
   - { name: "[anytls]🇯🇵日本T01 IDC 1x 直连", type: anytls, server: jp-aws-1.nchc.cc, port: 27161, password: "d14015da-1861-4439-9ca5-da877f917f86", udp: true, sni: jp-aws-1.nchc.cc, skip-cert-verify: true }
-  - { name: "[anytls]🇭🇰香港T02 IDC 1x 直连", type: anytls, server: hk-aws-1.nchc.cc, port: 27152, password: d14015da-1861-4439-9ca5-da877f917f86, udp: true, sni: hk-aws-1.nchc.cc, skip-cert-verify: true}
-  - { name: "[anytls]🇭🇰香港T03 IDC 1x 直连", type: anytls, server: hk-aws-2.nchc.cc, port: 27153, password: d14015da-1861-4439-9ca5-da877f917f86, udp: true, sni: hk-aws-2.nchc.cc, skip-cert-verify: true}
+  - { name: "[anytls]🇭🇰香港T02 IDC 1x 直连", type: anytls, server: hk-1.nchc.cc, port: 27151, password: d14015da-1861-4439-9ca5-da877f917f86, udp: true, sni: hk-1.nchc.cc, skip-cert-verify: true}
+  - { name: "[anytls]🇭🇰香港T03 IDC 1x 直连", type: anytls, server: hk-2.nchc.cc, port: 27152, password: d14015da-1861-4439-9ca5-da877f917f86, udp: true, sni: hk-2.nchc.cc, skip-cert-verify: true}
   - name: "DE-HY2-直连"
     type: hysteria2
     server: 82.139.205.22
@@ -751,6 +769,7 @@ proxy-groups:
       - "DE-CF09"
       - "DE-CF10"
       - "DE-CF11"
+      - "DE-CF12"
       - "DE-HY2-直连"
       - "DE-HY2-50M"
       - "DE-HY2-100M"
@@ -800,6 +819,7 @@ proxy-groups:
       - "DE-CF09"
       - "DE-CF10"
       - "DE-CF11"
+      - "DE-CF12"
       - DIRECT
   - name: "X专用"
     type: select
