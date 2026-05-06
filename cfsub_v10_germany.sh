@@ -287,8 +287,8 @@ EOF
 write_builtin_hk_nodes() {
   local out_file="$1"
   cat > "$out_file" <<'EOF'
-  - { name: "[anytls]🇭🇰香港T02 IDC 1x 直连", type: anytls, server: hk-aws-1.nchc.cc, port: 27152, password: d14015da-1861-4439-9ca5-da877f917f86, udp: true, sni: hk-aws-1.nchc.cc, skip-cert-verify: true}
-  - { name: "[anytls]🇭🇰香港T03 IDC 1x 直连", type: anytls, server: hk-aws-2.nchc.cc, port: 27153, password: d14015da-1861-4439-9ca5-da877f917f86, udp: true, sni: hk-aws-2.nchc.cc, skip-cert-verify: true}
+  - { name: "[anytls]🇭🇰香港T02 IDC 1x 直连", type: anytls, server: hk-1.nchc.cc, port: 27151, password: d14015da-1861-4439-9ca5-da877f917f86, udp: true, sni: hk-1.nchc.cc, skip-cert-verify: true}
+  - { name: "[anytls]🇭🇰香港T03 IDC 1x 直连", type: anytls, server: hk-2.nchc.cc, port: 27152, password: d14015da-1861-4439-9ca5-da877f917f86, udp: true, sni: hk-2.nchc.cc, skip-cert-verify: true}
 EOF
 }
 
