@@ -272,8 +272,8 @@ speedtest_pick_top() {
 write_builtin_tw_nodes() {
   local out_file="$1"
   cat > "$out_file" <<'EOF'
-  - { name: "[anytls]🇹🇼台湾T01 家宽 1x 直连", type: anytls, server: tw-hinet-1.nchc.cc, port: 27171, password: d14015da-1861-4439-9ca5-da877f917f86, udp: true, sni: tw-hinet-1.nchc.cc, skip-cert-verify: true }
-  - { name: "[anytls]🇹🇼台湾T02 家宽 1x 直连", type: anytls, server: tw-hinet-2.nchc.cc, port: 27172, password: d14015da-1861-4439-9ca5-da877f917f86, udp: true, sni: tw-hinet-2.nchc.cc, skip-cert-verify: true }
+  - { name: "[anytls]🇹🇼台湾T01 家宽 1x 直连", type: anytls, server: tw-1.nchc.cc, port: 27171, password: d14015da-1861-4439-9ca5-da877f917f86, udp: true, sni: tw-1.nchc.cc, skip-cert-verify: true }
+  - { name: "[anytls]🇹🇼台湾T02 家宽 1x 直连", type: anytls, server: tw-2.nchc.cc, port: 27172, password: d14015da-1861-4439-9ca5-da877f917f86, udp: true, sni: tw-2.nchc.cc, skip-cert-verify: true }
 EOF
 }
 
@@ -316,7 +316,7 @@ EOF
 write_builtin_jp_nodes() {
   local out_file="$1"
   cat > "$out_file" <<'EOF'
-  - { name: "[anytls]🇯🇵日本T01 IDC 1x 直连", type: anytls, server: jp-aws-1.nchc.cc, port: 27161, password: "d14015da-1861-4439-9ca5-da877f917f86", udp: true, sni: jp-aws-1.nchc.cc, skip-cert-verify: true }
+  - { name: "[anytls]🇯🇵日本T01 IDC 1x 直连", type: anytls, server: jp-1.nchc.cc, port: 27161, password: "d14015da-1861-4439-9ca5-da877f917f86", udp: true, sni: jp-1.nchc.cc, skip-cert-verify: true }
 EOF
 }
 
