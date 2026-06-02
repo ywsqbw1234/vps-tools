@@ -829,6 +829,7 @@ main() {
     echo "  - PROCESS-NAME,Terminal,DIRECT"
     echo "  - PROCESS-NAME,WindowsTerminal.exe,DIRECT"
     echo "  - PROCESS-NAME,ChatGPT.exe,ChatGPT"
+    echo "  - PROCESS-NAME,Codex.exe,ChatGPT"
     echo "  - PROCESS-NAME,com.openai.chatgpt,ChatGPT"
     echo "  - PROCESS-NAME,OpenAI,ChatGPT"
     echo "  - IP-CIDR,${VPS_IP}/32,DIRECT,no-resolve"
