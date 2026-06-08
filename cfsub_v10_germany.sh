@@ -14,6 +14,14 @@ FIXED_IP_URL="${FIXED_IP_URL:-https://raw.githubusercontent.com/ywsqbw1234/vps-t
 DOMAIN="${DOMAIN:-de.ywsqbw.uk}"
 VPS_IP="${VPS_IP:-82.139.205.22}"
 
+CHATGPT_WARP_PATH="${CHATGPT_WARP_PATH:-/vmess-warp}"
+
+CHATGPT_WARP_YX_NAME="${CHATGPT_WARP_YX_NAME:-CF-WARP-yx}"
+CHATGPT_WARP_YX_IP="${CHATGPT_WARP_YX_IP:-108.162.198.205}"
+
+CHATGPT_WARP_JP2_NAME="${CHATGPT_WARP_JP2_NAME:-CF-WARP-japan2}"
+CHATGPT_WARP_JP2_IP="${CHATGPT_WARP_JP2_IP:-162.159.44.19}"
+
 SBOX_CONFIG="${SBOX_CONFIG:-/etc/sing-box/config.json}"
 
 HY2_SERVER="${HY2_SERVER:-$VPS_IP}"
@@ -406,6 +414,47 @@ hysteria2://${enc_pw}@${HY2_SERVER}:${HY2_LIMIT10_PORT}/?${query}#DE-HY2-100M
 EOF
 }
 
+write_chatgpt_warp_proxies() {
+  local out_file="$1"
+  : > "$out_file"
+
+  while read -r name ip; do
+    [[ -z "$name" || -z "$ip" ]] && continue
+
+    echo "  - name: \"${name}\""
+    echo "    type: vmess"
+    echo "    server: ${ip}"
+    echo "    port: 443"
+    echo "    uuid: ${uuid}"
+    echo "    alterId: ${aid}"
+    echo "    cipher: auto"
+    echo "    udp: true"
+    echo "    tls: true"
+    echo "    servername: ${DOMAIN}"
+    echo "    client-fingerprint: ${fp}"
+    echo "    network: ws"
+    echo "    ws-opts:"
+    echo "      path: \"${CHATGPT_WARP_PATH}\""
+    echo "      headers:"
+    echo "        Host: ${DOMAIN}"
+    if [[ "$early_data" != "0" ]]; then
+      echo "      max-early-data: ${early_data}"
+      echo "      early-data-header-name: Sec-WebSocket-Protocol"
+    fi
+  done <<EOF > "$out_file"
+${CHATGPT_WARP_YX_NAME} ${CHATGPT_WARP_YX_IP}
+${CHATGPT_WARP_JP2_NAME} ${CHATGPT_WARP_JP2_IP}
+EOF
+}
+
+write_chatgpt_warp_names() {
+  local out_file="$1"
+  cat > "$out_file" <<EOF
+${CHATGPT_WARP_YX_NAME}
+${CHATGPT_WARP_JP2_NAME}
+EOF
+}
+
 push_github_files() {
   local secret_dir="$1"
   local sub_b64="$2"
@@ -488,6 +537,7 @@ main() {
   local airport_jp_proxies airport_jp_names
   local airport_hk_proxies airport_hk_names
   local hy2_proxies hy2_names hy2_links
+  local chatgpt_warp_proxies chatgpt_warp_names
 
   tmpdir="$(mktemp -d)"
   fixed_nodes_txt="${tmpdir}/fixed_nodes.txt"
@@ -507,6 +557,8 @@ main() {
   hy2_proxies="${tmpdir}/hy2_proxies.txt"
   hy2_names="${tmpdir}/hy2_names.txt"
   hy2_links="${tmpdir}/hy2_links.txt"
+  chatgpt_warp_proxies="${tmpdir}/chatgpt_warp_proxies.txt"
+  chatgpt_warp_names="${tmpdir}/chatgpt_warp_names.txt"
 
   prepare_fixed_ip_file
   read_fixed_nodes "$fixed_nodes_txt"
@@ -524,6 +576,8 @@ main() {
   write_builtin_hy2_proxies "$hy2_proxies"
   write_builtin_hy2_names "$hy2_names"
   write_builtin_hy2_links "$hy2_links"
+  write_chatgpt_warp_proxies "$chatgpt_warp_proxies"
+  write_chatgpt_warp_names "$chatgpt_warp_names"
 
   log "内置台湾节点数量：$(wc -l < "$airport_tw_names" | tr -d ' ')"
   log "内置 Hy2 节点数量：$(wc -l < "$hy2_names" | tr -d ' ')"
@@ -667,6 +721,10 @@ main() {
 
     while IFS= read -r line; do
        echo "${line}"
+    done < "$chatgpt_warp_proxies"
+    
+    while IFS= read -r line; do
+       echo "${line}"
     done < "$airport_tw_proxies"
 
     while IFS= read -r line; do
@@ -711,6 +769,10 @@ main() {
       fi
       echo "      - \"${name}\""
     done < "$final_nodes"
+
+    while IFS= read -r n; do
+      [[ -n "$n" ]] && echo "      - \"${n}\""
+    done < "$chatgpt_warp_names"
     while IFS= read -r n; do
       [[ -n "$n" ]] && echo "      - \"${n}\""
     done < "$hy2_names"
@@ -751,6 +813,11 @@ main() {
       fi
       echo "      - \"${name}\""
     done < "$final_nodes"
+
+    while IFS= read -r n; do
+      [[ -n "$n" ]] && echo "      - \"${n}\""
+    done < "$chatgpt_warp_names"
+    
     echo "      - DIRECT"
 
     echo "  - name: \"X专用\""
@@ -768,9 +835,8 @@ main() {
     echo "    proxies:"
     echo "      - \"节点选择\""
     echo "      - \"自动选择\""
-    while IFS= read -r n; do
-     [[ -n "$n" ]] && echo "      - \"${n}\""
-    done < "$airport_de_names"
+    echo "      - \"${CHATGPT_WARP_YX_NAME}\""
+    echo "      - \"${CHATGPT_WARP_JP2_NAME}\""
     echo "      - \"DE-HY2-直连\""
     echo "      - DIRECT"
 
@@ -779,9 +845,6 @@ main() {
     echo "    proxies:"
     echo "      - \"节点选择\""
     echo "      - \"自动选择\""
-    while IFS= read -r n; do
-     [[ -n "$n" ]] && echo "      - \"${n}\""
-    done < "$airport_de_names"
     echo "      - \"DE-HY2-直连\""
     echo "      - DIRECT"
 
