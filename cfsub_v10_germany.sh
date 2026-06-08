@@ -455,6 +455,37 @@ ${CHATGPT_WARP_JP2_NAME}
 EOF
 }
 
+write_chatgpt_warp_links() {
+  local out_file="$1"
+  local warp_path="${CHATGPT_WARP_PATH}"
+
+  if [[ "${early_data:-0}" != "0" ]]; then
+    warp_path="${CHATGPT_WARP_PATH}?ed=${early_data}"
+  fi
+
+  : > "$out_file"
+
+  while read -r name ip; do
+    [[ -z "$name" || -z "$ip" ]] && continue
+
+    local mod b64
+    mod="$(echo "$vmjson" | jq \
+      --arg add "$ip" \
+      --arg host "$DOMAIN" \
+      --arg sni "$DOMAIN" \
+      --arg ps "$name" \
+      --arg path "$warp_path" \
+      --argjson port 443 \
+      '.add=$add | .host=$host | .sni=$sni | .ps=$ps | .port=$port | .path=$path')"
+
+    b64="$(echo -n "$mod" | base64 -w0)"
+    echo "vmess://${b64}" >> "$out_file"
+  done <<EOF
+${CHATGPT_WARP_YX_NAME} ${CHATGPT_WARP_YX_IP}
+${CHATGPT_WARP_JP2_NAME} ${CHATGPT_WARP_JP2_IP}
+EOF
+}
+
 push_github_files() {
   local secret_dir="$1"
   local sub_b64="$2"
@@ -537,7 +568,7 @@ main() {
   local airport_jp_proxies airport_jp_names
   local airport_hk_proxies airport_hk_names
   local hy2_proxies hy2_names hy2_links
-  local chatgpt_warp_proxies chatgpt_warp_names
+  local chatgpt_warp_proxies chatgpt_warp_names chatgpt_warp_links
 
   tmpdir="$(mktemp -d)"
   fixed_nodes_txt="${tmpdir}/fixed_nodes.txt"
@@ -559,6 +590,7 @@ main() {
   hy2_links="${tmpdir}/hy2_links.txt"
   chatgpt_warp_proxies="${tmpdir}/chatgpt_warp_proxies.txt"
   chatgpt_warp_names="${tmpdir}/chatgpt_warp_names.txt"
+  chatgpt_warp_links="${tmpdir}/chatgpt_warp_links.txt"
 
   prepare_fixed_ip_file
   read_fixed_nodes "$fixed_nodes_txt"
@@ -578,6 +610,7 @@ main() {
   write_builtin_hy2_links "$hy2_links"
   write_chatgpt_warp_proxies "$chatgpt_warp_proxies"
   write_chatgpt_warp_names "$chatgpt_warp_names"
+  write_chatgpt_warp_links "$chatgpt_warp_links"
 
   log "内置台湾节点数量：$(wc -l < "$airport_tw_names" | tr -d ' ')"
   log "内置 Hy2 节点数量：$(wc -l < "$hy2_names" | tr -d ' ')"
@@ -641,10 +674,11 @@ main() {
 
   local sub_b64
   sub_b64="$(
-    {
-      cat "$vmess_list"
-      cat "$hy2_links"
-    } | awk 'NF' | base64 -w0
+  {
+    cat "$vmess_list"
+    cat "$chatgpt_warp_links"
+    cat "$hy2_links"
+  } | awk 'NF' | base64 -w0
   )"
 
   {
