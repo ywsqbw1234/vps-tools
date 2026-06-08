@@ -951,6 +951,7 @@ main() {
     echo "  - DOMAIN-SUFFIX,anthropic.com,ChatGPT"
     echo "  - DOMAIN-SUFFIX,claude.ai,ChatGPT"
     echo "  - DOMAIN-KEYWORD,claude,ChatGPT"
+    echo "  - DOMAIN-KEYWORD,anthropic,ChatGPT"
 
     echo "  - PROCESS-NAME,com.google.android.apps.bard,Google"
     echo "  - DOMAIN,gemini.google.com,Google"
