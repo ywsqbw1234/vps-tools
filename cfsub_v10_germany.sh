@@ -879,6 +879,11 @@ main() {
     echo "    proxies:"
     echo "      - \"节点选择\""
     echo "      - \"自动选择\""
+    echo "      - \"${CHATGPT_WARP_YX_NAME}\""
+    echo "      - \"${CHATGPT_WARP_JP2_NAME}\""
+    while IFS= read -r n; do
+     [[ -n "$n" ]] && echo "      - \"${n}\""
+    done < "$airport_tw_names"
     echo "      - \"DE-HY2-直连\""
     echo "      - DIRECT"
 
