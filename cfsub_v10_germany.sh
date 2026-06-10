@@ -954,6 +954,8 @@ main() {
     echo "  - DOMAIN-KEYWORD,anthropic,ChatGPT"
 
     echo "  - PROCESS-NAME,com.google.android.apps.bard,Google"
+    echo "  - DOMAIN-KEYWORD,google,Google"
+    echo "  - DOMAIN-KEYWORD,gemini,Google"
     echo "  - DOMAIN,gemini.google.com,Google"
     echo "  - DOMAIN-SUFFIX,gemini.google.com,Google"
     echo "  - DOMAIN-SUFFIX,bard.google.com,Google"
@@ -961,11 +963,13 @@ main() {
     echo "  - DOMAIN-SUFFIX,aistudio.google.com,Google"
     echo "  - DOMAIN-SUFFIX,googleapis.com,Google"
     echo "  - DOMAIN-SUFFIX,google.com,Google"
+    echo "  - DOMAIN-SUFFIX,google.com.hk,Google"
+    echo "  - DOMAIN-SUFFIX,google.cn,Google"
+    echo "  - DOMAIN-SUFFIX,g.cn,Google"
     echo "  - DOMAIN-SUFFIX,gstatic.com,Google"
     echo "  - DOMAIN-SUFFIX,googleusercontent.com,Google"
     echo "  - DOMAIN-SUFFIX,ggpht.com,Google"
     echo "  - DOMAIN-SUFFIX,recaptcha.net,Google"
-    echo "  - DOMAIN-KEYWORD,gemini,Google"
     
     echo "  - DOMAIN-SUFFIX,t.me,T专用"
     echo "  - DOMAIN-SUFFIX,telegram.org,T专用"
