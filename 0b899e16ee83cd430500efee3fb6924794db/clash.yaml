@@ -259,7 +259,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF01"
     type: vmess
-    server: 172.65.0.0
+    server: 162.159.136.89
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -277,7 +277,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF02"
     type: vmess
-    server: 172.64.82.114
+    server: 172.64.91.69
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -295,7 +295,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF03"
     type: vmess
-    server: 162.159.61.183
+    server: 198.41.194.162
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -313,7 +313,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF04"
     type: vmess
-    server: 162.159.128.253
+    server: 172.64.82.114
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -331,7 +331,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF05"
     type: vmess
-    server: 162.159.3.250
+    server: 188.114.96.0
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -349,7 +349,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF06"
     type: vmess
-    server: 162.159.140.85
+    server: 104.18.189.153
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -367,7 +367,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF07"
     type: vmess
-    server: 162.159.49.196
+    server: 104.18.166.129
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -385,7 +385,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF08"
     type: vmess
-    server: 162.159.4.155
+    server: 173.245.49.194
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -403,7 +403,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF09"
     type: vmess
-    server: 162.159.140.116
+    server: 108.162.192.0
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -421,7 +421,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF10"
     type: vmess
-    server: 162.159.41.74
+    server: 172.66.0.0
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -439,7 +439,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF11"
     type: vmess
-    server: 162.159.24.131
+    server: 172.65.0.0
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -457,7 +457,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF12"
     type: vmess
-    server: 172.64.91.69
+    server: 198.41.208.15
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -708,6 +708,8 @@ rules:
   - DOMAIN-KEYWORD,claude,ChatGPT
   - DOMAIN-KEYWORD,anthropic,ChatGPT
   - PROCESS-NAME,com.google.android.apps.bard,Google
+  - DOMAIN-KEYWORD,google,Google
+  - DOMAIN-KEYWORD,gemini,Google
   - DOMAIN,gemini.google.com,Google
   - DOMAIN-SUFFIX,gemini.google.com,Google
   - DOMAIN-SUFFIX,bard.google.com,Google
@@ -715,11 +717,13 @@ rules:
   - DOMAIN-SUFFIX,aistudio.google.com,Google
   - DOMAIN-SUFFIX,googleapis.com,Google
   - DOMAIN-SUFFIX,google.com,Google
+  - DOMAIN-SUFFIX,google.com.hk,Google
+  - DOMAIN-SUFFIX,google.cn,Google
+  - DOMAIN-SUFFIX,g.cn,Google
   - DOMAIN-SUFFIX,gstatic.com,Google
   - DOMAIN-SUFFIX,googleusercontent.com,Google
   - DOMAIN-SUFFIX,ggpht.com,Google
   - DOMAIN-SUFFIX,recaptcha.net,Google
-  - DOMAIN-KEYWORD,gemini,Google
   - DOMAIN-SUFFIX,t.me,T专用
   - DOMAIN-SUFFIX,telegram.org,T专用
   - DOMAIN-SUFFIX,telegra.ph,T专用
