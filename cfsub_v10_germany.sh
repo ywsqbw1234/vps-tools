@@ -847,11 +847,6 @@ main() {
       fi
       echo "      - \"${name}\""
     done < "$final_nodes"
-
-    while IFS= read -r n; do
-      [[ -n "$n" ]] && echo "      - \"${n}\""
-    done < "$chatgpt_warp_names"
-    
     echo "      - DIRECT"
 
     echo "  - name: \"X专用\""
@@ -932,6 +927,8 @@ main() {
     echo "  - PROCESS-NAME,WindowsTerminal.exe,DIRECT"
     echo "  - PROCESS-NAME,ChatGPT.exe,ChatGPT"
     echo "  - PROCESS-NAME,Codex.exe,ChatGPT"
+    echo "  - PROCESS-NAME,codex.exe,ChatGPT"
+    echo "  - PROCESS-NAME,codex,ChatGPT"
     echo "  - PROCESS-NAME,com.openai.chatgpt,ChatGPT"
     echo "  - PROCESS-NAME,OpenAI,ChatGPT"
     echo "  - IP-CIDR,${VPS_IP}/32,DIRECT,no-resolve"
