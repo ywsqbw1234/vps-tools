@@ -32,6 +32,25 @@ HY2_MAIN_PORT="${HY2_MAIN_PORT:-38049}"
 HY2_LIMIT5_PORT="${HY2_LIMIT5_PORT:-38050}"
 HY2_LIMIT10_PORT="${HY2_LIMIT10_PORT:-38051}"
 
+# ===== 日本 VPS 自建节点 =====
+JP_NODE_ENV="${JP_NODE_ENV:-/root/jp_node.env}"
+
+JP_SERVER="${JP_SERVER:-131.143.214.94}"
+
+JP_REALITY_PORT="${JP_REALITY_PORT:-21076}"
+JP_REALITY_SNI="${JP_REALITY_SNI:-www.iij.ad.jp}"
+
+JP_HY2_PORT="${JP_HY2_PORT:-21079}"
+JP_HY2_SNI="${JP_HY2_SNI:-www.bing.com}"
+
+JP_TUIC_PORT="${JP_TUIC_PORT:-21078}"
+JP_TUIC_SNI="${JP_TUIC_SNI:-www.bing.com}"
+
+JP_UUID="${JP_UUID:-}"
+JP_PASSWORD="${JP_PASSWORD:-}"
+JP_REALITY_PUBLIC_KEY="${JP_REALITY_PUBLIC_KEY:-}"
+# ==========================
+
 CANDIDATES="${CANDIDATES:-250}"
 KEEP_TOP="${KEEP_TOP:-12}"
 
@@ -342,6 +361,79 @@ print(urllib.parse.quote(sys.argv[1], safe=''))
 PY
 }
 
+load_jp_env() {
+  if [[ -f "$JP_NODE_ENV" ]]; then
+    # shellcheck disable=SC1090
+    source "$JP_NODE_ENV"
+  fi
+
+  [[ -n "${JP_UUID:-}" ]] || die "缺少 JP_UUID，请写入 ${JP_NODE_ENV}"
+  [[ -n "${JP_PASSWORD:-}" ]] || die "缺少 JP_PASSWORD，请写入 ${JP_NODE_ENV}"
+  [[ -n "${JP_REALITY_PUBLIC_KEY:-}" ]] || die "缺少 JP_REALITY_PUBLIC_KEY，请写入 ${JP_NODE_ENV}"
+}
+
+write_selfhost_jp_proxies() {
+  local out_file="$1"
+
+  cat > "$out_file" <<EOF
+  - name: "JP-HY2-直连"
+    type: hysteria2
+    server: ${JP_SERVER}
+    port: ${JP_HY2_PORT}
+    password: "${JP_PASSWORD}"
+    sni: ${JP_HY2_SNI}
+    skip-cert-verify: true
+    udp: true
+
+  - name: "JP-TUIC-直连"
+    type: tuic
+    server: ${JP_SERVER}
+    port: ${JP_TUIC_PORT}
+    uuid: ${JP_UUID}
+    password: "${JP_PASSWORD}"
+    skip-cert-verify: true
+    disable-sni: true
+    alpn:
+      - h3
+    sni: ${JP_TUIC_SNI}
+    udp-relay-mode: native
+
+  - name: "JP-Reality-直连"
+    type: vless
+    server: ${JP_SERVER}
+    port: ${JP_REALITY_PORT}
+    uuid: ${JP_UUID}
+    tls: true
+    client-fingerprint: chrome
+    servername: ${JP_REALITY_SNI}
+    network: tcp
+    reality-opts:
+      public-key: ${JP_REALITY_PUBLIC_KEY}
+    tfo: false
+    skip-cert-verify: false
+    flow: xtls-rprx-vision
+EOF
+}
+
+write_selfhost_jp_names() {
+  local out_file="$1"
+  cat > "$out_file" <<'EOF'
+JP-HY2-直连
+JP-TUIC-直连
+JP-Reality-直连
+EOF
+}
+
+write_selfhost_jp_links() {
+  local out_file="$1"
+  local enc_pw
+  enc_pw="$(urlenc "$JP_PASSWORD")"
+
+  cat > "$out_file" <<EOF
+hysteria2://${enc_pw}@${JP_SERVER}:${JP_HY2_PORT}/?insecure=1&sni=$(urlenc "$JP_HY2_SNI")#JP-HY2-直连
+EOF
+}
+
 read_hy2_info() {
   [[ -f "$SBOX_CONFIG" ]] || die "找不到 $SBOX_CONFIG"
 
@@ -568,6 +660,7 @@ main() {
   local airport_jp_proxies airport_jp_names
   local airport_hk_proxies airport_hk_names
   local hy2_proxies hy2_names hy2_links
+  local selfhost_jp_proxies selfhost_jp_names selfhost_jp_links
   local chatgpt_warp_proxies chatgpt_warp_names chatgpt_warp_links
 
   tmpdir="$(mktemp -d)"
@@ -588,6 +681,9 @@ main() {
   hy2_proxies="${tmpdir}/hy2_proxies.txt"
   hy2_names="${tmpdir}/hy2_names.txt"
   hy2_links="${tmpdir}/hy2_links.txt"
+  selfhost_jp_proxies="${tmpdir}/selfhost_jp_proxies.txt"
+  selfhost_jp_names="${tmpdir}/selfhost_jp_names.txt"
+  selfhost_jp_links="${tmpdir}/selfhost_jp_links.txt"
   chatgpt_warp_proxies="${tmpdir}/chatgpt_warp_proxies.txt"
   chatgpt_warp_names="${tmpdir}/chatgpt_warp_names.txt"
   chatgpt_warp_links="${tmpdir}/chatgpt_warp_links.txt"
@@ -596,18 +692,23 @@ main() {
   read_fixed_nodes "$fixed_nodes_txt"
   log "固定节点数量：$(wc -l < "$fixed_nodes_txt" 2>/dev/null | tr -d ' ' || echo 0)"
 
-  write_builtin_tw_nodes "$airport_tw_proxies"
-  write_builtin_tw_names "$airport_tw_names"
-  write_builtin_de_nodes "$airport_de_proxies"
-  write_builtin_de_names "$airport_de_names"
-  write_builtin_jp_nodes "$airport_jp_proxies"
-  write_builtin_jp_names "$airport_jp_names"
-  write_builtin_hk_nodes "$airport_hk_proxies"
-  write_builtin_hk_names "$airport_hk_names"
+  # 机场节点已到期，不再生成内置 TW/HK/JP/DE 机场节点
+  : > "$airport_tw_proxies"
+  : > "$airport_tw_names"
+  : > "$airport_de_proxies"
+  : > "$airport_de_names"
+  : > "$airport_jp_proxies"
+  : > "$airport_jp_names"
+  : > "$airport_hk_proxies"
+  : > "$airport_hk_names"
   read_hy2_info
   write_builtin_hy2_proxies "$hy2_proxies"
   write_builtin_hy2_names "$hy2_names"
   write_builtin_hy2_links "$hy2_links"
+  load_jp_env
+  write_selfhost_jp_proxies "$selfhost_jp_proxies"
+  write_selfhost_jp_names "$selfhost_jp_names"
+  write_selfhost_jp_links "$selfhost_jp_links"
   write_chatgpt_warp_proxies "$chatgpt_warp_proxies"
   write_chatgpt_warp_names "$chatgpt_warp_names"
   write_chatgpt_warp_links "$chatgpt_warp_links"
@@ -678,6 +779,7 @@ main() {
     cat "$vmess_list"
     cat "$chatgpt_warp_links"
     cat "$hy2_links"
+    cat "$selfhost_jp_links"
   } | awk 'NF' | base64 -w0
   )"
 
@@ -777,6 +879,10 @@ main() {
        echo "${line}"
     done < "$hy2_proxies"
 
+    while IFS= read -r line; do
+     echo "${line}"
+    done < "$selfhost_jp_proxies"
+
     echo ""
     echo "proxy-groups:"
     echo "  - name: \"节点选择\""
@@ -810,6 +916,9 @@ main() {
     while IFS= read -r n; do
       [[ -n "$n" ]] && echo "      - \"${n}\""
     done < "$hy2_names"
+    while IFS= read -r n; do
+      [[ -n "$n" ]] && echo "      - \"${n}\""
+    done < "$selfhost_jp_names"
     while IFS= read -r n; do
      [[ -n "$n" ]] && echo "      - \"${n}\""
     done < "$airport_tw_names"
@@ -856,7 +965,7 @@ main() {
     echo "      - \"自动选择\""
     while IFS= read -r n; do
      [[ -n "$n" ]] && echo "      - \"${n}\""
-    done < "$airport_tw_names"
+    done < "$selfhost_jp_names"
     echo "      - DIRECT"
 
     echo "  - name: \"ChatGPT\""
@@ -887,12 +996,12 @@ main() {
     echo "    proxies:"
     echo "      - \"节点选择\""
     echo "      - \"自动选择\""
-    while IFS= read -r n; do
-     [[ -n "$n" ]] && echo "      - \"${n}\""
-    done < "$airport_jp_names"
     echo "      - \"DE-HY2-直连\""
     echo "      - \"DE-HY2-100M\""
     echo "      - \"DE-HY2-50M\""
+    while IFS= read -r n; do
+     [[ -n "$n" ]] && echo "      - \"${n}\""
+    done < "$selfhost_jp_names"
     echo "      - DIRECT"
     
     echo "  - name: \"流媒体\""
@@ -903,6 +1012,9 @@ main() {
     echo "      - \"DE-HY2-直连\""
     echo "      - \"DE-HY2-100M\""
     echo "      - \"DE-HY2-50M\""
+    while IFS= read -r n; do
+     [[ -n "$n" ]] && echo "      - \"${n}\""
+    done < "$selfhost_jp_names"
     echo "      - DIRECT"
 
     echo "  - name: \"国内服务\""
