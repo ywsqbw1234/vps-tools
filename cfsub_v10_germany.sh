@@ -43,12 +43,17 @@ JP_REALITY_SNI="${JP_REALITY_SNI:-www.iij.ad.jp}"
 JP_HY2_PORT="${JP_HY2_PORT:-21079}"
 JP_HY2_SNI="${JP_HY2_SNI:-www.bing.com}"
 
-JP_TUIC_PORT="${JP_TUIC_PORT:-21078}"
-JP_TUIC_SNI="${JP_TUIC_SNI:-www.bing.com}"
+JP_CF_NAME="${JP_CF_NAME:-JP-CF-WS}"
+JP_CF_DOMAIN="${JP_CF_DOMAIN:-jp.ywsqbw.uk}"
+JP_CF_IP="${JP_CF_IP:-}"
+JP_CF_PORT="${JP_CF_PORT:-443}"
+JP_CF_PATH="${JP_CF_PATH:-/vmess-argo}"
+JP_CF_EARLY_DATA="${JP_CF_EARLY_DATA:-2560}"
 
 JP_UUID="${JP_UUID:-}"
 JP_PASSWORD="${JP_PASSWORD:-}"
 JP_REALITY_PUBLIC_KEY="${JP_REALITY_PUBLIC_KEY:-}"
+
 # ==========================
 
 CANDIDATES="${CANDIDATES:-250}"
@@ -370,6 +375,8 @@ load_jp_env() {
   [[ -n "${JP_UUID:-}" ]] || die "缺少 JP_UUID，请写入 ${JP_NODE_ENV}"
   [[ -n "${JP_PASSWORD:-}" ]] || die "缺少 JP_PASSWORD，请写入 ${JP_NODE_ENV}"
   [[ -n "${JP_REALITY_PUBLIC_KEY:-}" ]] || die "缺少 JP_REALITY_PUBLIC_KEY，请写入 ${JP_NODE_ENV}"
+  [[ -n "${JP_CF_IP:-}" ]] || die "缺少 JP_CF_IP，请写入 ${JP_NODE_ENV}"
+  [[ -n "${JP_CF_DOMAIN:-}" ]] || die "缺少 JP_CF_DOMAIN，请写入 ${JP_NODE_ENV}"
 }
 
 write_selfhost_jp_proxies() {
@@ -385,18 +392,24 @@ write_selfhost_jp_proxies() {
     skip-cert-verify: true
     udp: true
 
-  - name: "JP-TUIC-直连"
-    type: tuic
-    server: ${JP_SERVER}
-    port: ${JP_TUIC_PORT}
+  - name: "${JP_CF_NAME}"
+    type: vmess
+    server: ${JP_CF_IP}
+    port: ${JP_CF_PORT}
     uuid: ${JP_UUID}
-    password: "${JP_PASSWORD}"
-    skip-cert-verify: true
-    disable-sni: true
-    alpn:
-      - h3
-    sni: ${JP_TUIC_SNI}
-    udp-relay-mode: native
+    alterId: 0
+    cipher: auto
+    udp: true
+    tls: true
+    servername: ${JP_CF_DOMAIN}
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: "${JP_CF_PATH}"
+      headers:
+        Host: ${JP_CF_DOMAIN}
+      max-early-data: ${JP_CF_EARLY_DATA}
+      early-data-header-name: Sec-WebSocket-Protocol
 
   - name: "JP-Reality-直连"
     type: vless
@@ -414,12 +427,11 @@ write_selfhost_jp_proxies() {
     flow: xtls-rprx-vision
 EOF
 }
-
 write_selfhost_jp_names() {
   local out_file="$1"
-  cat > "$out_file" <<'EOF'
+  cat > "$out_file" <<EOF
 JP-HY2-直连
-JP-TUIC-直连
+${JP_CF_NAME}
 JP-Reality-直连
 EOF
 }
@@ -985,10 +997,10 @@ main() {
     echo "      - \"自动选择\""
     echo "      - \"${CHATGPT_WARP_YX_NAME}\""
     echo "      - \"${CHATGPT_WARP_JP2_NAME}\""
+    echo "      - \"DE-HY2-直连\""
     while IFS= read -r n; do
      [[ -n "$n" ]] && echo "      - \"${n}\""
     done < "$selfhost_jp_names"
-    echo "      - \"DE-HY2-直连\""
     echo "      - DIRECT"
 
     echo "  - name: \"T专用\""
