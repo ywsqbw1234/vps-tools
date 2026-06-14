@@ -259,7 +259,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF01"
     type: vmess
-    server: 104.17.162.3
+    server: 198.41.194.162
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -277,7 +277,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF02"
     type: vmess
-    server: 162.159.61.183
+    server: 104.18.189.153
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -295,7 +295,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF03"
     type: vmess
-    server: 104.17.139.37
+    server: 198.41.208.15
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -313,7 +313,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF04"
     type: vmess
-    server: 162.159.140.116
+    server: 104.18.166.129
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -331,7 +331,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF05"
     type: vmess
-    server: 162.159.24.131
+    server: 162.159.7.24
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -349,7 +349,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF06"
     type: vmess
-    server: 104.17.144.148
+    server: 104.17.51.65
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -367,7 +367,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF07"
     type: vmess
-    server: 162.159.136.89
+    server: 104.18.151.172
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -385,7 +385,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF08"
     type: vmess
-    server: 104.17.144.129
+    server: 104.17.69.244
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -403,7 +403,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF09"
     type: vmess
-    server: 104.17.152.147
+    server: 104.26.4.90
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -421,7 +421,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF10"
     type: vmess
-    server: 198.41.211.253
+    server: 104.26.3.162
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -439,25 +439,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF11"
     type: vmess
-    server: 104.17.142.212
-    port: 443
-    uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
-    alterId: 0
-    cipher: auto
-    udp: true
-    tls: true
-    servername: de.ywsqbw.uk
-    client-fingerprint: firefox
-    network: ws
-    ws-opts:
-      path: "/vmess-argo"
-      headers:
-        Host: de.ywsqbw.uk
-      max-early-data: 2560
-      early-data-header-name: Sec-WebSocket-Protocol
-  - name: "DE-CF12"
-    type: vmess
-    server: 162.159.19.44
+    server: 104.19.212.207
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -607,7 +589,6 @@ proxy-groups:
       - "DE-CF09"
       - "DE-CF10"
       - "DE-CF11"
-      - "DE-CF12"
       - "CF-WARP-yx"
       - "CF-WARP-japan2"
       - "DE-HY2-直连"
@@ -644,7 +625,6 @@ proxy-groups:
       - "DE-CF09"
       - "DE-CF10"
       - "DE-CF11"
-      - "DE-CF12"
       - DIRECT
   - name: "X专用"
     type: select
@@ -724,10 +704,20 @@ rules:
   - PROCESS-NAME,codex,ChatGPT
   - PROCESS-NAME,com.openai.chatgpt,ChatGPT
   - PROCESS-NAME,OpenAI,ChatGPT
+  - PROCESS-NAME,MATLAB.exe,DIRECT
+  - PROCESS-NAME,matlab.exe,DIRECT
+  - PROCESS-NAME,MATLAB,DIRECT
+  - PROCESS-NAME,matlab,DIRECT
+  - PROCESS-NAME,MathWorksServiceHost.exe,DIRECT
+  - PROCESS-NAME,MathWorksProductAuthorizer.exe,DIRECT
   - IP-CIDR,82.139.205.22/32,DIRECT,no-resolve
   - DOMAIN-SUFFIX,ywsqbw.uk,DIRECT
   - DOMAIN,de.ywsqbw.uk,DIRECT
   - DST-PORT,22,DIRECT
+  - DOMAIN-SUFFIX,mathworks.com,DIRECT
+  - DOMAIN-SUFFIX,mathworks.cn,DIRECT
+  - DOMAIN-KEYWORD,mathworks,DIRECT
+  - DOMAIN-KEYWORD,matlab,DIRECT
   - DOMAIN-SUFFIX,x.com,X专用
   - DOMAIN-SUFFIX,twitter.com,X专用
   - DOMAIN-SUFFIX,twimg.com,X专用
