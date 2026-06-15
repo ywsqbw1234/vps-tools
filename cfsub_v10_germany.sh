@@ -1015,6 +1015,17 @@ main() {
      [[ -n "$n" ]] && echo "      - \"${n}\""
     done < "$selfhost_jp_names"
     echo "      - DIRECT"
+
+    echo "  - name: \"Grok\""
+    echo "    type: select"
+    echo "    proxies:"
+    echo "      - \"X专用\""
+    echo "      - \"节点选择\""
+    echo "      - \"自动选择\""
+    while IFS= read -r n; do
+     [[ -n "$n" ]] && echo "      - \"${n}\""
+    done < "$selfhost_jp_names"
+    echo "      - DIRECT"
     
     echo "  - name: \"流媒体\""
     echo "    type: select"
@@ -1055,6 +1066,7 @@ main() {
     echo "  - PROCESS-NAME,codex,ChatGPT"
     echo "  - PROCESS-NAME,com.openai.chatgpt,ChatGPT"
     echo "  - PROCESS-NAME,OpenAI,ChatGPT"
+    echo "  - PROCESS-NAME,ai.x.grok,Grok"
     echo "  - PROCESS-NAME,MATLAB.exe,DIRECT"
     echo "  - PROCESS-NAME,matlab.exe,DIRECT"
     echo "  - PROCESS-NAME,MATLAB,DIRECT"
@@ -1070,6 +1082,12 @@ main() {
     echo "  - DOMAIN-SUFFIX,mathworks.cn,DIRECT"
     echo "  - DOMAIN-KEYWORD,mathworks,DIRECT"
     echo "  - DOMAIN-KEYWORD,matlab,DIRECT"
+
+    echo "  - DOMAIN-SUFFIX,grok.com,Grok"
+    echo "  - DOMAIN-SUFFIX,x.ai,Grok"
+    echo "  - DOMAIN-SUFFIX,api.x.ai,Grok"
+    echo "  - DOMAIN-SUFFIX,console.x.ai,Grok"
+    echo "  - DOMAIN-KEYWORD,grok,Grok"
 
     echo "  - DOMAIN-SUFFIX,x.com,X专用"
     echo "  - DOMAIN-SUFFIX,twitter.com,X专用"
