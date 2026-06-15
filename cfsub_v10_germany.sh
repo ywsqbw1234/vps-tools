@@ -1066,6 +1066,7 @@ main() {
     echo "  - PROCESS-NAME,codex,ChatGPT"
     echo "  - PROCESS-NAME,com.openai.chatgpt,ChatGPT"
     echo "  - PROCESS-NAME,OpenAI,ChatGPT"
+    echo "  - PROCESS-NAME,com.twitter.android,X专用"
     echo "  - PROCESS-NAME,ai.x.grok,Grok"
     echo "  - PROCESS-NAME,MATLAB.exe,DIRECT"
     echo "  - PROCESS-NAME,matlab.exe,DIRECT"
