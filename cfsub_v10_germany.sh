@@ -1186,6 +1186,7 @@ main() {
     echo "  - DOMAIN-SUFFIX,primevideo.com,流媒体"
 
     echo "  - DOMAIN-SUFFIX,cn,国内服务"
+    echo "  - DOMAIN-SUFFIX,cas-bridge.xethub.hf.co,国内服务"
     echo "  - GEOIP,CN,国内服务"
     echo "  - MATCH,漏网之鱼"
   } > "$clash_yaml"
