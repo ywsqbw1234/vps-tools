@@ -1061,6 +1061,7 @@ main() {
     echo "  - PROCESS-NAME,Terminal,DIRECT"
     echo "  - PROCESS-NAME,WindowsTerminal.exe,DIRECT"
     echo "  - PROCESS-NAME,ChatGPT.exe,ChatGPT"
+    echo "  - PROCESS-NAME,ChatGPT Classic.exe,ChatGPT"
     echo "  - PROCESS-NAME,Codex.exe,ChatGPT"
     echo "  - PROCESS-NAME,codex.exe,ChatGPT"
     echo "  - PROCESS-NAME,codex,ChatGPT"
