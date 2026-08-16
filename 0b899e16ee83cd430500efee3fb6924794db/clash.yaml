@@ -259,7 +259,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF01"
     type: vmess
-    server: 104.18.166.129
+    server: 104.19.156.18
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -277,7 +277,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF02"
     type: vmess
-    server: 104.17.167.134
+    server: 172.66.0.0
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -295,7 +295,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF03"
     type: vmess
-    server: 104.26.3.162
+    server: 104.19.39.19
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -313,7 +313,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF04"
     type: vmess
-    server: 172.66.0.0
+    server: 104.19.158.235
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -331,7 +331,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF05"
     type: vmess
-    server: 172.65.0.0
+    server: 104.19.151.165
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -349,7 +349,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF06"
     type: vmess
-    server: 104.26.5.134
+    server: 172.64.82.114
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -367,7 +367,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF07"
     type: vmess
-    server: 104.31.16.158
+    server: 172.65.0.0
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -385,7 +385,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF08"
     type: vmess
-    server: 104.26.8.117
+    server: 104.19.148.121
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -403,7 +403,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF09"
     type: vmess
-    server: 104.18.151.172
+    server: 172.64.232.0
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -421,7 +421,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF10"
     type: vmess
-    server: 172.64.48.226
+    server: 188.114.96.0
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -439,25 +439,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF11"
     type: vmess
-    server: 104.17.157.147
-    port: 443
-    uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
-    alterId: 0
-    cipher: auto
-    udp: true
-    tls: true
-    servername: de.ywsqbw.uk
-    client-fingerprint: firefox
-    network: ws
-    ws-opts:
-      path: "/vmess-argo"
-      headers:
-        Host: de.ywsqbw.uk
-      max-early-data: 2560
-      early-data-header-name: Sec-WebSocket-Protocol
-  - name: "DE-CF12"
-    type: vmess
-    server: 104.26.4.90
+    server: 104.17.167.134
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -613,7 +595,6 @@ proxy-groups:
       - "DE-CF09"
       - "DE-CF10"
       - "DE-CF11"
-      - "DE-CF12"
       - "CF-WARP-yx"
       - "CF-WARP-japan2"
       - "DE-HY2-直连"
@@ -650,7 +631,6 @@ proxy-groups:
       - "DE-CF09"
       - "DE-CF10"
       - "DE-CF11"
-      - "DE-CF12"
       - DIRECT
   - name: "X专用"
     type: select
@@ -716,6 +696,16 @@ proxy-groups:
       - "JP-CF-WS"
       - "JP-Reality-直连"
       - DIRECT
+  - name: "Steam"
+    type: select
+    proxies:
+      - DIRECT
+      - "DE-HY2-直连"
+      - "JP-HY2-直连"
+      - "JP-CF-WS"
+      - "JP-Reality-直连"
+      - "节点选择"
+      - "自动选择"
   - name: "国内服务"
     type: select
     proxies:
@@ -743,6 +733,9 @@ rules:
   - PROCESS-NAME,OpenAI,ChatGPT
   - PROCESS-NAME,com.twitter.android,X专用
   - PROCESS-NAME,ai.x.grok,Grok
+  - PROCESS-NAME,steam.exe,Steam
+  - PROCESS-NAME,steamwebhelper.exe,Steam
+  - PROCESS-NAME,SteamService.exe,Steam
   - PROCESS-NAME,MATLAB.exe,DIRECT
   - PROCESS-NAME,matlab.exe,DIRECT
   - PROCESS-NAME,MATLAB,DIRECT
@@ -845,6 +838,14 @@ rules:
   - DOMAIN-SUFFIX,disneyplus.com,流媒体
   - DOMAIN-SUFFIX,dssott.com,流媒体
   - DOMAIN-SUFFIX,primevideo.com,流媒体
+  - DOMAIN-SUFFIX,steampowered.com,Steam
+  - DOMAIN-SUFFIX,steamcommunity.com,Steam
+  - DOMAIN-SUFFIX,steamstatic.com,Steam
+  - DOMAIN-SUFFIX,steamcontent.com,Steam
+  - DOMAIN-SUFFIX,steamserver.net,Steam
+  - DOMAIN-SUFFIX,steamusercontent.com,Steam
+  - DOMAIN-SUFFIX,steam-chat.com,Steam
+  - DOMAIN-SUFFIX,steamgames.com,Steam
   - DOMAIN-SUFFIX,cn,国内服务
   - DOMAIN-SUFFIX,cas-bridge.xethub.hf.co,国内服务
   - GEOIP,CN,国内服务
