@@ -1040,6 +1040,17 @@ main() {
     done < "$selfhost_jp_names"
     echo "      - DIRECT"
 
+    echo "  - name: \"Steam\""
+    echo "    type: select"
+    echo "    proxies:"
+    echo "      - DIRECT"
+    echo "      - \"DE-HY2-直连\""
+    while IFS= read -r n; do
+     [[ -n "$n" ]] && echo "      - \"${n}\""
+    done < "$selfhost_jp_names"
+    echo "      - \"节点选择\""
+    echo "      - \"自动选择\""
+
     echo "  - name: \"国内服务\""
     echo "    type: select"
     echo "    proxies:"
@@ -1069,6 +1080,9 @@ main() {
     echo "  - PROCESS-NAME,OpenAI,ChatGPT"
     echo "  - PROCESS-NAME,com.twitter.android,X专用"
     echo "  - PROCESS-NAME,ai.x.grok,Grok"
+    echo "  - PROCESS-NAME,steam.exe,Steam"
+    echo "  - PROCESS-NAME,steamwebhelper.exe,Steam"
+    echo "  - PROCESS-NAME,SteamService.exe,Steam"
     echo "  - PROCESS-NAME,MATLAB.exe,DIRECT"
     echo "  - PROCESS-NAME,matlab.exe,DIRECT"
     echo "  - PROCESS-NAME,MATLAB,DIRECT"
@@ -1185,6 +1199,15 @@ main() {
     echo "  - DOMAIN-SUFFIX,disneyplus.com,流媒体"
     echo "  - DOMAIN-SUFFIX,dssott.com,流媒体"
     echo "  - DOMAIN-SUFFIX,primevideo.com,流媒体"
+
+    echo "  - DOMAIN-SUFFIX,steampowered.com,Steam"
+    echo "  - DOMAIN-SUFFIX,steamcommunity.com,Steam"
+    echo "  - DOMAIN-SUFFIX,steamstatic.com,Steam"
+    echo "  - DOMAIN-SUFFIX,steamcontent.com,Steam"
+    echo "  - DOMAIN-SUFFIX,steamserver.net,Steam"
+    echo "  - DOMAIN-SUFFIX,steamusercontent.com,Steam"
+    echo "  - DOMAIN-SUFFIX,steam-chat.com,Steam"
+    echo "  - DOMAIN-SUFFIX,steamgames.com,Steam"
 
     echo "  - DOMAIN-SUFFIX,cn,国内服务"
     echo "  - DOMAIN-SUFFIX,cas-bridge.xethub.hf.co,国内服务"
