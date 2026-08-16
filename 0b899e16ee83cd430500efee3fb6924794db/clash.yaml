@@ -187,7 +187,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-FIX10-NTR1"
     type: vmess
-    server: 172.64.52.195
+    server: 108.162.192.247
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -205,7 +205,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-FIX11-NRT2"
     type: vmess
-    server: 172.64.53.86
+    server: 172.64.53.37
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -223,7 +223,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-FIX12-NTR3"
     type: vmess
-    server: 172.64.229.161
+    server: 162.159.39.159
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -241,7 +241,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-FIX13-SIN1"
     type: vmess
-    server: 104.18.39.187
+    server: 172.64.159.84
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -259,7 +259,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF01"
     type: vmess
-    server: 104.19.156.18
+    server: 104.18.166.129
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -277,7 +277,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF02"
     type: vmess
-    server: 172.66.0.0
+    server: 104.26.4.90
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -295,7 +295,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF03"
     type: vmess
-    server: 104.19.39.19
+    server: 104.17.152.27
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -313,7 +313,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF04"
     type: vmess
-    server: 104.19.158.235
+    server: 104.19.212.207
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -331,7 +331,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF05"
     type: vmess
-    server: 104.19.151.165
+    server: 162.159.23.160
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -349,7 +349,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF06"
     type: vmess
-    server: 172.64.82.114
+    server: 172.64.41.211
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -367,7 +367,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF07"
     type: vmess
-    server: 172.65.0.0
+    server: 172.64.229.0
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -385,7 +385,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF08"
     type: vmess
-    server: 104.19.148.121
+    server: 104.17.69.244
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -403,7 +403,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF09"
     type: vmess
-    server: 172.64.232.0
+    server: 104.17.142.212
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -421,7 +421,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF10"
     type: vmess
-    server: 188.114.96.0
+    server: 104.17.139.37
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -439,7 +439,25 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF11"
     type: vmess
-    server: 104.17.167.134
+    server: 104.16.105.166
+    port: 443
+    uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
+    alterId: 0
+    cipher: auto
+    udp: true
+    tls: true
+    servername: de.ywsqbw.uk
+    client-fingerprint: firefox
+    network: ws
+    ws-opts:
+      path: "/vmess-argo"
+      headers:
+        Host: de.ywsqbw.uk
+      max-early-data: 2560
+      early-data-header-name: Sec-WebSocket-Protocol
+  - name: "DE-CF12"
+    type: vmess
+    server: 162.159.2.207
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -595,6 +613,7 @@ proxy-groups:
       - "DE-CF09"
       - "DE-CF10"
       - "DE-CF11"
+      - "DE-CF12"
       - "CF-WARP-yx"
       - "CF-WARP-japan2"
       - "DE-HY2-直连"
@@ -631,6 +650,7 @@ proxy-groups:
       - "DE-CF09"
       - "DE-CF10"
       - "DE-CF11"
+      - "DE-CF12"
       - DIRECT
   - name: "X专用"
     type: select
