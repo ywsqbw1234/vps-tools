@@ -223,7 +223,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF01"
     type: vmess
-    server: 104.19.212.207
+    server: 104.19.148.121
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -241,7 +241,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF02"
     type: vmess
-    server: 104.19.155.147
+    server: 104.19.210.244
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -259,7 +259,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF03"
     type: vmess
-    server: 172.64.82.114
+    server: 172.64.230.0
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -277,7 +277,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF04"
     type: vmess
-    server: 198.41.194.162
+    server: 104.18.255.167
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -295,7 +295,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF05"
     type: vmess
-    server: 104.24.254.65
+    server: 104.17.162.3
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -313,7 +313,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF06"
     type: vmess
-    server: 104.19.154.200
+    server: 162.159.140.85
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -331,7 +331,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF07"
     type: vmess
-    server: 104.17.167.134
+    server: 172.64.232.0
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -349,7 +349,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF08"
     type: vmess
-    server: 104.24.79.45
+    server: 104.16.105.166
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -367,7 +367,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF09"
     type: vmess
-    server: 104.18.89.52
+    server: 162.159.152.235
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -385,7 +385,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF10"
     type: vmess
-    server: 104.24.57.177
+    server: 162.159.134.11
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -403,7 +403,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF11"
     type: vmess
-    server: 172.65.0.0
+    server: 162.159.24.131
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -421,7 +421,7 @@ proxies:
       early-data-header-name: Sec-WebSocket-Protocol
   - name: "DE-CF12"
     type: vmess
-    server: 104.19.153.251
+    server: 104.17.167.134
     port: 443
     uuid: 78c0fd3d-860c-4b63-ab12-27846c30174c
     alterId: 0
@@ -506,20 +506,11 @@ proxies:
     skip-cert-verify: true
     alpn:
       - h3
-  - name: "JP-HY2-直连"
-    type: hysteria2
-    server: 131.143.214.94
-    port: 21079
-    password: "22ede310-abc4-470b-96e8-f872d542483c"
-    sni: www.bing.com
-    skip-cert-verify: true
-    udp: true
-
   - name: "JP-CF-WS"
     type: vmess
     server: 172.64.53.153
     port: 443
-    uuid: 22ede310-abc4-470b-96e8-f872d542483c
+    uuid: 4622b74c-afd3-4258-958b-7aceb9313bbb
     alterId: 0
     cipher: auto
     udp: true
@@ -533,21 +524,6 @@ proxies:
         Host: jp.ywsqbw.uk
       max-early-data: 2560
       early-data-header-name: Sec-WebSocket-Protocol
-
-  - name: "JP-Reality-直连"
-    type: vless
-    server: 131.143.214.94
-    port: 21076
-    uuid: 22ede310-abc4-470b-96e8-f872d542483c
-    tls: true
-    client-fingerprint: chrome
-    servername: www.iij.ad.jp
-    network: tcp
-    reality-opts:
-      public-key: 7Z7iWBZQdukyjLSfV069Byz7imLB_ZEePouBDUYtyi4
-    tfo: false
-    skip-cert-verify: false
-    flow: xtls-rprx-vision
 
 proxy-groups:
   - name: "节点选择"
@@ -581,9 +557,7 @@ proxy-groups:
       - "DE-HY2-直连"
       - "DE-HY2-50M"
       - "DE-HY2-100M"
-      - "JP-HY2-直连"
       - "JP-CF-WS"
-      - "JP-Reality-直连"
       - DIRECT
   - name: "自动选择"
     type: select
@@ -617,9 +591,7 @@ proxy-groups:
     proxies:
       - "节点选择"
       - "自动选择"
-      - "JP-HY2-直连"
       - "JP-CF-WS"
-      - "JP-Reality-直连"
       - DIRECT
   - name: "ChatGPT"
     type: select
@@ -638,9 +610,7 @@ proxy-groups:
       - "CF-WARP-yx"
       - "CF-WARP-japan2"
       - "DE-HY2-直连"
-      - "JP-HY2-直连"
       - "JP-CF-WS"
-      - "JP-Reality-直连"
       - DIRECT
   - name: "T专用"
     type: select
@@ -650,9 +620,7 @@ proxy-groups:
       - "DE-HY2-直连"
       - "DE-HY2-100M"
       - "DE-HY2-50M"
-      - "JP-HY2-直连"
       - "JP-CF-WS"
-      - "JP-Reality-直连"
       - DIRECT
   - name: "Grok"
     type: select
@@ -660,9 +628,7 @@ proxy-groups:
       - "X专用"
       - "节点选择"
       - "自动选择"
-      - "JP-HY2-直连"
       - "JP-CF-WS"
-      - "JP-Reality-直连"
       - DIRECT
   - name: "流媒体"
     type: select
@@ -672,18 +638,14 @@ proxy-groups:
       - "DE-HY2-直连"
       - "DE-HY2-100M"
       - "DE-HY2-50M"
-      - "JP-HY2-直连"
       - "JP-CF-WS"
-      - "JP-Reality-直连"
       - DIRECT
   - name: "Steam"
     type: select
     proxies:
       - DIRECT
       - "DE-HY2-直连"
-      - "JP-HY2-直连"
       - "JP-CF-WS"
-      - "JP-Reality-直连"
       - "节点选择"
       - "自动选择"
   - name: "国内服务"
