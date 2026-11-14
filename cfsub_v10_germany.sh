@@ -368,30 +368,18 @@ PY
 
 load_jp_env() {
   if [[ -f "$JP_NODE_ENV" ]]; then
-    # shellcheck disable=SC1090
     source "$JP_NODE_ENV"
   fi
 
-  [[ -n "${JP_UUID:-}" ]] || die "缺少 JP_UUID，请写入 ${JP_NODE_ENV}"
-  [[ -n "${JP_PASSWORD:-}" ]] || die "缺少 JP_PASSWORD，请写入 ${JP_NODE_ENV}"
-  [[ -n "${JP_REALITY_PUBLIC_KEY:-}" ]] || die "缺少 JP_REALITY_PUBLIC_KEY，请写入 ${JP_NODE_ENV}"
-  [[ -n "${JP_CF_IP:-}" ]] || die "缺少 JP_CF_IP，请写入 ${JP_NODE_ENV}"
-  [[ -n "${JP_CF_DOMAIN:-}" ]] || die "缺少 JP_CF_DOMAIN，请写入 ${JP_NODE_ENV}"
+  [[ -n "${JP_UUID:-}" ]] || die "缺少 JP_UUID"
+  [[ -n "${JP_CF_IP:-}" ]] || die "缺少 JP_CF_IP"
+  [[ -n "${JP_CF_DOMAIN:-}" ]] || die "缺少 JP_CF_DOMAIN"
 }
 
 write_selfhost_jp_proxies() {
   local out_file="$1"
 
   cat > "$out_file" <<EOF
-  - name: "JP-HY2-直连"
-    type: hysteria2
-    server: ${JP_SERVER}
-    port: ${JP_HY2_PORT}
-    password: "${JP_PASSWORD}"
-    sni: ${JP_HY2_SNI}
-    skip-cert-verify: true
-    udp: true
-
   - name: "${JP_CF_NAME}"
     type: vmess
     server: ${JP_CF_IP}
@@ -410,40 +398,17 @@ write_selfhost_jp_proxies() {
         Host: ${JP_CF_DOMAIN}
       max-early-data: ${JP_CF_EARLY_DATA}
       early-data-header-name: Sec-WebSocket-Protocol
-
-  - name: "JP-Reality-直连"
-    type: vless
-    server: ${JP_SERVER}
-    port: ${JP_REALITY_PORT}
-    uuid: ${JP_UUID}
-    tls: true
-    client-fingerprint: chrome
-    servername: ${JP_REALITY_SNI}
-    network: tcp
-    reality-opts:
-      public-key: ${JP_REALITY_PUBLIC_KEY}
-    tfo: false
-    skip-cert-verify: false
-    flow: xtls-rprx-vision
 EOF
 }
+
 write_selfhost_jp_names() {
   local out_file="$1"
-  cat > "$out_file" <<EOF
-JP-HY2-直连
-${JP_CF_NAME}
-JP-Reality-直连
-EOF
+  printf '%s\n' "$JP_CF_NAME" > "$out_file"
 }
 
 write_selfhost_jp_links() {
   local out_file="$1"
-  local enc_pw
-  enc_pw="$(urlenc "$JP_PASSWORD")"
-
-  cat > "$out_file" <<EOF
-hysteria2://${enc_pw}@${JP_SERVER}:${JP_HY2_PORT}/?insecure=1&sni=$(urlenc "$JP_HY2_SNI")#JP-HY2-直连
-EOF
+  : > "$out_file"
 }
 
 read_hy2_info() {
