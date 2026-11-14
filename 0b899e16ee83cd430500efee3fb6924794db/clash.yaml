@@ -506,15 +506,6 @@ proxies:
     skip-cert-verify: true
     alpn:
       - h3
-  - name: "JP-HY2-直连"
-    type: hysteria2
-    server: 131.143.214.94
-    port: 21079
-    password: "22ede310-abc4-470b-96e8-f872d542483c"
-    sni: www.bing.com
-    skip-cert-verify: true
-    udp: true
-
   - name: "JP-CF-WS"
     type: vmess
     server: 172.64.52.180
@@ -533,21 +524,6 @@ proxies:
         Host: jp.ywsqbw.uk
       max-early-data: 2560
       early-data-header-name: Sec-WebSocket-Protocol
-
-  - name: "JP-Reality-直连"
-    type: vless
-    server: 131.143.214.94
-    port: 21076
-    uuid: 4622b74c-afd3-4258-958b-7aceb9313bbb
-    tls: true
-    client-fingerprint: chrome
-    servername: www.iij.ad.jp
-    network: tcp
-    reality-opts:
-      public-key: 7Z7iWBZQdukyjLSfV069Byz7imLB_ZEePouBDUYtyi4
-    tfo: false
-    skip-cert-verify: false
-    flow: xtls-rprx-vision
 
 proxy-groups:
   - name: "节点选择"
@@ -581,9 +557,7 @@ proxy-groups:
       - "DE-HY2-直连"
       - "DE-HY2-50M"
       - "DE-HY2-100M"
-      - "JP-HY2-直连"
       - "JP-CF-WS"
-      - "JP-Reality-直连"
       - DIRECT
   - name: "自动选择"
     type: select
@@ -617,9 +591,7 @@ proxy-groups:
     proxies:
       - "节点选择"
       - "自动选择"
-      - "JP-HY2-直连"
       - "JP-CF-WS"
-      - "JP-Reality-直连"
       - DIRECT
   - name: "ChatGPT"
     type: select
@@ -638,9 +610,7 @@ proxy-groups:
       - "CF-WARP-yx"
       - "CF-WARP-japan2"
       - "DE-HY2-直连"
-      - "JP-HY2-直连"
       - "JP-CF-WS"
-      - "JP-Reality-直连"
       - DIRECT
   - name: "T专用"
     type: select
@@ -650,9 +620,7 @@ proxy-groups:
       - "DE-HY2-直连"
       - "DE-HY2-100M"
       - "DE-HY2-50M"
-      - "JP-HY2-直连"
       - "JP-CF-WS"
-      - "JP-Reality-直连"
       - DIRECT
   - name: "Grok"
     type: select
@@ -660,9 +628,7 @@ proxy-groups:
       - "X专用"
       - "节点选择"
       - "自动选择"
-      - "JP-HY2-直连"
       - "JP-CF-WS"
-      - "JP-Reality-直连"
       - DIRECT
   - name: "流媒体"
     type: select
@@ -672,18 +638,14 @@ proxy-groups:
       - "DE-HY2-直连"
       - "DE-HY2-100M"
       - "DE-HY2-50M"
-      - "JP-HY2-直连"
       - "JP-CF-WS"
-      - "JP-Reality-直连"
       - DIRECT
   - name: "Steam"
     type: select
     proxies:
       - DIRECT
       - "DE-HY2-直连"
-      - "JP-HY2-直连"
       - "JP-CF-WS"
-      - "JP-Reality-直连"
       - "节点选择"
       - "自动选择"
   - name: "国内服务"

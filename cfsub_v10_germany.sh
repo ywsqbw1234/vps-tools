@@ -32,16 +32,8 @@ HY2_MAIN_PORT="${HY2_MAIN_PORT:-38049}"
 HY2_LIMIT5_PORT="${HY2_LIMIT5_PORT:-38050}"
 HY2_LIMIT10_PORT="${HY2_LIMIT10_PORT:-38051}"
 
-# ===== 日本 VPS 自建节点 =====
+# ===== 日本 VPS：只发布 Cloudflare WS，不发布公网直连 =====
 JP_NODE_ENV="${JP_NODE_ENV:-/root/jp_node.env}"
-
-JP_SERVER="${JP_SERVER:-131.143.214.94}"
-
-JP_REALITY_PORT="${JP_REALITY_PORT:-21076}"
-JP_REALITY_SNI="${JP_REALITY_SNI:-www.iij.ad.jp}"
-
-JP_HY2_PORT="${JP_HY2_PORT:-21079}"
-JP_HY2_SNI="${JP_HY2_SNI:-www.bing.com}"
 
 JP_CF_NAME="${JP_CF_NAME:-JP-CF-WS}"
 JP_CF_DOMAIN="${JP_CF_DOMAIN:-jp.ywsqbw.uk}"
@@ -51,8 +43,6 @@ JP_CF_PATH="${JP_CF_PATH:-/vmess-argo}"
 JP_CF_EARLY_DATA="${JP_CF_EARLY_DATA:-2560}"
 
 JP_UUID="${JP_UUID:-}"
-JP_PASSWORD="${JP_PASSWORD:-}"
-JP_REALITY_PUBLIC_KEY="${JP_REALITY_PUBLIC_KEY:-}"
 
 # ==========================
 
@@ -408,7 +398,18 @@ write_selfhost_jp_names() {
 
 write_selfhost_jp_links() {
   local out_file="$1"
-  : > "$out_file"
+  local path="$JP_CF_PATH" vmjson
+  if [[ "$JP_CF_EARLY_DATA" != "0" ]]; then
+    path="${path}?ed=${JP_CF_EARLY_DATA}"
+  fi
+  # Read credentials from the private environment, never from public source.
+  vmjson="$(jq -cn \
+    --arg ps "$JP_CF_NAME" --arg add "$JP_CF_IP" \
+    --arg port "$JP_CF_PORT" --arg id "$JP_UUID" \
+    --arg host "$JP_CF_DOMAIN" --arg path "$path" \
+    '{v:"2",ps:$ps,add:$add,port:$port,id:$id,aid:"0",scy:"auto",
+      net:"ws",type:"none",host:$host,path:$path,tls:"tls",sni:$host,fp:"chrome"}')"
+  printf 'vmess://%s\n' "$(printf '%s' "$vmjson" | base64 -w0)" > "$out_file"
 }
 
 read_hy2_info() {
