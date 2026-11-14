@@ -556,46 +556,62 @@ ${CHATGPT_WARP_JP2_NAME} ${CHATGPT_WARP_JP2_IP}
 EOF
 }
 
-push_github_files() {
+push_github_files() (
   local secret_dir="$1"
   local sub_b64="$2"
   local clash_yaml="$3"
 
   [[ -n "$GITHUB_TOKEN" ]] || die "请先 export GITHUB_TOKEN=你的token"
 
-  ensure_repo
-  cd "$WORKDIR"
+  [[ "$secret_dir" =~ ^[a-zA-Z0-9_-]+$ ]] || die "订阅目录格式无效"
 
-  mkdir -p "$secret_dir"
-  echo -n "$sub_b64" > "${secret_dir}/sub.txt"
-  cp -f "$clash_yaml" "${secret_dir}/clash.yaml"
-
-  git add "${secret_dir}/sub.txt" "${secret_dir}/clash.yaml" >/dev/null 2>&1 || true
-
-  if git diff --cached --quiet; then
-    log "内容没有变化，不提交。"
-    return
-  fi
-
-  git commit -m "update nodes $(date -Is)" >/dev/null || true
-
-  local askpass
-  askpass="$(mktemp)"
-  chmod 700 "$askpass"
+  # Publish only these two generated files on top of the latest remote commit.
+  # The server's working tree may contain edits, local commits or a failed rebase.
+  # Leave it untouched; never force-push or silently ignore a failed pull.
+  local publish_dir askpass remote attempt author_name author_email
+  publish_dir="$(mktemp -d)"
+  trap 'rm -rf -- "$publish_dir"' EXIT
+  askpass="${publish_dir}/askpass"
+  umask 077
   cat > "$askpass" <<'EOF'
 #!/usr/bin/env bash
-echo "$GITHUB_TOKEN"
+case "$1" in
+  *Username*) printf '%s\n' "$GITHUB_USER" ;;
+  *) printf '%s\n' "$GITHUB_TOKEN" ;;
+esac
 EOF
+  chmod 700 "$askpass"
+  export GITHUB_USER GITHUB_TOKEN
+  export GIT_ASKPASS="$askpass" GIT_TERMINAL_PROMPT=0
+  remote="https://github.com/${GITHUB_USER}/${GITHUB_REPO}.git"
+  author_name="$(git -C "$WORKDIR" config user.name 2>/dev/null || true)"
+  author_email="$(git -C "$WORKDIR" config user.email 2>/dev/null || true)"
+  git init -q "${publish_dir}/repo"
+  git -C "${publish_dir}/repo" config user.name "${author_name:-$GITHUB_USER}"
+  git -C "${publish_dir}/repo" config user.email "${author_email:-${GITHUB_USER}@users.noreply.github.com}"
 
-  GIT_ASKPASS="$askpass" GIT_TERMINAL_PROMPT=0 \
-    git pull --rebase "https://${GITHUB_USER}@github.com/${GITHUB_USER}/${GITHUB_REPO}.git" "${GITHUB_BRANCH}" >/dev/null 2>&1 || true
-
-  GIT_ASKPASS="$askpass" GIT_TERMINAL_PROMPT=0 \
-    git push "https://${GITHUB_USER}@github.com/${GITHUB_USER}/${GITHUB_REPO}.git" "${GITHUB_BRANCH}" >/dev/null
-
-  rm -f "$askpass"
-  log "已 push 到 GitHub ✅"
-}
+  for attempt in 1 2 3; do
+    git -C "${publish_dir}/repo" fetch -q --depth=1 "$remote" "refs/heads/${GITHUB_BRANCH}" || die "拉取远端失败，未发布订阅"
+    git -C "${publish_dir}/repo" checkout -q -B publish FETCH_HEAD || die "无法建立发布分支"
+    # Reject symlinks so a tracked path cannot redirect these writes.
+    [[ ! -L "${publish_dir}/repo/${secret_dir}" && ! -L "${publish_dir}/repo/${secret_dir}/sub.txt" && ! -L "${publish_dir}/repo/${secret_dir}/clash.yaml" ]] || die "订阅路径不能是符号链接"
+    mkdir -p "${publish_dir}/repo/${secret_dir}"
+    printf '%s' "$sub_b64" > "${publish_dir}/repo/${secret_dir}/sub.txt"
+    cp -f "$clash_yaml" "${publish_dir}/repo/${secret_dir}/clash.yaml"
+    git -C "${publish_dir}/repo" add -- "${secret_dir}/sub.txt" "${secret_dir}/clash.yaml"
+    if git -C "${publish_dir}/repo" diff --cached --quiet; then
+      log "远端订阅内容没有变化，不提交。"
+      return 0
+    fi
+    git -C "${publish_dir}/repo" commit -q -m "update nodes $(date -Is)" || die "订阅提交失败"
+    if git -C "${publish_dir}/repo" push "$remote" "HEAD:refs/heads/${GITHUB_BRANCH}"; then
+      log "已 push 到 GitHub ✅"
+      return 0
+    fi
+    log "推送失败（${attempt}/3），重新获取远端后重试。"
+  done
+  die "连续 3 次推送失败；本地原仓库未改动，请检查上方 Git 错误"
+)
 
 main() {
   need_cmd jq
