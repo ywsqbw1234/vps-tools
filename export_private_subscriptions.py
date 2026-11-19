@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Export root-only direct subscriptions. No network requests or Git publishing."""
-import base64, hashlib, json, os, pathlib, ssl, urllib.parse
+import base64, hashlib, json, os, pathlib, ssl, urllib.parse, grp
 if os.geteuid() != 0:
     raise SystemExit('Run as root on the German VPS.')
 os.umask(0o077)
@@ -25,6 +25,19 @@ for inbound in config['inbounds']:
     query=urllib.parse.urlencode({'sni':'bing.com','insecure':'1','pinSHA256':fingerprint})
     links.append('hysteria2://'+urllib.parse.quote(password,safe='')+'@82.139.205.22:'+str(port)+'/?'+query+'#'+urllib.parse.quote(name))
 if len(proxies)!=3:raise SystemExit('Expected exactly three direct inbounds')
+extra_file=dest/'extra-proxies.json'
+if extra_file.exists():
+    for node in json.loads(extra_file.read_text()):
+        if node.get('name')!='JP-CF-WS' or node.get('type')!='vmess':
+            raise SystemExit('Unexpected additional node')
+        proxies.append(node)
+        ws=node.get('ws-opts',{}); path=ws.get('path','/')
+        if ws.get('max-early-data'):path+='?ed='+str(ws['max-early-data'])
+        vmess={'v':'2','ps':node['name'],'add':node['server'],'port':str(node['port']),
+               'id':node['uuid'],'aid':str(node.get('alterId',0)),'scy':node.get('cipher','auto'),
+               'net':'ws','type':'none','host':ws.get('headers',{}).get('Host',''),
+               'path':path,'tls':'tls','sni':node.get('servername',''),'fp':node.get('client-fingerprint','chrome')}
+        links.append('vmess://'+base64.b64encode(json.dumps(vmess).encode()).decode())
 template['proxies']=proxies
 template['allow-lan']=False
 template['bind-address']='127.0.0.1'
@@ -43,4 +56,11 @@ def write(name,value):
 write('Germany-Direct.yaml',json.dumps(template,ensure_ascii=False,indent=2)+'\n')
 write('Germany-Direct-links.txt','\n'.join(links)+'\n')
 write('Germany-Direct-sub.txt',base64.b64encode(('\n'.join(links)+'\n').encode()).decode())
-print('Private subscriptions refreshed: 3 direct nodes, root-only files, no upload.')
+published=pathlib.Path('/srv/private-subscriptions')
+if (dest/'shared-subscription-token').exists() and published.is_dir():
+    for original,target in [('Germany-Direct.yaml','clash.yaml'),('Germany-Direct-sub.txt','sub.txt')]:
+        temporary=published/(target+'.tmp')
+        temporary.write_bytes((dest/original).read_bytes())
+        os.chown(temporary,0,grp.getgrnam('www-data').gr_gid);temporary.chmod(0o640)
+        temporary.replace(published/target)
+print('Private subscriptions refreshed:',len(proxies),'nodes; no GitHub upload.')
