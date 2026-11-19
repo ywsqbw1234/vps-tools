@@ -25,10 +25,13 @@ for inbound in config['inbounds']:
     query=urllib.parse.urlencode({'sni':'bing.com','insecure':'1','pinSHA256':fingerprint})
     links.append('hysteria2://'+urllib.parse.quote(password,safe='')+'@82.139.205.22:'+str(port)+'/?'+query+'#'+urllib.parse.quote(name))
 if len(proxies)!=3:raise SystemExit('Expected exactly three direct inbounds')
-extra_file=dest/'extra-proxies.json'
-if extra_file.exists():
-    for node in json.loads(extra_file.read_text()):
-        if node.get('name')!='JP-CF-WS' or node.get('type')!='vmess':
+extra_nodes=[]
+for filename in ['extra-proxies.json','cf-proxies.json']:
+    extra_file=dest/filename
+    if extra_file.exists():extra_nodes.extend(json.loads(extra_file.read_text()))
+if extra_nodes:
+    for node in extra_nodes:
+        if not (node.get('name')=='JP-CF-WS' or node.get('name','').startswith(('DE-FIX','DE-CF','CF-WARP-'))) or node.get('type')!='vmess':
             raise SystemExit('Unexpected additional node')
         proxies.append(node)
         ws=node.get('ws-opts',{}); path=ws.get('path','/')
@@ -46,10 +49,12 @@ node_names=[p['name'] for p in proxies]
 groups=template.get('proxy-groups',[])
 group_names={g['name'] for g in groups}
 for group in groups:
-    kept=[p for p in group.get('proxies',[]) if p in group_names or p in ['DIRECT','REJECT']]
+    rename={'DE-HY2-50M':'DE-HY2-15M','DE-HY2-100M':'DE-HY2-30M'}
+    kept=[rename.get(p,p) for p in group.get('proxies',[])]
+    kept=[p for p in kept if p in group_names or p in node_names or p in ['DIRECT','REJECT']]
     group.pop('use',None)
-    # Preserve application groups/rules, replacing obsolete nodes with direct nodes.
-    group['proxies']=list(dict.fromkeys(node_names+kept))
+    # Preserve the original group membership, order and default selection.
+    group['proxies']=list(dict.fromkeys(kept)) or ['DIRECT']
 def write(name,value):
     target=dest/name; temporary=dest/(name+'.tmp')
     temporary.write_text(value,encoding='utf-8'); temporary.chmod(0o600); temporary.replace(target)
