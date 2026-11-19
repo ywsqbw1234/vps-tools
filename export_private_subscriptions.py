@@ -1,11 +1,14 @@
 #!/usr/bin/env python3
 """Export root-only direct subscriptions. No network requests or Git publishing."""
-import base64, hashlib, json, os, pathlib, ssl, urllib.parse, grp
+import base64, hashlib, json, os, pathlib, ssl, urllib.parse, grp, fcntl
 if os.geteuid() != 0:
     raise SystemExit('Run as root on the German VPS.')
 os.umask(0o077)
-dest = pathlib.Path('/root/private-subscriptions')
+dest = pathlib.Path(os.environ.get('CFSUB_DATA_DIR','/root/private-subscriptions'))
 dest.mkdir(mode=0o700, exist_ok=True)
+export_lock=(pathlib.Path('/root/private-subscriptions')/'export.lock').open('w')
+if os.environ.get('CFSUB_LOCK_HELD')!='1':
+    fcntl.flock(export_lock,fcntl.LOCK_EX)
 config = json.loads(pathlib.Path('/etc/sing-box/config.json').read_text())
 template = json.loads((dest / 'routing-template.json').read_text())
 names = {38049:'DE-HY2-直连',38050:'DE-HY2-15M',38051:'DE-HY2-30M'}
@@ -62,7 +65,7 @@ write('Germany-Direct.yaml',json.dumps(template,ensure_ascii=False,indent=2)+'\n
 write('Germany-Direct-links.txt','\n'.join(links)+'\n')
 write('Germany-Direct-sub.txt',base64.b64encode(('\n'.join(links)+'\n').encode()).decode())
 published=pathlib.Path('/srv/private-subscriptions')
-if (dest/'shared-subscription-token').exists() and published.is_dir():
+if os.environ.get('CFSUB_NO_PUBLISH')!='1' and (dest/'shared-subscription-token').exists() and published.is_dir():
     for original,target in [('Germany-Direct.yaml','clash.yaml'),('Germany-Direct-sub.txt','sub.txt')]:
         temporary=published/(target+'.tmp')
         temporary.write_bytes((dest/original).read_bytes())
