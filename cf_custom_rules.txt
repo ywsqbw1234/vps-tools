@@ -65,6 +65,9 @@ PROCESS-NAME,com.google.android.apps.chrome,Google
 PROCESS-NAME,Gemini.exe,Google
 PROCESS-NAME,Gemini,Google
 PROCESS-NAME,gemini,Google
+PROCESS-NAME,Antigravity.exe,Google
+PROCESS-NAME,Antigravity,Google
+PROCESS-NAME,antigravity,Google
 DOMAIN-KEYWORD,google,Google
 DOMAIN-KEYWORD,gemini,Google
 DOMAIN-KEYWORD,bard,Google
