@@ -62,6 +62,9 @@ PROCESS-NAME,com.google.android.gsf,Google
 PROCESS-NAME,com.android.vending,Google
 PROCESS-NAME,com.google.android.webview,Google
 PROCESS-NAME,com.google.android.apps.chrome,Google
+PROCESS-NAME,Gemini.exe,Google
+PROCESS-NAME,Gemini,Google
+PROCESS-NAME,gemini,Google
 DOMAIN-KEYWORD,google,Google
 DOMAIN-KEYWORD,gemini,Google
 DOMAIN-KEYWORD,bard,Google
