@@ -18,6 +18,25 @@ The exporter preserves the historical rule list and proxy-group order. Unavailab
 
 ## 更新固定节点和自动优选 IP
 
+完整分流规则保存在 [`cf_custom_rules.txt`](cf_custom_rules.txt)，每行一条，按顺序匹配。
+该文件替换完整规则列表，不是增量追加；首次导入保留原有 131 条规则的顺序。
+空行和整行 `#` 注释会被忽略，必须保留唯一的末尾 `MATCH` 兜底规则。
+目标填写现有策略组、节点名称或 `DIRECT` / `REJECT`；建议优先使用稳定的策略组名称。
+支持 DOMAIN、DOMAIN-SUFFIX、DOMAIN-KEYWORD、PROCESS-NAME、PROCESS-PATH、IP-CIDR、
+IP-CIDR6、SRC-IP-CIDR、GEOIP、DST-PORT、SRC-PORT、NETWORK、AND/OR/NOT 和 MATCH。
+暂不支持规则集引用及其他类型，避免未配置的依赖导致客户端加载失败。
+公开文件不要填写密码、UUID、token、订阅链接或不希望公开的域名。
+
+原来的更新命令和 GitHub shell 入口会同时拉取该文件并更新 HTTPS 订阅。
+如仅修改分流规则、不更新任何节点 IP，可运行：
+
+```bash
+update-cf-subscription --rules-only
+```
+
+可加 `--dry-run` 只校验不发布。下载失败、格式错误或目标不存在时会提示并保留
+当前有效规则（IP 更新仍可继续）；规则顺序不被排序或去重。生成过程不重启服务。
+
 在德国 VPS 上以 root 运行：
 
 ```bash
